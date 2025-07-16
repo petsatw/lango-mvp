@@ -4,35 +4,44 @@ import android.content.Context
 import com.example.domain.LearningItem
 import com.example.domain.LearningRepository
 import com.example.domain.Queues
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import java.io.File
 import java.io.InputStreamReader
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
 
-class LearningRepositoryImpl : LearningRepository {
+class LearningRepositoryImpl(private val context: Context) : LearningRepository {
 
-    private val gson = Gson()
+    private val json = Json { ignoreUnknownKeys = true; encodeDefaults = true; coerceInputValues = true }
+    private var testClassLoader: ClassLoader? = null
 
-    override fun loadQueues(context: Context, filePaths: Pair<String?, String?>?): Queues {
-        val newQueuePath = filePaths?.first ?: "new_queue.json"
+    // Setter for testClassLoader, to be used in tests
+    fun setTestClassLoader(classLoader: ClassLoader) {
+        this.testClassLoader = classLoader
+    }
+
+    override fun loadQueues(filePaths: Pair<String?, String?>?): Queues {
+        val newQueuePath = filePaths?.first ?: "core_blocks.json"
         val learnedQueuePath = filePaths?.second ?: "learned_queue.json"
 
-        val newQueueStream = context.assets.open(newQueuePath)
-        val learnedQueueStream = context.assets.open(learnedQueuePath)
+        val newQueueStream = testClassLoader?.getResourceAsStream(newQueuePath)
+            ?: context.assets.open(newQueuePath)
+        val learnedQueueStream = testClassLoader?.getResourceAsStream(learnedQueuePath)
+            ?: context.assets.open(learnedQueuePath)
 
-        val newQueueItems: List<LearningItem> = gson.fromJson(
-            InputStreamReader(newQueueStream),
-            object : TypeToken<List<LearningItem>>() {}.type
-        )
+        val newQueueItems: List<LearningItem> = json.decodeFromString(InputStreamReader(newQueueStream).readText())
 
-        val learnedPoolItems: List<LearningItem> = gson.fromJson(
-            InputStreamReader(learnedQueueStream),
-            object : TypeToken<List<LearningItem>>() {}.type
-        )
+        val learnedPoolItems: List<LearningItem> = json.decodeFromString(InputStreamReader(learnedQueueStream).readText())
 
         return Queues(newQueueItems.toMutableList(), learnedPoolItems.toMutableList())
     }
 
-    override fun saveQueues(context: Context, queues: Queues) {
-        // Not implemented yet
+    override fun saveQueues(queues: Queues) {
+        val newQueueFile = File(context.filesDir, "core_blocks.json")
+        val learnedQueueFile = File(context.filesDir, "learned_queue.json")
+
+        newQueueFile.writeText(json.encodeToString(queues.newQueue))
+        learnedQueueFile.writeText(json.encodeToString(queues.learnedPool))
     }
 }
+

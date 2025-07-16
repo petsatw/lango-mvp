@@ -39,4 +39,6 @@ android {
 
 dependencies {
     // No direct dependencies on other modules for now, as per clean architecture principles
+    testImplementation(libs.junit)
+    implementation(libs.kotlinx.serialization.json)
 }
