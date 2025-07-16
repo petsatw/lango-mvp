@@ -38,7 +38,7 @@ android {
             kotlin.srcDirs("src/main/java")
         }
         getByName("test") {
-            assets.srcDirs("src/test/assets")
+            resources.srcDirs("src/test/resources")
         }
     }
     testOptions {

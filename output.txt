@@ -1,0 +1,2068 @@
+Initialized native services in: C:\Users\audoc\.gradle\native
+Initialized jansi services in: C:\Users\audoc\.gradle\native
+The client will now receive all logging from the daemon (pid: 7364). The daemon log file: C:\Users\audoc\.gradle\daemon\8.14.3\daemon-7364.out.log
+Starting 31st build in daemon [uptime: 1 hrs 54 mins 47.248 secs, performance: 100%, GC rate: 0.00/s, heap usage: 0% of 512 MiB, non-heap usage: 49% of 384 MiB]
+Using 16 worker leases.
+Now considering [C:\Users\audoc\apps\lango-dev\lango-mvp-android] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Settings evaluated using settings file 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\settings.gradle.kts'.
+Projects loaded. Root project using build file 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\build.gradle.kts'.
+Included projects: [root project 'Lango MVP Android', project ':app', project ':data', project ':domain', project ':speech']
+
+> Configure project :
+Evaluating root project 'Lango MVP Android' using build file 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\build.gradle.kts'.
+Resolved plugin [id: 'com.android.application', version: '8.6.0', apply: false]
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.2.0', apply: false]
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '2.2.0', apply: false]
+Resolved plugin [id: 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin', version: '2.0.1', apply: false]
+
+> Configure project :app
+Evaluating project ':app' using build file 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\build.gradle.kts'.
+Resolved plugin [id: 'com.android.application', version: '8.6.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.2.0']
+Resolved plugin [id: 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin', version: '2.0.1']
+Using default execution profile
+Build 67699370-deff-4029-bc33-6c5cfdfe3179 is started
+Using Kotlin Gradle Plugin gradle813 variant
+
+> Configure project :data
+Evaluating project ':data' using build file 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build.gradle.kts'.
+Resolved plugin [id: 'com.android.library', version: '8.6.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.2.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '2.2.0']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle813 variant
+
+> Configure project :domain
+Evaluating project ':domain' using build file 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\build.gradle.kts'.
+Resolved plugin [id: 'com.android.library', version: '8.6.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.2.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '2.2.0']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle813 variant
+
+> Configure project :speech
+Evaluating project ':speech' using build file 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\speech\build.gradle.kts'.
+Resolved plugin [id: 'com.android.library', version: '8.6.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.2.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '2.2.0']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle813 variant
+All projects evaluated.
+Task name matched 'test'
+Selected primary task 'test' from project :
+Tasks to be executed: [task ':app:checkKotlinGradlePluginConfigurationErrors', task ':app:preBuild', task ':app:preDebugBuild', task ':app:generateDebugBuildConfig', task ':data:preBuild', task ':data:preDebugBuild', task ':data:writeDebugAarMetadata', task ':domain:preBuild', task ':domain:preDebugBuild', task ':domain:writeDebugAarMetadata', task ':speech:preBuild', task ':speech:preDebugBuild', task ':speech:writeDebugAarMetadata', task ':app:checkDebugAarMetadata', task ':app:generateDebugResValues', task ':data:generateDebugResValues', task ':data:generateDebugResources', task ':data:packageDebugResources', task ':domain:generateDebugResValues', task ':domain:generateDebugResources', task ':domain:packageDebugResources', task ':speech:generateDebugResValues', task ':speech:generateDebugResources', task ':speech:packageDebugResources', task ':app:mapDebugSourceSetPaths', task ':app:generateDebugResources', task ':app:mergeDebugResources', task ':app:packageDebugResources', task ':app:parseDebugLocalResources', task ':app:createDebugCompatibleScreenManifests', task ':app:extractDeepLinksDebug', task ':data:extractDeepLinksDebug', task ':data:processDebugManifest', task ':domain:extractDeepLinksDebug', task ':domain:processDebugManifest', task ':speech:extractDeepLinksDebug', task ':speech:processDebugManifest', task ':app:processDebugMainManifest', task ':app:processDebugManifest', task ':app:processDebugManifestForPackage', task ':data:compileDebugLibraryResources', task ':data:parseDebugLocalResources', task ':data:generateDebugRFile', task ':domain:compileDebugLibraryResources', task ':domain:parseDebugLocalResources', task ':domain:generateDebugRFile', task ':speech:compileDebugLibraryResources', task ':speech:parseDebugLocalResources', task ':speech:generateDebugRFile', task ':app:processDebugResources', task ':data:checkKotlinGradlePluginConfigurationErrors', task ':domain:checkKotlinGradlePluginConfigurationErrors', task ':domain:compileDebugKotlin', task ':domain:javaPreCompileDebug', task ':domain:compileDebugJavaWithJavac', task ':domain:bundleLibCompileToJarDebug', task ':data:compileDebugKotlin', task ':data:javaPreCompileDebug', task ':data:compileDebugJavaWithJavac', task ':data:bundleLibCompileToJarDebug', task ':speech:checkKotlinGradlePluginConfigurationErrors', task ':speech:compileDebugKotlin', task ':speech:javaPreCompileDebug', task ':speech:compileDebugJavaWithJavac', task ':speech:bundleLibCompileToJarDebug', task ':app:compileDebugKotlin', task ':app:javaPreCompileDebug', task ':app:compileDebugJavaWithJavac', task ':app:bundleDebugClassesToRuntimeJar', task ':app:bundleDebugClassesToCompileJar', task ':app:compileDebugUnitTestKotlin', task ':app:preDebugUnitTestBuild', task ':app:javaPreCompileDebugUnitTest', task ':app:compileDebugUnitTestJavaWithJavac', task ':app:processDebugJavaRes', task ':app:processDebugUnitTestJavaRes', task ':data:bundleLibRuntimeToJarDebug', task ':data:processDebugJavaRes', task ':domain:bundleLibRuntimeToJarDebug', task ':domain:processDebugJavaRes', task ':speech:bundleLibRuntimeToJarDebug', task ':speech:processDebugJavaRes', task ':app:testDebugUnitTest', task ':app:buildKotlinToolingMetadata', task ':app:preReleaseBuild', task ':app:generateReleaseBuildConfig', task ':data:preReleaseBuild', task ':data:writeReleaseAarMetadata', task ':domain:preReleaseBuild', task ':domain:writeReleaseAarMetadata', task ':speech:preReleaseBuild', task ':speech:writeReleaseAarMetadata', task ':app:checkReleaseAarMetadata', task ':app:generateReleaseResValues', task ':data:generateReleaseResValues', task ':data:generateReleaseResources', task ':data:packageReleaseResources', task ':domain:generateReleaseResValues', task ':domain:generateReleaseResources', task ':domain:packageReleaseResources', task ':speech:generateReleaseResValues', task ':speech:generateReleaseResources', task ':speech:packageReleaseResources', task ':app:mapReleaseSourceSetPaths', task ':app:generateReleaseResources', task ':app:mergeReleaseResources', task ':app:packageReleaseResources', task ':app:parseReleaseLocalResources', task ':app:createReleaseCompatibleScreenManifests', task ':app:extractDeepLinksRelease', task ':data:extractDeepLinksRelease', task ':data:processReleaseManifest', task ':domain:extractDeepLinksRelease', task ':domain:processReleaseManifest', task ':speech:extractDeepLinksRelease', task ':speech:processReleaseManifest', task ':app:processReleaseMainManifest', task ':app:processReleaseManifest', task ':app:processReleaseManifestForPackage', task ':data:compileReleaseLibraryResources', task ':data:parseReleaseLocalResources', task ':data:generateReleaseRFile', task ':domain:compileReleaseLibraryResources', task ':domain:parseReleaseLocalResources', task ':domain:generateReleaseRFile', task ':speech:compileReleaseLibraryResources', task ':speech:parseReleaseLocalResources', task ':speech:generateReleaseRFile', task ':app:processReleaseResources', task ':domain:compileReleaseKotlin', task ':domain:javaPreCompileRelease', task ':domain:compileReleaseJavaWithJavac', task ':domain:bundleLibCompileToJarRelease', task ':data:compileReleaseKotlin', task ':data:javaPreCompileRelease', task ':data:compileReleaseJavaWithJavac', task ':data:bundleLibCompileToJarRelease', task ':speech:compileReleaseKotlin', task ':speech:javaPreCompileRelease', task ':speech:compileReleaseJavaWithJavac', task ':speech:bundleLibCompileToJarRelease', task ':app:compileReleaseKotlin', task ':app:javaPreCompileRelease', task ':app:compileReleaseJavaWithJavac', task ':app:bundleReleaseClassesToRuntimeJar', task ':app:bundleReleaseClassesToCompileJar', task ':app:compileReleaseUnitTestKotlin', task ':app:preReleaseUnitTestBuild', task ':app:javaPreCompileReleaseUnitTest', task ':app:compileReleaseUnitTestJavaWithJavac', task ':app:processReleaseJavaRes', task ':app:processReleaseUnitTestJavaRes', task ':data:bundleLibRuntimeToJarRelease', task ':data:processReleaseJavaRes', task ':domain:bundleLibRuntimeToJarRelease', task ':domain:processReleaseJavaRes', task ':speech:bundleLibRuntimeToJarRelease', task ':speech:processReleaseJavaRes', task ':app:testReleaseUnitTest', task ':app:test', task ':data:preDebugUnitTestBuild', task ':data:checkDebugUnitTestAarMetadata', task ':data:generateDebugUnitTestResValues', task ':data:mapDebugUnitTestSourceSetPaths', task ':data:generateDebugUnitTestResources', task ':data:mergeDebugUnitTestResources', task ':data:processDebugUnitTestManifest', task ':data:processDebugUnitTestResources', task ':data:compileDebugUnitTestKotlin', task ':data:javaPreCompileDebugUnitTest', task ':data:compileDebugUnitTestJavaWithJavac', task ':data:mergeDebugShaders', task ':data:compileDebugShaders', task ':data:generateDebugAssets', task ':domain:mergeDebugShaders', task ':domain:compileDebugShaders', task ':domain:generateDebugAssets', task ':domain:packageDebugAssets', task ':data:mergeDebugAssets', task ':data:generateDebugUnitTestAssets', task ':data:packageDebugAssets', task ':data:mergeDebugUnitTestAssets', task ':data:packageDebugUnitTestForUnitTest', task ':data:generateDebugUnitTestConfig', task ':data:processDebugUnitTestJavaRes', task ':data:testDebugUnitTest', task ':data:preReleaseUnitTestBuild', task ':data:checkReleaseUnitTestAarMetadata', task ':data:generateReleaseUnitTestResValues', task ':data:mapReleaseUnitTestSourceSetPaths', task ':data:generateReleaseUnitTestResources', task ':data:mergeReleaseUnitTestResources', task ':data:processReleaseUnitTestManifest', task ':data:processReleaseUnitTestResources', task ':data:compileReleaseUnitTestKotlin', task ':data:javaPreCompileReleaseUnitTest', task ':data:compileReleaseUnitTestJavaWithJavac', task ':data:mergeReleaseShaders', task ':data:compileReleaseShaders', task ':data:generateReleaseAssets', task ':domain:mergeReleaseShaders', task ':domain:compileReleaseShaders', task ':domain:generateReleaseAssets', task ':domain:packageReleaseAssets', task ':data:mergeReleaseAssets', task ':data:generateReleaseUnitTestAssets', task ':data:packageReleaseAssets', task ':data:mergeReleaseUnitTestAssets', task ':data:packageReleaseUnitTestForUnitTest', task ':data:generateReleaseUnitTestConfig', task ':data:processReleaseUnitTestJavaRes', task ':data:testReleaseUnitTest', task ':data:test', task ':domain:preDebugUnitTestBuild', task ':domain:generateDebugUnitTestStubRFile', task ':domain:compileDebugUnitTestKotlin', task ':domain:javaPreCompileDebugUnitTest', task ':domain:compileDebugUnitTestJavaWithJavac', task ':domain:processDebugUnitTestJavaRes', task ':domain:testDebugUnitTest', task ':domain:preReleaseUnitTestBuild', task ':domain:generateReleaseUnitTestStubRFile', task ':domain:compileReleaseUnitTestKotlin', task ':domain:javaPreCompileReleaseUnitTest', task ':domain:compileReleaseUnitTestJavaWithJavac', task ':domain:processReleaseUnitTestJavaRes', task ':domain:testReleaseUnitTest', task ':domain:test', task ':speech:preDebugUnitTestBuild', task ':speech:generateDebugUnitTestStubRFile', task ':speech:compileDebugUnitTestKotlin', task ':speech:javaPreCompileDebugUnitTest', task ':speech:compileDebugUnitTestJavaWithJavac', task ':speech:processDebugUnitTestJavaRes', task ':speech:testDebugUnitTest', task ':speech:preReleaseUnitTestBuild', task ':speech:generateReleaseUnitTestStubRFile', task ':speech:compileReleaseUnitTestKotlin', task ':speech:javaPreCompileReleaseUnitTest', task ':speech:compileReleaseUnitTestJavaWithJavac', task ':speech:processReleaseUnitTestJavaRes', task ':speech:testReleaseUnitTest', task ':speech:test']
+Tasks that were excluded: []
+Resolve mutations for :app:checkKotlinGradlePluginConfigurationErrors (Thread[#5256,Execution worker,5,main]) started.
+:app:checkKotlinGradlePluginConfigurationErrors (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':app:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :app:preBuild (Thread[#5256,Execution worker,5,main]) started.
+:app:preBuild (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :app:preBuild UP-TO-DATE
+Skipping task ':app:preBuild' as it has no actions.
+Resolve mutations for :app:preDebugBuild (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:app:preDebugBuild (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :app:preDebugBuild UP-TO-DATE
+Skipping task ':app:preDebugBuild' as it has no actions.
+Resolve mutations for :app:generateDebugBuildConfig (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:app:generateDebugBuildConfig (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+Caching disabled for task ':app:generateDebugBuildConfig' because:
+  Build cache is disabled
+Skipping task ':app:generateDebugBuildConfig' as it is up-to-date.
+Resolve mutations for :data:preBuild (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:data:preBuild (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :data:preBuild UP-TO-DATE
+Skipping task ':data:preBuild' as it has no actions.
+Resolve mutations for :data:preDebugBuild (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:data:preDebugBuild (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :data:preDebugBuild UP-TO-DATE
+Skipping task ':data:preDebugBuild' as it has no actions.
+Resolve mutations for :data:writeDebugAarMetadata (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:data:writeDebugAarMetadata (Thread[#5264,Execution worker Thread 9,5,main]) started.
+
+> Task :data:writeDebugAarMetadata UP-TO-DATE
+Caching disabled for task ':data:writeDebugAarMetadata' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:writeDebugAarMetadata' as it is up-to-date.
+work action resolve aar-metadata.properties (project :data) (Thread[#5264,Execution worker Thread 9,5,main]) started.
+Resolve mutations for :domain:preBuild (Thread[#5255,included builds,5,main]) started.
+:domain:preBuild (Thread[#5255,included builds,5,main]) started.
+
+> Task :domain:preBuild UP-TO-DATE
+Skipping task ':domain:preBuild' as it has no actions.
+Resolve mutations for :domain:preDebugBuild (Thread[#5255,included builds,5,main]) started.
+:domain:preDebugBuild (Thread[#5255,included builds,5,main]) started.
+
+> Task :domain:preDebugBuild UP-TO-DATE
+Skipping task ':domain:preDebugBuild' as it has no actions.
+Resolve mutations for :domain:writeDebugAarMetadata (Thread[#5255,included builds,5,main]) started.
+:domain:writeDebugAarMetadata (Thread[#5255,included builds,5,main]) started.
+
+> Task :domain:writeDebugAarMetadata UP-TO-DATE
+Caching disabled for task ':domain:writeDebugAarMetadata' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':domain:writeDebugAarMetadata' as it is up-to-date.
+work action resolve aar-metadata.properties (project :domain) (Thread[#5255,included builds,5,main]) started.
+Resolve mutations for :speech:preBuild (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:speech:preBuild (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :speech:preBuild UP-TO-DATE
+Skipping task ':speech:preBuild' as it has no actions.
+Resolve mutations for :speech:preDebugBuild (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:speech:preDebugBuild (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :speech:preDebugBuild UP-TO-DATE
+Skipping task ':speech:preDebugBuild' as it has no actions.
+Resolve mutations for :speech:writeDebugAarMetadata (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:speech:writeDebugAarMetadata (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :speech:writeDebugAarMetadata UP-TO-DATE
+Caching disabled for task ':speech:writeDebugAarMetadata' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':speech:writeDebugAarMetadata' as it is up-to-date.
+work action resolve aar-metadata.properties (project :speech) (Thread[#5261,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :app:checkDebugAarMetadata (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:app:checkDebugAarMetadata (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+Caching disabled for task ':app:checkDebugAarMetadata' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:checkDebugAarMetadata' as it is up-to-date.
+Resolve mutations for :app:generateDebugResValues (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:app:generateDebugResValues (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :app:generateDebugResValues UP-TO-DATE
+Caching disabled for task ':app:generateDebugResValues' because:
+  Build cache is disabled
+Skipping task ':app:generateDebugResValues' as it is up-to-date.
+Resolve mutations for :data:generateDebugResValues (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:data:generateDebugResValues (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :data:generateDebugResValues UP-TO-DATE
+Caching disabled for task ':data:generateDebugResValues' because:
+  Build cache is disabled
+Skipping task ':data:generateDebugResValues' as it is up-to-date.
+Resolve mutations for :data:generateDebugResources (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:data:generateDebugResources (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :data:generateDebugResources UP-TO-DATE
+Caching disabled for task ':data:generateDebugResources' because:
+  Build cache is disabled
+Skipping task ':data:generateDebugResources' as it is up-to-date.
+Resolve mutations for :data:packageDebugResources (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:data:packageDebugResources (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :data:packageDebugResources UP-TO-DATE
+Caching disabled for task ':data:packageDebugResources' because:
+  Build cache is disabled
+Skipping task ':data:packageDebugResources' as it is up-to-date.
+work action resolve packageDebugResources (project :data) (Thread[#5258,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :domain:generateDebugResValues (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:domain:generateDebugResValues (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :domain:generateDebugResValues UP-TO-DATE
+Caching disabled for task ':domain:generateDebugResValues' because:
+  Build cache is disabled
+Skipping task ':domain:generateDebugResValues' as it is up-to-date.
+Resolve mutations for :domain:generateDebugResources (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:domain:generateDebugResources (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :domain:generateDebugResources UP-TO-DATE
+Caching disabled for task ':domain:generateDebugResources' because:
+  Build cache is disabled
+Skipping task ':domain:generateDebugResources' as it is up-to-date.
+Resolve mutations for :domain:packageDebugResources (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:domain:packageDebugResources (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :domain:packageDebugResources UP-TO-DATE
+Caching disabled for task ':domain:packageDebugResources' because:
+  Build cache is disabled
+Skipping task ':domain:packageDebugResources' as it is up-to-date.
+work action resolve packageDebugResources (project :domain) (Thread[#5258,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :speech:generateDebugResValues (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:speech:generateDebugResValues (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :speech:generateDebugResValues UP-TO-DATE
+Caching disabled for task ':speech:generateDebugResValues' because:
+  Build cache is disabled
+Skipping task ':speech:generateDebugResValues' as it is up-to-date.
+Resolve mutations for :speech:generateDebugResources (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:speech:generateDebugResources (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :speech:generateDebugResources UP-TO-DATE
+Caching disabled for task ':speech:generateDebugResources' because:
+  Build cache is disabled
+Skipping task ':speech:generateDebugResources' as it is up-to-date.
+Resolve mutations for :speech:packageDebugResources (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:speech:packageDebugResources (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :speech:packageDebugResources UP-TO-DATE
+Caching disabled for task ':speech:packageDebugResources' because:
+  Build cache is disabled
+Skipping task ':speech:packageDebugResources' as it is up-to-date.
+work action resolve packageDebugResources (project :speech) (Thread[#5257,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :app:mapDebugSourceSetPaths (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:app:mapDebugSourceSetPaths (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+Caching disabled for task ':app:mapDebugSourceSetPaths' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:mapDebugSourceSetPaths' as it is up-to-date.
+Resolve mutations for :app:generateDebugResources (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:app:generateDebugResources (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :app:generateDebugResources UP-TO-DATE
+Caching disabled for task ':app:generateDebugResources' because:
+  Build cache is disabled
+Skipping task ':app:generateDebugResources' as it is up-to-date.
+Resolve mutations for :app:mergeDebugResources (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:app:mergeDebugResources (Thread[#5266,Execution worker Thread 11,5,main]) started.
+
+> Task :app:mergeDebugResources UP-TO-DATE
+Caching disabled for task ':app:mergeDebugResources' because:
+  Build cache is disabled
+Skipping task ':app:mergeDebugResources' as it is up-to-date.
+Resolve mutations for :app:packageDebugResources (Thread[#5266,Execution worker Thread 11,5,main]) started.
+:app:packageDebugResources (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :app:packageDebugResources UP-TO-DATE
+Caching disabled for task ':app:packageDebugResources' because:
+  Build cache is disabled
+Skipping task ':app:packageDebugResources' as it is up-to-date.
+Resolve mutations for :app:parseDebugLocalResources (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:app:parseDebugLocalResources (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :app:parseDebugLocalResources UP-TO-DATE
+Caching disabled for task ':app:parseDebugLocalResources' because:
+  Build cache is disabled
+Skipping task ':app:parseDebugLocalResources' as it is up-to-date.
+Resolve mutations for :app:createDebugCompatibleScreenManifests (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:app:createDebugCompatibleScreenManifests (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+Caching disabled for task ':app:createDebugCompatibleScreenManifests' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:createDebugCompatibleScreenManifests' as it is up-to-date.
+Resolve mutations for :app:extractDeepLinksDebug (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:app:extractDeepLinksDebug (Thread[#5262,Execution worker Thread 7,5,main]) started.
+
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+Caching disabled for task ':app:extractDeepLinksDebug' because:
+  Build cache is disabled
+Skipping task ':app:extractDeepLinksDebug' as it is up-to-date.
+Resolve mutations for :data:extractDeepLinksDebug (Thread[#5262,Execution worker Thread 7,5,main]) started.
+:data:extractDeepLinksDebug (Thread[#5262,Execution worker Thread 7,5,main]) started.
+
+> Task :data:extractDeepLinksDebug UP-TO-DATE
+Caching disabled for task ':data:extractDeepLinksDebug' because:
+  Build cache is disabled
+Skipping task ':data:extractDeepLinksDebug' as it is up-to-date.
+work action resolve navigation.json (project :data) (Thread[#5262,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :data:processDebugManifest (Thread[#5262,Execution worker Thread 7,5,main]) started.
+:data:processDebugManifest (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :data:processDebugManifest UP-TO-DATE
+Caching disabled for task ':data:processDebugManifest' because:
+  Build cache is disabled
+Skipping task ':data:processDebugManifest' as it is up-to-date.
+work action resolve AndroidManifest.xml (project :data) (Thread[#5259,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :domain:extractDeepLinksDebug (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:domain:extractDeepLinksDebug (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :domain:extractDeepLinksDebug UP-TO-DATE
+Caching disabled for task ':domain:extractDeepLinksDebug' because:
+  Build cache is disabled
+Skipping task ':domain:extractDeepLinksDebug' as it is up-to-date.
+work action resolve navigation.json (project :domain) (Thread[#5259,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :domain:processDebugManifest (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:domain:processDebugManifest (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :domain:processDebugManifest UP-TO-DATE
+Caching disabled for task ':domain:processDebugManifest' because:
+  Build cache is disabled
+Skipping task ':domain:processDebugManifest' as it is up-to-date.
+work action resolve AndroidManifest.xml (project :domain) (Thread[#5259,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :speech:extractDeepLinksDebug (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:speech:extractDeepLinksDebug (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :speech:extractDeepLinksDebug UP-TO-DATE
+Caching disabled for task ':speech:extractDeepLinksDebug' because:
+  Build cache is disabled
+Skipping task ':speech:extractDeepLinksDebug' as it is up-to-date.
+work action resolve navigation.json (project :speech) (Thread[#5261,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :speech:processDebugManifest (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:speech:processDebugManifest (Thread[#5265,Execution worker Thread 10,5,main]) started.
+
+> Task :speech:processDebugManifest UP-TO-DATE
+Caching disabled for task ':speech:processDebugManifest' because:
+  Build cache is disabled
+Skipping task ':speech:processDebugManifest' as it is up-to-date.
+work action resolve AndroidManifest.xml (project :speech) (Thread[#5265,Execution worker Thread 10,5,main]) started.
+Resolve mutations for :app:processDebugMainManifest (Thread[#5265,Execution worker Thread 10,5,main]) started.
+:app:processDebugMainManifest (Thread[#5265,Execution worker Thread 10,5,main]) started.
+
+> Task :app:processDebugMainManifest UP-TO-DATE
+Caching disabled for task ':app:processDebugMainManifest' because:
+  Build cache is disabled
+Skipping task ':app:processDebugMainManifest' as it is up-to-date.
+Resolve mutations for :app:processDebugManifest (Thread[#5265,Execution worker Thread 10,5,main]) started.
+:app:processDebugManifest (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :app:processDebugManifest UP-TO-DATE
+Caching disabled for task ':app:processDebugManifest' because:
+  Build cache is disabled
+Skipping task ':app:processDebugManifest' as it is up-to-date.
+Resolve mutations for :app:processDebugManifestForPackage (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:app:processDebugManifestForPackage (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+Custom actions are attached to task ':app:processDebugManifestForPackage'.
+Caching disabled for task ':app:processDebugManifestForPackage' because:
+  Build cache is disabled
+Skipping task ':app:processDebugManifestForPackage' as it is up-to-date.
+Resolve mutations for :data:compileDebugLibraryResources (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:data:compileDebugLibraryResources (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :data:compileDebugLibraryResources UP-TO-DATE
+Caching disabled for task ':data:compileDebugLibraryResources' because:
+  Build cache is disabled
+Skipping task ':data:compileDebugLibraryResources' as it is up-to-date.
+work action resolve out (project :data) (Thread[#5263,Execution worker Thread 8,5,main]) started.
+Resolve mutations for :data:parseDebugLocalResources (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:data:parseDebugLocalResources (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :data:parseDebugLocalResources UP-TO-DATE
+Caching disabled for task ':data:parseDebugLocalResources' because:
+  Build cache is disabled
+Skipping task ':data:parseDebugLocalResources' as it is up-to-date.
+Resolve mutations for :data:generateDebugRFile (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:data:generateDebugRFile (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :data:generateDebugRFile UP-TO-DATE
+Caching disabled for task ':data:generateDebugRFile' because:
+  Build cache is disabled
+Skipping task ':data:generateDebugRFile' as it is up-to-date.
+work action resolve package-aware-r.txt (project :data) (Thread[#5263,Execution worker Thread 8,5,main]) started.
+Resolve mutations for :domain:compileDebugLibraryResources (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:domain:compileDebugLibraryResources (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :domain:compileDebugLibraryResources UP-TO-DATE
+Caching disabled for task ':domain:compileDebugLibraryResources' because:
+  Build cache is disabled
+Skipping task ':domain:compileDebugLibraryResources' as it is up-to-date.
+work action resolve out (project :domain) (Thread[#5256,Execution worker,5,main]) started.
+Resolve mutations for :domain:parseDebugLocalResources (Thread[#5264,Execution worker Thread 9,5,main]) started.
+:domain:parseDebugLocalResources (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :domain:parseDebugLocalResources UP-TO-DATE
+Caching disabled for task ':domain:parseDebugLocalResources' because:
+  Build cache is disabled
+Skipping task ':domain:parseDebugLocalResources' as it is up-to-date.
+Resolve mutations for :domain:generateDebugRFile (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:domain:generateDebugRFile (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :domain:generateDebugRFile UP-TO-DATE
+Caching disabled for task ':domain:generateDebugRFile' because:
+  Build cache is disabled
+Skipping task ':domain:generateDebugRFile' as it is up-to-date.
+work action resolve package-aware-r.txt (project :domain) (Thread[#5259,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :speech:compileDebugLibraryResources (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:speech:compileDebugLibraryResources (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :speech:compileDebugLibraryResources UP-TO-DATE
+Caching disabled for task ':speech:compileDebugLibraryResources' because:
+  Build cache is disabled
+Skipping task ':speech:compileDebugLibraryResources' as it is up-to-date.
+work action resolve out (project :speech) (Thread[#5259,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :speech:parseDebugLocalResources (Thread[#5264,Execution worker Thread 9,5,main]) started.
+:speech:parseDebugLocalResources (Thread[#5264,Execution worker Thread 9,5,main]) started.
+
+> Task :speech:parseDebugLocalResources UP-TO-DATE
+Caching disabled for task ':speech:parseDebugLocalResources' because:
+  Build cache is disabled
+Skipping task ':speech:parseDebugLocalResources' as it is up-to-date.
+Resolve mutations for :speech:generateDebugRFile (Thread[#5264,Execution worker Thread 9,5,main]) started.
+:speech:generateDebugRFile (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :speech:generateDebugRFile UP-TO-DATE
+Caching disabled for task ':speech:generateDebugRFile' because:
+  Build cache is disabled
+Skipping task ':speech:generateDebugRFile' as it is up-to-date.
+work action resolve package-aware-r.txt (project :speech) (Thread[#5256,Execution worker,5,main]) started.
+Resolve mutations for :app:processDebugResources (Thread[#5256,Execution worker,5,main]) started.
+:app:processDebugResources (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :app:processDebugResources UP-TO-DATE
+Caching disabled for task ':app:processDebugResources' because:
+  Build cache is disabled
+Skipping task ':app:processDebugResources' as it is up-to-date.
+Resolve mutations for :data:checkKotlinGradlePluginConfigurationErrors (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:data:checkKotlinGradlePluginConfigurationErrors (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :data:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':data:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :domain:checkKotlinGradlePluginConfigurationErrors (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:domain:checkKotlinGradlePluginConfigurationErrors (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :domain:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':domain:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :domain:compileDebugKotlin (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:domain:compileDebugKotlin (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :domain:compileDebugKotlin UP-TO-DATE
+GradleBuildProject.Builder should not be accessed through AnalyticsConfiguratorService after AnalyticsService is created. Analytics information of this build might be incomplete.
+Caching disabled for task ':domain:compileDebugKotlin' because:
+  Build cache is disabled
+Skipping task ':domain:compileDebugKotlin' as it is up-to-date.
+Resolve mutations for :domain:javaPreCompileDebug (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:domain:javaPreCompileDebug (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :domain:javaPreCompileDebug UP-TO-DATE
+Caching disabled for task ':domain:javaPreCompileDebug' because:
+  Build cache is disabled
+Skipping task ':domain:javaPreCompileDebug' as it is up-to-date.
+Resolve mutations for :domain:compileDebugJavaWithJavac (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:domain:compileDebugJavaWithJavac (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :domain:compileDebugJavaWithJavac NO-SOURCE
+Skipping task ':domain:compileDebugJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :domain:bundleLibCompileToJarDebug (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:domain:bundleLibCompileToJarDebug (Thread[#5265,Execution worker Thread 10,5,main]) started.
+
+> Task :domain:bundleLibCompileToJarDebug UP-TO-DATE
+Caching disabled for task ':domain:bundleLibCompileToJarDebug' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':domain:bundleLibCompileToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :domain) (Thread[#5265,Execution worker Thread 10,5,main]) started.
+Resolve mutations for :data:compileDebugKotlin (Thread[#5265,Execution worker Thread 10,5,main]) started.
+:data:compileDebugKotlin (Thread[#5265,Execution worker Thread 10,5,main]) started.
+Resolve mutations for :data:javaPreCompileDebug (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:data:javaPreCompileDebug (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :data:javaPreCompileDebug UP-TO-DATE
+Caching disabled for task ':data:javaPreCompileDebug' because:
+  Build cache is disabled
+Skipping task ':data:javaPreCompileDebug' as it is up-to-date.
+Resolve mutations for :speech:checkKotlinGradlePluginConfigurationErrors (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:speech:checkKotlinGradlePluginConfigurationErrors (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :speech:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':speech:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :speech:compileDebugKotlin (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:speech:compileDebugKotlin (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :speech:compileDebugKotlin NO-SOURCE
+Skipping task ':speech:compileDebugKotlin' as it has no source files and no previous output files.
+Resolve mutations for :speech:javaPreCompileDebug (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:speech:javaPreCompileDebug (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :speech:javaPreCompileDebug UP-TO-DATE
+Caching disabled for task ':speech:javaPreCompileDebug' because:
+  Build cache is disabled
+Skipping task ':speech:javaPreCompileDebug' as it is up-to-date.
+Resolve mutations for :speech:compileDebugJavaWithJavac (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:speech:compileDebugJavaWithJavac (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :speech:compileDebugJavaWithJavac NO-SOURCE
+Skipping task ':speech:compileDebugJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :speech:bundleLibCompileToJarDebug (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:speech:bundleLibCompileToJarDebug (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :speech:bundleLibCompileToJarDebug UP-TO-DATE
+Caching disabled for task ':speech:bundleLibCompileToJarDebug' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':speech:bundleLibCompileToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :speech) (Thread[#5258,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :app:javaPreCompileDebug (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:app:javaPreCompileDebug (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :app:javaPreCompileDebug UP-TO-DATE
+Caching disabled for task ':app:javaPreCompileDebug' because:
+  Build cache is disabled
+Skipping task ':app:javaPreCompileDebug' as it is up-to-date.
+Resolve mutations for :app:preDebugUnitTestBuild (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:app:preDebugUnitTestBuild (Thread[#5255,included builds,5,main]) started.
+
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+Skipping task ':app:preDebugUnitTestBuild' as it has no actions.
+Resolve mutations for :app:javaPreCompileDebugUnitTest (Thread[#5255,included builds,5,main]) started.
+:app:javaPreCompileDebugUnitTest (Thread[#5255,included builds,5,main]) started.
+
+> Task :app:javaPreCompileDebugUnitTest UP-TO-DATE
+Caching disabled for task ':app:javaPreCompileDebugUnitTest' because:
+  Build cache is disabled
+Skipping task ':app:javaPreCompileDebugUnitTest' as it is up-to-date.
+Resolve mutations for :domain:bundleLibRuntimeToJarDebug (Thread[#5255,included builds,5,main]) started.
+:domain:bundleLibRuntimeToJarDebug (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :domain:bundleLibRuntimeToJarDebug UP-TO-DATE
+Caching disabled for task ':domain:bundleLibRuntimeToJarDebug' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':domain:bundleLibRuntimeToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :domain) (Thread[#5258,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :domain:processDebugJavaRes (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:domain:processDebugJavaRes (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :domain:processDebugJavaRes UP-TO-DATE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\debug\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\debug\resources', not found
+Caching disabled for task ':domain:processDebugJavaRes' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':domain:processDebugJavaRes' as it is up-to-date.
+work action resolve out (project :domain) (Thread[#5258,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :speech:bundleLibRuntimeToJarDebug (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:speech:bundleLibRuntimeToJarDebug (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :speech:bundleLibRuntimeToJarDebug UP-TO-DATE
+Caching disabled for task ':speech:bundleLibRuntimeToJarDebug' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':speech:bundleLibRuntimeToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :speech) (Thread[#5258,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :speech:processDebugJavaRes (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:speech:processDebugJavaRes (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :speech:processDebugJavaRes NO-SOURCE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\speech\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\speech\src\debug\resources', not found
+Skipping task ':speech:processDebugJavaRes' as it has no source files and no previous output files.
+work action resolve out (project :speech) (Thread[#5256,Execution worker,5,main]) started.
+Resolve mutations for :app:buildKotlinToolingMetadata (Thread[#5256,Execution worker,5,main]) started.
+:app:buildKotlinToolingMetadata (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :app:buildKotlinToolingMetadata UP-TO-DATE
+Caching disabled for task ':app:buildKotlinToolingMetadata' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:buildKotlinToolingMetadata' as it is up-to-date.
+Resolve mutations for :app:preReleaseBuild (Thread[#5256,Execution worker,5,main]) started.
+:app:preReleaseBuild (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :app:preReleaseBuild UP-TO-DATE
+Skipping task ':app:preReleaseBuild' as it has no actions.
+Resolve mutations for :app:generateReleaseBuildConfig (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:app:generateReleaseBuildConfig (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :app:generateReleaseBuildConfig UP-TO-DATE
+Caching disabled for task ':app:generateReleaseBuildConfig' because:
+  Build cache is disabled
+Skipping task ':app:generateReleaseBuildConfig' as it is up-to-date.
+Resolve mutations for :data:preReleaseBuild (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:data:preReleaseBuild (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :data:preReleaseBuild UP-TO-DATE
+Skipping task ':data:preReleaseBuild' as it has no actions.
+Resolve mutations for :data:writeReleaseAarMetadata (Thread[#5264,Execution worker Thread 9,5,main]) started.
+:data:writeReleaseAarMetadata (Thread[#5264,Execution worker Thread 9,5,main]) started.
+
+> Task :data:writeReleaseAarMetadata UP-TO-DATE
+Caching disabled for task ':data:writeReleaseAarMetadata' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:writeReleaseAarMetadata' as it is up-to-date.
+work action resolve aar-metadata.properties (project :data) (Thread[#5264,Execution worker Thread 9,5,main]) started.
+Resolve mutations for :domain:preReleaseBuild (Thread[#5264,Execution worker Thread 9,5,main]) started.
+:domain:preReleaseBuild (Thread[#5264,Execution worker Thread 9,5,main]) started.
+
+> Task :domain:preReleaseBuild UP-TO-DATE
+Skipping task ':domain:preReleaseBuild' as it has no actions.
+Resolve mutations for :domain:writeReleaseAarMetadata (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:domain:writeReleaseAarMetadata (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :domain:writeReleaseAarMetadata UP-TO-DATE
+Caching disabled for task ':domain:writeReleaseAarMetadata' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':domain:writeReleaseAarMetadata' as it is up-to-date.
+work action resolve aar-metadata.properties (project :domain) (Thread[#5261,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :speech:preReleaseBuild (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:speech:preReleaseBuild (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :speech:preReleaseBuild UP-TO-DATE
+Skipping task ':speech:preReleaseBuild' as it has no actions.
+Resolve mutations for :speech:writeReleaseAarMetadata (Thread[#5267,Execution worker Thread 12,5,main]) started.
+:speech:writeReleaseAarMetadata (Thread[#5267,Execution worker Thread 12,5,main]) started.
+
+> Task :speech:writeReleaseAarMetadata UP-TO-DATE
+Caching disabled for task ':speech:writeReleaseAarMetadata' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':speech:writeReleaseAarMetadata' as it is up-to-date.
+work action resolve aar-metadata.properties (project :speech) (Thread[#5267,Execution worker Thread 12,5,main]) started.
+Resolve mutations for :app:checkReleaseAarMetadata (Thread[#5267,Execution worker Thread 12,5,main]) started.
+:app:checkReleaseAarMetadata (Thread[#5267,Execution worker Thread 12,5,main]) started.
+
+> Task :app:checkReleaseAarMetadata UP-TO-DATE
+Caching disabled for task ':app:checkReleaseAarMetadata' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:checkReleaseAarMetadata' as it is up-to-date.
+Resolve mutations for :app:generateReleaseResValues (Thread[#5267,Execution worker Thread 12,5,main]) started.
+:app:generateReleaseResValues (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :app:generateReleaseResValues UP-TO-DATE
+Caching disabled for task ':app:generateReleaseResValues' because:
+  Build cache is disabled
+Skipping task ':app:generateReleaseResValues' as it is up-to-date.
+Resolve mutations for :data:generateReleaseResValues (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:data:generateReleaseResValues (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :data:generateReleaseResValues UP-TO-DATE
+Caching disabled for task ':data:generateReleaseResValues' because:
+  Build cache is disabled
+Skipping task ':data:generateReleaseResValues' as it is up-to-date.
+Resolve mutations for :data:generateReleaseResources (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:data:generateReleaseResources (Thread[#5264,Execution worker Thread 9,5,main]) started.
+
+> Task :data:generateReleaseResources UP-TO-DATE
+Caching disabled for task ':data:generateReleaseResources' because:
+  Build cache is disabled
+Skipping task ':data:generateReleaseResources' as it is up-to-date.
+Resolve mutations for :data:packageReleaseResources (Thread[#5264,Execution worker Thread 9,5,main]) started.
+:data:packageReleaseResources (Thread[#5266,Execution worker Thread 11,5,main]) started.
+
+> Task :data:packageReleaseResources UP-TO-DATE
+Caching disabled for task ':data:packageReleaseResources' because:
+  Build cache is disabled
+Skipping task ':data:packageReleaseResources' as it is up-to-date.
+work action resolve packageReleaseResources (project :data) (Thread[#5266,Execution worker Thread 11,5,main]) started.
+Resolve mutations for :domain:generateReleaseResValues (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:domain:generateReleaseResValues (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :domain:generateReleaseResValues UP-TO-DATE
+Caching disabled for task ':domain:generateReleaseResValues' because:
+  Build cache is disabled
+Skipping task ':domain:generateReleaseResValues' as it is up-to-date.
+Resolve mutations for :domain:generateReleaseResources (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:domain:generateReleaseResources (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :domain:generateReleaseResources UP-TO-DATE
+Caching disabled for task ':domain:generateReleaseResources' because:
+  Build cache is disabled
+Skipping task ':domain:generateReleaseResources' as it is up-to-date.
+Resolve mutations for :domain:packageReleaseResources (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:domain:packageReleaseResources (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :domain:packageReleaseResources UP-TO-DATE
+Caching disabled for task ':domain:packageReleaseResources' because:
+  Build cache is disabled
+Skipping task ':domain:packageReleaseResources' as it is up-to-date.
+work action resolve packageReleaseResources (project :domain) (Thread[#5259,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :speech:generateReleaseResValues (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:speech:generateReleaseResValues (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :speech:generateReleaseResValues UP-TO-DATE
+Caching disabled for task ':speech:generateReleaseResValues' because:
+  Build cache is disabled
+Skipping task ':speech:generateReleaseResValues' as it is up-to-date.
+Resolve mutations for :speech:generateReleaseResources (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:speech:generateReleaseResources (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :speech:generateReleaseResources UP-TO-DATE
+Caching disabled for task ':speech:generateReleaseResources' because:
+  Build cache is disabled
+Skipping task ':speech:generateReleaseResources' as it is up-to-date.
+Resolve mutations for :speech:packageReleaseResources (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:speech:packageReleaseResources (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :speech:packageReleaseResources UP-TO-DATE
+Caching disabled for task ':speech:packageReleaseResources' because:
+  Build cache is disabled
+Skipping task ':speech:packageReleaseResources' as it is up-to-date.
+work action resolve packageReleaseResources (project :speech) (Thread[#5260,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :app:mapReleaseSourceSetPaths (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:app:mapReleaseSourceSetPaths (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :app:mapReleaseSourceSetPaths UP-TO-DATE
+Caching disabled for task ':app:mapReleaseSourceSetPaths' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:mapReleaseSourceSetPaths' as it is up-to-date.
+Resolve mutations for :app:generateReleaseResources (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:app:generateReleaseResources (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :app:generateReleaseResources UP-TO-DATE
+Caching disabled for task ':app:generateReleaseResources' because:
+  Build cache is disabled
+Skipping task ':app:generateReleaseResources' as it is up-to-date.
+Resolve mutations for :app:mergeReleaseResources (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:app:mergeReleaseResources (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :app:mergeReleaseResources UP-TO-DATE
+Caching disabled for task ':app:mergeReleaseResources' because:
+  Build cache is disabled
+Skipping task ':app:mergeReleaseResources' as it is up-to-date.
+Resolve mutations for :app:packageReleaseResources (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:app:packageReleaseResources (Thread[#5264,Execution worker Thread 9,5,main]) started.
+
+> Task :app:packageReleaseResources UP-TO-DATE
+Caching disabled for task ':app:packageReleaseResources' because:
+  Build cache is disabled
+Skipping task ':app:packageReleaseResources' as it is up-to-date.
+Resolve mutations for :app:parseReleaseLocalResources (Thread[#5264,Execution worker Thread 9,5,main]) started.
+:app:parseReleaseLocalResources (Thread[#5264,Execution worker Thread 9,5,main]) started.
+
+> Task :app:parseReleaseLocalResources UP-TO-DATE
+Caching disabled for task ':app:parseReleaseLocalResources' because:
+  Build cache is disabled
+Skipping task ':app:parseReleaseLocalResources' as it is up-to-date.
+Resolve mutations for :app:createReleaseCompatibleScreenManifests (Thread[#5264,Execution worker Thread 9,5,main]) started.
+:app:createReleaseCompatibleScreenManifests (Thread[#5262,Execution worker Thread 7,5,main]) started.
+
+> Task :app:createReleaseCompatibleScreenManifests UP-TO-DATE
+Caching disabled for task ':app:createReleaseCompatibleScreenManifests' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:createReleaseCompatibleScreenManifests' as it is up-to-date.
+Resolve mutations for :app:extractDeepLinksRelease (Thread[#5262,Execution worker Thread 7,5,main]) started.
+:app:extractDeepLinksRelease (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :app:extractDeepLinksRelease UP-TO-DATE
+Caching disabled for task ':app:extractDeepLinksRelease' because:
+  Build cache is disabled
+Skipping task ':app:extractDeepLinksRelease' as it is up-to-date.
+Resolve mutations for :data:extractDeepLinksRelease (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:data:extractDeepLinksRelease (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :data:extractDeepLinksRelease UP-TO-DATE
+Caching disabled for task ':data:extractDeepLinksRelease' because:
+  Build cache is disabled
+Skipping task ':data:extractDeepLinksRelease' as it is up-to-date.
+work action resolve navigation.json (project :data) (Thread[#5271,Execution worker Thread 15,5,main]) started.
+Resolve mutations for :data:processReleaseManifest (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:data:processReleaseManifest (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :data:processReleaseManifest UP-TO-DATE
+Caching disabled for task ':data:processReleaseManifest' because:
+  Build cache is disabled
+Skipping task ':data:processReleaseManifest' as it is up-to-date.
+work action resolve AndroidManifest.xml (project :data) (Thread[#5260,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :domain:extractDeepLinksRelease (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:domain:extractDeepLinksRelease (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :domain:extractDeepLinksRelease UP-TO-DATE
+Caching disabled for task ':domain:extractDeepLinksRelease' because:
+  Build cache is disabled
+Skipping task ':domain:extractDeepLinksRelease' as it is up-to-date.
+work action resolve navigation.json (project :domain) (Thread[#5258,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :domain:processReleaseManifest (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:domain:processReleaseManifest (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :domain:processReleaseManifest UP-TO-DATE
+Caching disabled for task ':domain:processReleaseManifest' because:
+  Build cache is disabled
+Skipping task ':domain:processReleaseManifest' as it is up-to-date.
+work action resolve AndroidManifest.xml (project :domain) (Thread[#5261,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :speech:extractDeepLinksRelease (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:speech:extractDeepLinksRelease (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :speech:extractDeepLinksRelease UP-TO-DATE
+Caching disabled for task ':speech:extractDeepLinksRelease' because:
+  Build cache is disabled
+Skipping task ':speech:extractDeepLinksRelease' as it is up-to-date.
+work action resolve navigation.json (project :speech) (Thread[#5270,Execution worker Thread 14,5,main]) started.
+Resolve mutations for :speech:processReleaseManifest (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:speech:processReleaseManifest (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :speech:processReleaseManifest UP-TO-DATE
+Caching disabled for task ':speech:processReleaseManifest' because:
+  Build cache is disabled
+Skipping task ':speech:processReleaseManifest' as it is up-to-date.
+work action resolve AndroidManifest.xml (project :speech) (Thread[#5257,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :app:processReleaseMainManifest (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:app:processReleaseMainManifest (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :app:processReleaseMainManifest UP-TO-DATE
+Caching disabled for task ':app:processReleaseMainManifest' because:
+  Build cache is disabled
+Skipping task ':app:processReleaseMainManifest' as it is up-to-date.
+Resolve mutations for :app:processReleaseManifest (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:app:processReleaseManifest (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :app:processReleaseManifest UP-TO-DATE
+Caching disabled for task ':app:processReleaseManifest' because:
+  Build cache is disabled
+Skipping task ':app:processReleaseManifest' as it is up-to-date.
+Resolve mutations for :app:processReleaseManifestForPackage (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:app:processReleaseManifestForPackage (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :app:processReleaseManifestForPackage UP-TO-DATE
+Custom actions are attached to task ':app:processReleaseManifestForPackage'.
+Caching disabled for task ':app:processReleaseManifestForPackage' because:
+  Build cache is disabled
+Skipping task ':app:processReleaseManifestForPackage' as it is up-to-date.
+Resolve mutations for :data:compileReleaseLibraryResources (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:data:compileReleaseLibraryResources (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :data:compileReleaseLibraryResources UP-TO-DATE
+Caching disabled for task ':data:compileReleaseLibraryResources' because:
+  Build cache is disabled
+Skipping task ':data:compileReleaseLibraryResources' as it is up-to-date.
+work action resolve out (project :data) (Thread[#5257,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :data:parseReleaseLocalResources (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:data:parseReleaseLocalResources (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :data:parseReleaseLocalResources UP-TO-DATE
+Caching disabled for task ':data:parseReleaseLocalResources' because:
+  Build cache is disabled
+Skipping task ':data:parseReleaseLocalResources' as it is up-to-date.
+Resolve mutations for :data:generateReleaseRFile (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:data:generateReleaseRFile (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :data:generateReleaseRFile UP-TO-DATE
+Caching disabled for task ':data:generateReleaseRFile' because:
+  Build cache is disabled
+Skipping task ':data:generateReleaseRFile' as it is up-to-date.
+work action resolve package-aware-r.txt (project :data) (Thread[#5261,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :domain:compileReleaseLibraryResources (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:domain:compileReleaseLibraryResources (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :domain:compileReleaseLibraryResources UP-TO-DATE
+Caching disabled for task ':domain:compileReleaseLibraryResources' because:
+  Build cache is disabled
+Skipping task ':domain:compileReleaseLibraryResources' as it is up-to-date.
+work action resolve out (project :domain) (Thread[#5271,Execution worker Thread 15,5,main]) started.
+Resolve mutations for :domain:parseReleaseLocalResources (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:domain:parseReleaseLocalResources (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :domain:parseReleaseLocalResources UP-TO-DATE
+Caching disabled for task ':domain:parseReleaseLocalResources' because:
+  Build cache is disabled
+Skipping task ':domain:parseReleaseLocalResources' as it is up-to-date.
+Resolve mutations for :domain:generateReleaseRFile (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:domain:generateReleaseRFile (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :domain:generateReleaseRFile UP-TO-DATE
+Caching disabled for task ':domain:generateReleaseRFile' because:
+  Build cache is disabled
+Skipping task ':domain:generateReleaseRFile' as it is up-to-date.
+work action resolve package-aware-r.txt (project :domain) (Thread[#5271,Execution worker Thread 15,5,main]) started.
+Resolve mutations for :speech:compileReleaseLibraryResources (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:speech:compileReleaseLibraryResources (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :speech:compileReleaseLibraryResources UP-TO-DATE
+Caching disabled for task ':speech:compileReleaseLibraryResources' because:
+  Build cache is disabled
+Skipping task ':speech:compileReleaseLibraryResources' as it is up-to-date.
+work action resolve out (project :speech) (Thread[#5257,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :speech:parseReleaseLocalResources (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:speech:parseReleaseLocalResources (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :speech:parseReleaseLocalResources UP-TO-DATE
+Caching disabled for task ':speech:parseReleaseLocalResources' because:
+  Build cache is disabled
+Skipping task ':speech:parseReleaseLocalResources' as it is up-to-date.
+Resolve mutations for :speech:generateReleaseRFile (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:speech:generateReleaseRFile (Thread[#5267,Execution worker Thread 12,5,main]) started.
+
+> Task :speech:generateReleaseRFile UP-TO-DATE
+Caching disabled for task ':speech:generateReleaseRFile' because:
+  Build cache is disabled
+Skipping task ':speech:generateReleaseRFile' as it is up-to-date.
+work action resolve package-aware-r.txt (project :speech) (Thread[#5267,Execution worker Thread 12,5,main]) started.
+Resolve mutations for :app:processReleaseResources (Thread[#5267,Execution worker Thread 12,5,main]) started.
+:app:processReleaseResources (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :app:processReleaseResources UP-TO-DATE
+Caching disabled for task ':app:processReleaseResources' because:
+  Build cache is disabled
+Skipping task ':app:processReleaseResources' as it is up-to-date.
+Resolve mutations for :domain:compileReleaseKotlin (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:domain:compileReleaseKotlin (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :domain:compileReleaseKotlin UP-TO-DATE
+Caching disabled for task ':domain:compileReleaseKotlin' because:
+  Build cache is disabled
+Skipping task ':domain:compileReleaseKotlin' as it is up-to-date.
+Resolve mutations for :domain:javaPreCompileRelease (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:domain:javaPreCompileRelease (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :domain:javaPreCompileRelease UP-TO-DATE
+Caching disabled for task ':domain:javaPreCompileRelease' because:
+  Build cache is disabled
+Skipping task ':domain:javaPreCompileRelease' as it is up-to-date.
+Resolve mutations for :domain:compileReleaseJavaWithJavac (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:domain:compileReleaseJavaWithJavac (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :domain:compileReleaseJavaWithJavac NO-SOURCE
+Skipping task ':domain:compileReleaseJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :domain:bundleLibCompileToJarRelease (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:domain:bundleLibCompileToJarRelease (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :domain:bundleLibCompileToJarRelease UP-TO-DATE
+Caching disabled for task ':domain:bundleLibCompileToJarRelease' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':domain:bundleLibCompileToJarRelease' as it is up-to-date.
+work action resolve classes.jar (project :domain) (Thread[#5263,Execution worker Thread 8,5,main]) started.
+Resolve mutations for :data:compileReleaseKotlin (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:data:compileReleaseKotlin (Thread[#5267,Execution worker Thread 12,5,main]) started.
+Resolve mutations for :data:javaPreCompileRelease (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:data:javaPreCompileRelease (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :data:javaPreCompileRelease UP-TO-DATE
+Caching disabled for task ':data:javaPreCompileRelease' because:
+  Build cache is disabled
+Skipping task ':data:javaPreCompileRelease' as it is up-to-date.
+Resolve mutations for :speech:compileReleaseKotlin (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:speech:compileReleaseKotlin (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :speech:compileReleaseKotlin NO-SOURCE
+Skipping task ':speech:compileReleaseKotlin' as it has no source files and no previous output files.
+Resolve mutations for :speech:javaPreCompileRelease (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:speech:javaPreCompileRelease (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :speech:javaPreCompileRelease UP-TO-DATE
+Caching disabled for task ':speech:javaPreCompileRelease' because:
+  Build cache is disabled
+Skipping task ':speech:javaPreCompileRelease' as it is up-to-date.
+Resolve mutations for :speech:compileReleaseJavaWithJavac (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:speech:compileReleaseJavaWithJavac (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :speech:compileReleaseJavaWithJavac NO-SOURCE
+Skipping task ':speech:compileReleaseJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :speech:bundleLibCompileToJarRelease (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:speech:bundleLibCompileToJarRelease (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :speech:bundleLibCompileToJarRelease UP-TO-DATE
+Caching disabled for task ':speech:bundleLibCompileToJarRelease' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':speech:bundleLibCompileToJarRelease' as it is up-to-date.
+work action resolve classes.jar (project :speech) (Thread[#5261,Execution worker Thread 6,5,main]) started.
+Resolve mutations for :app:javaPreCompileRelease (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:app:javaPreCompileRelease (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :app:javaPreCompileRelease UP-TO-DATE
+Caching disabled for task ':app:javaPreCompileRelease' because:
+  Build cache is disabled
+Skipping task ':app:javaPreCompileRelease' as it is up-to-date.
+Resolve mutations for :app:preReleaseUnitTestBuild (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:app:preReleaseUnitTestBuild (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :app:preReleaseUnitTestBuild UP-TO-DATE
+Skipping task ':app:preReleaseUnitTestBuild' as it has no actions.
+Resolve mutations for :app:javaPreCompileReleaseUnitTest (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:app:javaPreCompileReleaseUnitTest (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :app:javaPreCompileReleaseUnitTest UP-TO-DATE
+Caching disabled for task ':app:javaPreCompileReleaseUnitTest' because:
+  Build cache is disabled
+Skipping task ':app:javaPreCompileReleaseUnitTest' as it is up-to-date.
+Resolve mutations for :domain:bundleLibRuntimeToJarRelease (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:domain:bundleLibRuntimeToJarRelease (Thread[#5262,Execution worker Thread 7,5,main]) started.
+
+> Task :domain:bundleLibRuntimeToJarRelease UP-TO-DATE
+Caching disabled for task ':domain:bundleLibRuntimeToJarRelease' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':domain:bundleLibRuntimeToJarRelease' as it is up-to-date.
+work action resolve classes.jar (project :domain) (Thread[#5262,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :domain:processReleaseJavaRes (Thread[#5262,Execution worker Thread 7,5,main]) started.
+:domain:processReleaseJavaRes (Thread[#5262,Execution worker Thread 7,5,main]) started.
+
+> Task :domain:processReleaseJavaRes UP-TO-DATE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\release\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\release\resources', not found
+Caching disabled for task ':domain:processReleaseJavaRes' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':domain:processReleaseJavaRes' as it is up-to-date.
+work action resolve out (project :domain) (Thread[#5262,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :speech:bundleLibRuntimeToJarRelease (Thread[#5262,Execution worker Thread 7,5,main]) started.
+:speech:bundleLibRuntimeToJarRelease (Thread[#5255,included builds,5,main]) started.
+
+> Task :speech:bundleLibRuntimeToJarRelease UP-TO-DATE
+Caching disabled for task ':speech:bundleLibRuntimeToJarRelease' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':speech:bundleLibRuntimeToJarRelease' as it is up-to-date.
+work action resolve classes.jar (project :speech) (Thread[#5255,included builds,5,main]) started.
+Resolve mutations for :speech:processReleaseJavaRes (Thread[#5255,included builds,5,main]) started.
+:speech:processReleaseJavaRes (Thread[#5255,included builds,5,main]) started.
+
+> Task :speech:processReleaseJavaRes NO-SOURCE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\speech\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\speech\src\release\resources', not found
+Skipping task ':speech:processReleaseJavaRes' as it has no source files and no previous output files.
+work action resolve out (project :speech) (Thread[#5255,included builds,5,main]) started.
+Resolve mutations for :data:preDebugUnitTestBuild (Thread[#5255,included builds,5,main]) started.
+:data:preDebugUnitTestBuild (Thread[#5266,Execution worker Thread 11,5,main]) started.
+
+> Task :data:preDebugUnitTestBuild UP-TO-DATE
+Skipping task ':data:preDebugUnitTestBuild' as it has no actions.
+Resolve mutations for :data:checkDebugUnitTestAarMetadata (Thread[#5266,Execution worker Thread 11,5,main]) started.
+:data:checkDebugUnitTestAarMetadata (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :data:checkDebugUnitTestAarMetadata UP-TO-DATE
+Caching disabled for task ':data:checkDebugUnitTestAarMetadata' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:checkDebugUnitTestAarMetadata' as it is up-to-date.
+Resolve mutations for :data:generateDebugUnitTestResValues (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:data:generateDebugUnitTestResValues (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :data:generateDebugUnitTestResValues UP-TO-DATE
+Caching disabled for task ':data:generateDebugUnitTestResValues' because:
+  Build cache is disabled
+Skipping task ':data:generateDebugUnitTestResValues' as it is up-to-date.
+Resolve mutations for :data:mapDebugUnitTestSourceSetPaths (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:data:mapDebugUnitTestSourceSetPaths (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :data:mapDebugUnitTestSourceSetPaths UP-TO-DATE
+Caching disabled for task ':data:mapDebugUnitTestSourceSetPaths' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:mapDebugUnitTestSourceSetPaths' as it is up-to-date.
+Resolve mutations for :data:generateDebugUnitTestResources (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:data:generateDebugUnitTestResources (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :data:generateDebugUnitTestResources UP-TO-DATE
+Caching disabled for task ':data:generateDebugUnitTestResources' because:
+  Build cache is disabled
+Skipping task ':data:generateDebugUnitTestResources' as it is up-to-date.
+Resolve mutations for :data:mergeDebugUnitTestResources (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:data:mergeDebugUnitTestResources (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :data:mergeDebugUnitTestResources UP-TO-DATE
+Caching disabled for task ':data:mergeDebugUnitTestResources' because:
+  Build cache is disabled
+Skipping task ':data:mergeDebugUnitTestResources' as it is up-to-date.
+Resolve mutations for :data:processDebugUnitTestManifest (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:data:processDebugUnitTestManifest (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :data:processDebugUnitTestManifest UP-TO-DATE
+Caching disabled for task ':data:processDebugUnitTestManifest' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:processDebugUnitTestManifest' as it is up-to-date.
+Resolve mutations for :data:processDebugUnitTestResources (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:data:processDebugUnitTestResources (Thread[#5258,Execution worker Thread 3,5,main]) started.
+
+> Task :data:processDebugUnitTestResources UP-TO-DATE
+Caching disabled for task ':data:processDebugUnitTestResources' because:
+  Build cache is disabled
+Skipping task ':data:processDebugUnitTestResources' as it is up-to-date.
+Resolve mutations for :data:javaPreCompileDebugUnitTest (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:data:javaPreCompileDebugUnitTest (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :data:javaPreCompileDebugUnitTest UP-TO-DATE
+Caching disabled for task ':data:javaPreCompileDebugUnitTest' because:
+  Build cache is disabled
+Skipping task ':data:javaPreCompileDebugUnitTest' as it is up-to-date.
+Resolve mutations for :data:mergeDebugShaders (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:data:mergeDebugShaders (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :data:mergeDebugShaders UP-TO-DATE
+Caching disabled for task ':data:mergeDebugShaders' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':data:mergeDebugShaders' as it is up-to-date.
+Resolve mutations for :data:compileDebugShaders (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:data:compileDebugShaders (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :data:compileDebugShaders NO-SOURCE
+Skipping task ':data:compileDebugShaders' as it has no source files and no previous output files.
+Resolve mutations for :data:generateDebugAssets (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:data:generateDebugAssets (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :data:generateDebugAssets UP-TO-DATE
+Skipping task ':data:generateDebugAssets' as it has no actions.
+Resolve mutations for :domain:mergeDebugShaders (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:domain:mergeDebugShaders (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :domain:mergeDebugShaders UP-TO-DATE
+Caching disabled for task ':domain:mergeDebugShaders' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':domain:mergeDebugShaders' as it is up-to-date.
+Resolve mutations for :domain:compileDebugShaders (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:domain:compileDebugShaders (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :domain:compileDebugShaders NO-SOURCE
+Skipping task ':domain:compileDebugShaders' as it has no source files and no previous output files.
+Resolve mutations for :domain:generateDebugAssets (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:domain:generateDebugAssets (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :domain:generateDebugAssets UP-TO-DATE
+Skipping task ':domain:generateDebugAssets' as it has no actions.
+Resolve mutations for :domain:packageDebugAssets (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:domain:packageDebugAssets (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :domain:packageDebugAssets UP-TO-DATE
+Caching disabled for task ':domain:packageDebugAssets' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':domain:packageDebugAssets' as it is up-to-date.
+work action resolve out (project :domain) (Thread[#5270,Execution worker Thread 14,5,main]) started.
+Resolve mutations for :data:mergeDebugAssets (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:data:mergeDebugAssets (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :data:mergeDebugAssets UP-TO-DATE
+Caching disabled for task ':data:mergeDebugAssets' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':data:mergeDebugAssets' as it is up-to-date.
+Resolve mutations for :data:generateDebugUnitTestAssets (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:data:generateDebugUnitTestAssets (Thread[#5264,Execution worker Thread 9,5,main]) started.
+
+> Task :data:generateDebugUnitTestAssets UP-TO-DATE
+Skipping task ':data:generateDebugUnitTestAssets' as it has no actions.
+Resolve mutations for :data:packageDebugAssets (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:data:packageDebugAssets (Thread[#5266,Execution worker Thread 11,5,main]) started.
+
+> Task :data:packageDebugAssets UP-TO-DATE
+Caching disabled for task ':data:packageDebugAssets' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':data:packageDebugAssets' as it is up-to-date.
+work action resolve out (project :data) (Thread[#5266,Execution worker Thread 11,5,main]) started.
+Resolve mutations for :data:mergeDebugUnitTestAssets (Thread[#5266,Execution worker Thread 11,5,main]) started.
+:data:mergeDebugUnitTestAssets (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :data:mergeDebugUnitTestAssets UP-TO-DATE
+Caching disabled for task ':data:mergeDebugUnitTestAssets' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':data:mergeDebugUnitTestAssets' as it is up-to-date.
+Resolve mutations for :data:packageDebugUnitTestForUnitTest (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:data:packageDebugUnitTestForUnitTest (Thread[#5262,Execution worker Thread 7,5,main]) started.
+
+> Task :data:packageDebugUnitTestForUnitTest UP-TO-DATE
+Caching disabled for task ':data:packageDebugUnitTestForUnitTest' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':data:packageDebugUnitTestForUnitTest' as it is up-to-date.
+Resolve mutations for :data:generateDebugUnitTestConfig (Thread[#5262,Execution worker Thread 7,5,main]) started.
+:data:generateDebugUnitTestConfig (Thread[#5262,Execution worker Thread 7,5,main]) started.
+
+> Task :data:generateDebugUnitTestConfig UP-TO-DATE
+Caching disabled for task ':data:generateDebugUnitTestConfig' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:generateDebugUnitTestConfig' as it is up-to-date.
+Resolve mutations for :data:preReleaseUnitTestBuild (Thread[#5262,Execution worker Thread 7,5,main]) started.
+:data:preReleaseUnitTestBuild (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :data:preReleaseUnitTestBuild UP-TO-DATE
+Skipping task ':data:preReleaseUnitTestBuild' as it has no actions.
+Resolve mutations for :data:checkReleaseUnitTestAarMetadata (Thread[#5269,Execution worker Thread 13,5,main]) started.
+:data:checkReleaseUnitTestAarMetadata (Thread[#5269,Execution worker Thread 13,5,main]) started.
+
+> Task :data:checkReleaseUnitTestAarMetadata UP-TO-DATE
+Caching disabled for task ':data:checkReleaseUnitTestAarMetadata' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:checkReleaseUnitTestAarMetadata' as it is up-to-date.
+Resolve mutations for :data:generateReleaseUnitTestResValues (Thread[#5269,Execution worker Thread 13,5,main]) started.
+:data:generateReleaseUnitTestResValues (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :data:generateReleaseUnitTestResValues UP-TO-DATE
+Caching disabled for task ':data:generateReleaseUnitTestResValues' because:
+  Build cache is disabled
+Skipping task ':data:generateReleaseUnitTestResValues' as it is up-to-date.
+Resolve mutations for :data:mapReleaseUnitTestSourceSetPaths (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:data:mapReleaseUnitTestSourceSetPaths (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :data:mapReleaseUnitTestSourceSetPaths UP-TO-DATE
+Caching disabled for task ':data:mapReleaseUnitTestSourceSetPaths' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:mapReleaseUnitTestSourceSetPaths' as it is up-to-date.
+Resolve mutations for :data:generateReleaseUnitTestResources (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:data:generateReleaseUnitTestResources (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :data:generateReleaseUnitTestResources UP-TO-DATE
+Caching disabled for task ':data:generateReleaseUnitTestResources' because:
+  Build cache is disabled
+Skipping task ':data:generateReleaseUnitTestResources' as it is up-to-date.
+Resolve mutations for :data:mergeReleaseUnitTestResources (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:data:mergeReleaseUnitTestResources (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :data:mergeReleaseUnitTestResources UP-TO-DATE
+Caching disabled for task ':data:mergeReleaseUnitTestResources' because:
+  Build cache is disabled
+Skipping task ':data:mergeReleaseUnitTestResources' as it is up-to-date.
+Resolve mutations for :data:processReleaseUnitTestManifest (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:data:processReleaseUnitTestManifest (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :data:processReleaseUnitTestManifest UP-TO-DATE
+Caching disabled for task ':data:processReleaseUnitTestManifest' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:processReleaseUnitTestManifest' as it is up-to-date.
+Resolve mutations for :data:processReleaseUnitTestResources (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:data:processReleaseUnitTestResources (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :data:processReleaseUnitTestResources UP-TO-DATE
+Caching disabled for task ':data:processReleaseUnitTestResources' because:
+  Build cache is disabled
+Skipping task ':data:processReleaseUnitTestResources' as it is up-to-date.
+Resolve mutations for :data:javaPreCompileReleaseUnitTest (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:data:javaPreCompileReleaseUnitTest (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :data:javaPreCompileReleaseUnitTest UP-TO-DATE
+Caching disabled for task ':data:javaPreCompileReleaseUnitTest' because:
+  Build cache is disabled
+Skipping task ':data:javaPreCompileReleaseUnitTest' as it is up-to-date.
+Resolve mutations for :data:mergeReleaseShaders (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:data:mergeReleaseShaders (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :data:mergeReleaseShaders UP-TO-DATE
+Caching disabled for task ':data:mergeReleaseShaders' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':data:mergeReleaseShaders' as it is up-to-date.
+Resolve mutations for :data:compileReleaseShaders (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:data:compileReleaseShaders (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :data:compileReleaseShaders NO-SOURCE
+Skipping task ':data:compileReleaseShaders' as it has no source files and no previous output files.
+Resolve mutations for :data:generateReleaseAssets (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:data:generateReleaseAssets (Thread[#5264,Execution worker Thread 9,5,main]) started.
+
+> Task :data:generateReleaseAssets UP-TO-DATE
+Skipping task ':data:generateReleaseAssets' as it has no actions.
+Resolve mutations for :domain:mergeReleaseShaders (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:domain:mergeReleaseShaders (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :domain:mergeReleaseShaders UP-TO-DATE
+Caching disabled for task ':domain:mergeReleaseShaders' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':domain:mergeReleaseShaders' as it is up-to-date.
+Resolve mutations for :domain:compileReleaseShaders (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:domain:compileReleaseShaders (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :domain:compileReleaseShaders NO-SOURCE
+Skipping task ':domain:compileReleaseShaders' as it has no source files and no previous output files.
+Resolve mutations for :domain:generateReleaseAssets (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:domain:generateReleaseAssets (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :domain:generateReleaseAssets UP-TO-DATE
+Skipping task ':domain:generateReleaseAssets' as it has no actions.
+Resolve mutations for :domain:packageReleaseAssets (Thread[#5256,Execution worker,5,main]) started.
+:domain:packageReleaseAssets (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :domain:packageReleaseAssets UP-TO-DATE
+Caching disabled for task ':domain:packageReleaseAssets' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':domain:packageReleaseAssets' as it is up-to-date.
+work action resolve out (project :domain) (Thread[#5256,Execution worker,5,main]) started.
+Resolve mutations for :data:mergeReleaseAssets (Thread[#5256,Execution worker,5,main]) started.
+:data:mergeReleaseAssets (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :data:mergeReleaseAssets UP-TO-DATE
+Caching disabled for task ':data:mergeReleaseAssets' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':data:mergeReleaseAssets' as it is up-to-date.
+Resolve mutations for :data:generateReleaseUnitTestAssets (Thread[#5256,Execution worker,5,main]) started.
+:data:generateReleaseUnitTestAssets (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :data:generateReleaseUnitTestAssets UP-TO-DATE
+Skipping task ':data:generateReleaseUnitTestAssets' as it has no actions.
+Resolve mutations for :data:packageReleaseAssets (Thread[#5256,Execution worker,5,main]) started.
+:data:packageReleaseAssets (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :data:packageReleaseAssets UP-TO-DATE
+Caching disabled for task ':data:packageReleaseAssets' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':data:packageReleaseAssets' as it is up-to-date.
+work action resolve out (project :data) (Thread[#5256,Execution worker,5,main]) started.
+Resolve mutations for :data:mergeReleaseUnitTestAssets (Thread[#5256,Execution worker,5,main]) started.
+:data:mergeReleaseUnitTestAssets (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :data:mergeReleaseUnitTestAssets UP-TO-DATE
+Caching disabled for task ':data:mergeReleaseUnitTestAssets' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':data:mergeReleaseUnitTestAssets' as it is up-to-date.
+Resolve mutations for :data:packageReleaseUnitTestForUnitTest (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:data:packageReleaseUnitTestForUnitTest (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :data:packageReleaseUnitTestForUnitTest UP-TO-DATE
+Caching disabled for task ':data:packageReleaseUnitTestForUnitTest' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':data:packageReleaseUnitTestForUnitTest' as it is up-to-date.
+Resolve mutations for :data:generateReleaseUnitTestConfig (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:data:generateReleaseUnitTestConfig (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :data:generateReleaseUnitTestConfig UP-TO-DATE
+Caching disabled for task ':data:generateReleaseUnitTestConfig' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:generateReleaseUnitTestConfig' as it is up-to-date.
+Resolve mutations for :domain:preDebugUnitTestBuild (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:domain:preDebugUnitTestBuild (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :domain:preDebugUnitTestBuild UP-TO-DATE
+Skipping task ':domain:preDebugUnitTestBuild' as it has no actions.
+Resolve mutations for :domain:generateDebugUnitTestStubRFile (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:domain:generateDebugUnitTestStubRFile (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :domain:generateDebugUnitTestStubRFile UP-TO-DATE
+Caching disabled for task ':domain:generateDebugUnitTestStubRFile' because:
+  Build cache is disabled
+Skipping task ':domain:generateDebugUnitTestStubRFile' as it is up-to-date.
+Resolve mutations for :domain:compileDebugUnitTestKotlin (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:domain:compileDebugUnitTestKotlin (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :domain:compileDebugUnitTestKotlin UP-TO-DATE
+Caching disabled for task ':domain:compileDebugUnitTestKotlin' because:
+  Build cache is disabled
+Skipping task ':domain:compileDebugUnitTestKotlin' as it is up-to-date.
+Resolve mutations for :domain:javaPreCompileDebugUnitTest (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:domain:javaPreCompileDebugUnitTest (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :domain:javaPreCompileDebugUnitTest UP-TO-DATE
+Caching disabled for task ':domain:javaPreCompileDebugUnitTest' because:
+  Build cache is disabled
+Skipping task ':domain:javaPreCompileDebugUnitTest' as it is up-to-date.
+Resolve mutations for :domain:compileDebugUnitTestJavaWithJavac (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:domain:compileDebugUnitTestJavaWithJavac (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :domain:compileDebugUnitTestJavaWithJavac NO-SOURCE
+Skipping task ':domain:compileDebugUnitTestJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :domain:processDebugUnitTestJavaRes (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:domain:processDebugUnitTestJavaRes (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :domain:processDebugUnitTestJavaRes UP-TO-DATE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\test\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\testDebug\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\test\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\testDebug\resources', not found
+Caching disabled for task ':domain:processDebugUnitTestJavaRes' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':domain:processDebugUnitTestJavaRes' as it is up-to-date.
+Resolve mutations for :domain:testDebugUnitTest (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:domain:testDebugUnitTest (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :domain:testDebugUnitTest UP-TO-DATE
+Caching disabled for task ':domain:testDebugUnitTest' because:
+  Build cache is disabled
+Skipping task ':domain:testDebugUnitTest' as it is up-to-date.
+Resolve mutations for :domain:preReleaseUnitTestBuild (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:domain:preReleaseUnitTestBuild (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :domain:preReleaseUnitTestBuild UP-TO-DATE
+Skipping task ':domain:preReleaseUnitTestBuild' as it has no actions.
+Resolve mutations for :domain:generateReleaseUnitTestStubRFile (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:domain:generateReleaseUnitTestStubRFile (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :domain:generateReleaseUnitTestStubRFile UP-TO-DATE
+Caching disabled for task ':domain:generateReleaseUnitTestStubRFile' because:
+  Build cache is disabled
+Skipping task ':domain:generateReleaseUnitTestStubRFile' as it is up-to-date.
+Resolve mutations for :domain:compileReleaseUnitTestKotlin (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:domain:compileReleaseUnitTestKotlin (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :domain:compileReleaseUnitTestKotlin UP-TO-DATE
+Caching disabled for task ':domain:compileReleaseUnitTestKotlin' because:
+  Build cache is disabled
+Skipping task ':domain:compileReleaseUnitTestKotlin' as it is up-to-date.
+Resolve mutations for :domain:javaPreCompileReleaseUnitTest (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:domain:javaPreCompileReleaseUnitTest (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :domain:javaPreCompileReleaseUnitTest UP-TO-DATE
+Caching disabled for task ':domain:javaPreCompileReleaseUnitTest' because:
+  Build cache is disabled
+Skipping task ':domain:javaPreCompileReleaseUnitTest' as it is up-to-date.
+Resolve mutations for :domain:compileReleaseUnitTestJavaWithJavac (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:domain:compileReleaseUnitTestJavaWithJavac (Thread[#5260,Execution worker Thread 5,5,main]) started.
+
+> Task :domain:compileReleaseUnitTestJavaWithJavac NO-SOURCE
+Skipping task ':domain:compileReleaseUnitTestJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :domain:processReleaseUnitTestJavaRes (Thread[#5260,Execution worker Thread 5,5,main]) started.
+:domain:processReleaseUnitTestJavaRes (Thread[#5269,Execution worker Thread 13,5,main]) started.
+
+> Task :domain:processReleaseUnitTestJavaRes UP-TO-DATE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\test\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\testRelease\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\test\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\testRelease\resources', not found
+Caching disabled for task ':domain:processReleaseUnitTestJavaRes' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':domain:processReleaseUnitTestJavaRes' as it is up-to-date.
+Resolve mutations for :domain:testReleaseUnitTest (Thread[#5269,Execution worker Thread 13,5,main]) started.
+:domain:testReleaseUnitTest (Thread[#5269,Execution worker Thread 13,5,main]) started.
+
+> Task :domain:testReleaseUnitTest UP-TO-DATE
+Caching disabled for task ':domain:testReleaseUnitTest' because:
+  Build cache is disabled
+Skipping task ':domain:testReleaseUnitTest' as it is up-to-date.
+Resolve mutations for :domain:test (Thread[#5269,Execution worker Thread 13,5,main]) started.
+:domain:test (Thread[#5269,Execution worker Thread 13,5,main]) started.
+
+> Task :domain:test UP-TO-DATE
+Skipping task ':domain:test' as it has no actions.
+Resolve mutations for :speech:preDebugUnitTestBuild (Thread[#5269,Execution worker Thread 13,5,main]) started.
+:speech:preDebugUnitTestBuild (Thread[#5269,Execution worker Thread 13,5,main]) started.
+
+> Task :speech:preDebugUnitTestBuild UP-TO-DATE
+Skipping task ':speech:preDebugUnitTestBuild' as it has no actions.
+Resolve mutations for :speech:generateDebugUnitTestStubRFile (Thread[#5269,Execution worker Thread 13,5,main]) started.
+:speech:generateDebugUnitTestStubRFile (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :speech:generateDebugUnitTestStubRFile UP-TO-DATE
+Caching disabled for task ':speech:generateDebugUnitTestStubRFile' because:
+  Build cache is disabled
+Skipping task ':speech:generateDebugUnitTestStubRFile' as it is up-to-date.
+Resolve mutations for :speech:compileDebugUnitTestKotlin (Thread[#5256,Execution worker,5,main]) started.
+:speech:compileDebugUnitTestKotlin (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :speech:compileDebugUnitTestKotlin NO-SOURCE
+Skipping task ':speech:compileDebugUnitTestKotlin' as it has no source files and no previous output files.
+Resolve mutations for :speech:javaPreCompileDebugUnitTest (Thread[#5256,Execution worker,5,main]) started.
+:speech:javaPreCompileDebugUnitTest (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :speech:javaPreCompileDebugUnitTest UP-TO-DATE
+Caching disabled for task ':speech:javaPreCompileDebugUnitTest' because:
+  Build cache is disabled
+Skipping task ':speech:javaPreCompileDebugUnitTest' as it is up-to-date.
+Resolve mutations for :speech:compileDebugUnitTestJavaWithJavac (Thread[#5256,Execution worker,5,main]) started.
+:speech:compileDebugUnitTestJavaWithJavac (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :speech:compileDebugUnitTestJavaWithJavac NO-SOURCE
+Skipping task ':speech:compileDebugUnitTestJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :speech:processDebugUnitTestJavaRes (Thread[#5256,Execution worker,5,main]) started.
+:speech:processDebugUnitTestJavaRes (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :speech:processDebugUnitTestJavaRes NO-SOURCE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\speech\src\test\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\speech\src\testDebug\resources', not found
+Skipping task ':speech:processDebugUnitTestJavaRes' as it has no source files and no previous output files.
+Resolve mutations for :speech:testDebugUnitTest (Thread[#5256,Execution worker,5,main]) started.
+:speech:testDebugUnitTest (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :speech:testDebugUnitTest NO-SOURCE
+Skipping task ':speech:testDebugUnitTest' as it has no source files and no previous output files.
+Resolve mutations for :speech:preReleaseUnitTestBuild (Thread[#5256,Execution worker,5,main]) started.
+:speech:preReleaseUnitTestBuild (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :speech:preReleaseUnitTestBuild UP-TO-DATE
+Skipping task ':speech:preReleaseUnitTestBuild' as it has no actions.
+Resolve mutations for :speech:generateReleaseUnitTestStubRFile (Thread[#5256,Execution worker,5,main]) started.
+:speech:generateReleaseUnitTestStubRFile (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :speech:generateReleaseUnitTestStubRFile UP-TO-DATE
+Caching disabled for task ':speech:generateReleaseUnitTestStubRFile' because:
+  Build cache is disabled
+Skipping task ':speech:generateReleaseUnitTestStubRFile' as it is up-to-date.
+Resolve mutations for :speech:compileReleaseUnitTestKotlin (Thread[#5256,Execution worker,5,main]) started.
+:speech:compileReleaseUnitTestKotlin (Thread[#5256,Execution worker,5,main]) started.
+
+> Task :speech:compileReleaseUnitTestKotlin NO-SOURCE
+Skipping task ':speech:compileReleaseUnitTestKotlin' as it has no source files and no previous output files.
+Resolve mutations for :speech:javaPreCompileReleaseUnitTest (Thread[#5256,Execution worker,5,main]) started.
+:speech:javaPreCompileReleaseUnitTest (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :speech:javaPreCompileReleaseUnitTest UP-TO-DATE
+Caching disabled for task ':speech:javaPreCompileReleaseUnitTest' because:
+  Build cache is disabled
+Skipping task ':speech:javaPreCompileReleaseUnitTest' as it is up-to-date.
+Resolve mutations for :speech:compileReleaseUnitTestJavaWithJavac (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:speech:compileReleaseUnitTestJavaWithJavac (Thread[#5261,Execution worker Thread 6,5,main]) started.
+
+> Task :speech:compileReleaseUnitTestJavaWithJavac NO-SOURCE
+Skipping task ':speech:compileReleaseUnitTestJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :speech:processReleaseUnitTestJavaRes (Thread[#5261,Execution worker Thread 6,5,main]) started.
+:speech:processReleaseUnitTestJavaRes (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :speech:processReleaseUnitTestJavaRes NO-SOURCE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\speech\src\test\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\speech\src\testRelease\resources', not found
+Skipping task ':speech:processReleaseUnitTestJavaRes' as it has no source files and no previous output files.
+Resolve mutations for :speech:testReleaseUnitTest (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:speech:testReleaseUnitTest (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :speech:testReleaseUnitTest NO-SOURCE
+Skipping task ':speech:testReleaseUnitTest' as it has no source files and no previous output files.
+Resolve mutations for :speech:test (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:speech:test (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :speech:test UP-TO-DATE
+Skipping task ':speech:test' as it has no actions.
+
+> Task :data:compileDebugKotlin
+GradleBuildProject.Builder should not be accessed through AnalyticsConfiguratorService after AnalyticsService is created. Analytics information of this build might be incomplete.
+Caching disabled for task ':data:compileDebugKotlin' because:
+  Build cache is disabled
+Task ':data:compileDebugKotlin' is not up-to-date because:
+  Input property 'sources' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\main\kotlin\com\example\data\LearningRepositoryImpl.kt has changed.
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+Kotlin source files: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\main\kotlin\com\example\data\LearningRepositoryImpl.kt
+Java source files: 
+Script source files: 
+Script file extensions: 
+Using Kotlin/JVM incremental compilation
+[KOTLIN] Kotlin compilation 'jdkHome' argument: null
+Options for KOTLIN DAEMON: IncrementalCompilationOptions(super=CompilationOptions(compilerMode=INCREMENTAL_COMPILER, targetPlatform=JVM, reportCategories=[0, 3], reportSeverity=2, requestedCompilationResults=[0], kotlinScriptExtensions=[]), sourceChanges=org.jetbrains.kotlin.buildtools.api.SourcesChanges$Known@5f654149, classpathChanges=NoChanges, workingDir=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugKotlin\cacheable, multiModuleICSettings=MultiModuleICSettings(buildHistoryFile=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugKotlin\local-state\build-history.bin, useModuleDetection=true), icFeatures=IncrementalCompilationFeatures(usePreciseJavaTracking=true, withAbiSnapshot=false, preciseCompilationResultsBackup=true, keepIncrementalCompilationCachesInMemory=true, enableUnsafeIncrementalCompilationForMultiplatform=false, enableMonotonousIncrementalCompileSetExpansion=true), outputFiles=[C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kotlin-classes\debug, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugKotlin\cacheable, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugKotlin\local-state])
+Finished executing kotlin compiler using DAEMON strategy
+Resolve mutations for :data:compileDebugJavaWithJavac (Thread[#5265,Execution worker Thread 10,5,main]) started.
+:data:compileDebugJavaWithJavac (Thread[#5265,Execution worker Thread 10,5,main]) started.
+
+> Task :data:compileDebugJavaWithJavac NO-SOURCE
+Skipping task ':data:compileDebugJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :data:bundleLibCompileToJarDebug (Thread[#5265,Execution worker Thread 10,5,main]) started.
+:data:bundleLibCompileToJarDebug (Thread[#5263,Execution worker Thread 8,5,main]) started.
+Resolve mutations for :data:bundleLibRuntimeToJarDebug (Thread[#5265,Execution worker Thread 10,5,main]) started.
+:data:bundleLibRuntimeToJarDebug (Thread[#5260,Execution worker Thread 5,5,main]) started.
+Resolve mutations for :data:processDebugJavaRes (Thread[#5265,Execution worker Thread 10,5,main]) started.
+:data:processDebugJavaRes (Thread[#5265,Execution worker Thread 10,5,main]) started.
+
+> Task :data:processDebugJavaRes UP-TO-DATE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\resources', not found
+Caching disabled for task ':data:processDebugJavaRes' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:processDebugJavaRes' as it is up-to-date.
+work action resolve out (project :data) (Thread[#5265,Execution worker Thread 10,5,main]) started.
+
+> Task :data:bundleLibCompileToJarDebug
+Caching disabled for task ':data:bundleLibCompileToJarDebug' because:
+  Build cache is disabled
+  Simple merging task
+Task ':data:bundleLibCompileToJarDebug' is not up-to-date because:
+  Input property 'classes' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kotlin-classes\debug\com\example\data\LearningRepositoryImpl.class has changed.
+work action resolve classes.jar (project :data) (Thread[#5263,Execution worker Thread 8,5,main]) started.
+Resolve mutations for :app:compileDebugKotlin (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:app:compileDebugKotlin (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :data:bundleLibRuntimeToJarDebug
+Caching disabled for task ':data:bundleLibRuntimeToJarDebug' because:
+  Build cache is disabled
+  Simple merging task
+Task ':data:bundleLibRuntimeToJarDebug' is not up-to-date because:
+  Input property 'classes' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kotlin-classes\debug\com\example\data\LearningRepositoryImpl.class has changed.
+work action resolve classes.jar (project :data) (Thread[#5255,included builds,5,main]) started.
+Resolve mutations for :data:compileDebugUnitTestKotlin (Thread[#5255,included builds,5,main]) started.
+:data:compileDebugUnitTestKotlin (Thread[#5255,included builds,5,main]) started.
+
+> Task :data:compileReleaseKotlin
+Caching disabled for task ':data:compileReleaseKotlin' because:
+  Build cache is disabled
+Task ':data:compileReleaseKotlin' is not up-to-date because:
+  Input property 'sources' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\main\kotlin\com\example\data\LearningRepositoryImpl.kt has changed.
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\java', not found
+Kotlin source files: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\main\kotlin\com\example\data\LearningRepositoryImpl.kt
+Java source files: 
+Script source files: 
+Script file extensions: 
+Using Kotlin/JVM incremental compilation
+[KOTLIN] Kotlin compilation 'jdkHome' argument: null
+Options for KOTLIN DAEMON: IncrementalCompilationOptions(super=CompilationOptions(compilerMode=INCREMENTAL_COMPILER, targetPlatform=JVM, reportCategories=[0, 3], reportSeverity=2, requestedCompilationResults=[0], kotlinScriptExtensions=[]), sourceChanges=org.jetbrains.kotlin.buildtools.api.SourcesChanges$Known@7a66dfca, classpathChanges=NoChanges, workingDir=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileReleaseKotlin\cacheable, multiModuleICSettings=MultiModuleICSettings(buildHistoryFile=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileReleaseKotlin\local-state\build-history.bin, useModuleDetection=true), icFeatures=IncrementalCompilationFeatures(usePreciseJavaTracking=true, withAbiSnapshot=false, preciseCompilationResultsBackup=true, keepIncrementalCompilationCachesInMemory=true, enableUnsafeIncrementalCompilationForMultiplatform=false, enableMonotonousIncrementalCompileSetExpansion=true), outputFiles=[C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kotlin-classes\release, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileReleaseKotlin\cacheable, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileReleaseKotlin\local-state])
+Finished executing kotlin compiler using DAEMON strategy
+
+> Task :app:compileDebugKotlin
+GradleBuildProject.Builder should not be accessed through AnalyticsConfiguratorService after AnalyticsService is created. Analytics information of this build might be incomplete.
+Caching disabled for BuildToolsApiClasspathEntrySnapshotTransform: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\compile_library_classes_jar\debug\bundleLibCompileToJarDebug\classes.jar because:
+  Build cache is disabled
+Caching disabled for task ':app:compileDebugKotlin' because:
+  Build cache is disabled
+Task ':app:compileDebugKotlin' is not up-to-date because:
+  Input property 'classpathSnapshotProperties.classpathSnapshot' file C:\Users\audoc\.gradle\caches\8.14.3\transforms\f00b324a5198f27641f2e93fc0698a61\transformed\classes_jar-snapshot.bin has been removed.
+  Input property 'classpathSnapshotProperties.classpathSnapshot' file C:\Users\audoc\.gradle\caches\8.14.3\transforms\0a82c28251fe010b9966d739a9d701a2\transformed\classes_jar-snapshot.bin has been added.
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\java', not found
+Kotlin source files: C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\java\com\example\lango_mvp_android\MainActivity.kt
+Java source files: C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\build\generated\source\buildConfig\debug\com\example\lango_mvp_android\BuildConfig.java
+Script source files: 
+Script file extensions: 
+Using Kotlin/JVM incremental compilation
+[KOTLIN] Kotlin compilation 'jdkHome' argument: null
+Options for KOTLIN DAEMON: IncrementalCompilationOptions(super=CompilationOptions(compilerMode=INCREMENTAL_COMPILER, targetPlatform=JVM, reportCategories=[0, 3], reportSeverity=2, requestedCompilationResults=[0], kotlinScriptExtensions=[]), sourceChanges=org.jetbrains.kotlin.buildtools.api.SourcesChanges$Known@3d95ce8, classpathChanges=ToBeComputedByIncrementalCompiler, workingDir=C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\build\kotlin\compileDebugKotlin\cacheable, multiModuleICSettings=MultiModuleICSettings(buildHistoryFile=C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\build\kotlin\compileDebugKotlin\local-state\build-history.bin, useModuleDetection=true), icFeatures=IncrementalCompilationFeatures(usePreciseJavaTracking=true, withAbiSnapshot=false, preciseCompilationResultsBackup=true, keepIncrementalCompilationCachesInMemory=true, enableUnsafeIncrementalCompilationForMultiplatform=false, enableMonotonousIncrementalCompileSetExpansion=true), outputFiles=[C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\build\tmp\kotlin-classes\debug, C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\build\kotlin\compileDebugKotlin\cacheable, C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\build\kotlin\compileDebugKotlin\local-state])
+Finished executing kotlin compiler using DAEMON strategy
+Resolve mutations for :app:compileDebugJavaWithJavac (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:app:compileDebugJavaWithJavac (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+Custom actions are attached to task ':app:compileDebugJavaWithJavac'.
+Caching disabled for task ':app:compileDebugJavaWithJavac' because:
+  Build cache is disabled
+Task ':app:compileDebugJavaWithJavac' is not up-to-date because:
+  Input property 'classpath' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\compile_library_classes_jar\debug\bundleLibCompileToJarDebug\classes.jar has changed.
+Compilation mode: in-process compilation
+Created classpath snapshot for incremental compilation in 0.05 secs.
+None of the classes needs to be compiled! Analysis took 0.062 secs. 
+Resolve mutations for :app:bundleDebugClassesToRuntimeJar (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:app:bundleDebugClassesToRuntimeJar (Thread[#5263,Execution worker Thread 8,5,main]) started.
+
+> Task :app:bundleDebugClassesToRuntimeJar UP-TO-DATE
+Caching disabled for task ':app:bundleDebugClassesToRuntimeJar' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:bundleDebugClassesToRuntimeJar' as it is up-to-date.
+work action resolve classes.jar (project :app) (Thread[#5263,Execution worker Thread 8,5,main]) started.
+Resolve mutations for :app:bundleDebugClassesToCompileJar (Thread[#5263,Execution worker Thread 8,5,main]) started.
+:app:bundleDebugClassesToCompileJar (Thread[#5267,Execution worker Thread 12,5,main]) started.
+
+> Task :app:bundleDebugClassesToCompileJar UP-TO-DATE
+Caching disabled for task ':app:bundleDebugClassesToCompileJar' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:bundleDebugClassesToCompileJar' as it is up-to-date.
+work action resolve classes.jar (project :app) (Thread[#5267,Execution worker Thread 12,5,main]) started.
+Resolve mutations for :app:compileDebugUnitTestKotlin (Thread[#5267,Execution worker Thread 12,5,main]) started.
+:app:compileDebugUnitTestKotlin (Thread[#5267,Execution worker Thread 12,5,main]) started.
+
+> Task :app:compileDebugUnitTestKotlin NO-SOURCE
+Skipping task ':app:compileDebugUnitTestKotlin' as it has no source files and no previous output files.
+Resolve mutations for :app:compileDebugUnitTestJavaWithJavac (Thread[#5267,Execution worker Thread 12,5,main]) started.
+:app:compileDebugUnitTestJavaWithJavac (Thread[#5267,Execution worker Thread 12,5,main]) started.
+
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+Skipping task ':app:compileDebugUnitTestJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :app:processDebugJavaRes (Thread[#5267,Execution worker Thread 12,5,main]) started.
+:app:processDebugJavaRes (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :app:processDebugJavaRes UP-TO-DATE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\debug\resources', not found
+Caching disabled for task ':app:processDebugJavaRes' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:processDebugJavaRes' as it is up-to-date.
+work action resolve out (project :app) (Thread[#5257,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :app:processDebugUnitTestJavaRes (Thread[#5262,Execution worker Thread 7,5,main]) started.
+:app:processDebugUnitTestJavaRes (Thread[#5262,Execution worker Thread 7,5,main]) started.
+
+> Task :app:processDebugUnitTestJavaRes NO-SOURCE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\test\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\testDebug\resources', not found
+Skipping task ':app:processDebugUnitTestJavaRes' as it has no source files and no previous output files.
+Resolve mutations for :app:testDebugUnitTest (Thread[#5262,Execution worker Thread 7,5,main]) started.
+:app:testDebugUnitTest (Thread[#5262,Execution worker Thread 7,5,main]) started.
+
+> Task :app:testDebugUnitTest NO-SOURCE
+Skipping task ':app:testDebugUnitTest' as it has no source files and no previous output files.
+Resolve mutations for :data:compileReleaseJavaWithJavac (Thread[#5262,Execution worker Thread 7,5,main]) started.
+:data:compileReleaseJavaWithJavac (Thread[#5262,Execution worker Thread 7,5,main]) started.
+
+> Task :data:compileReleaseJavaWithJavac NO-SOURCE
+Skipping task ':data:compileReleaseJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :data:bundleLibCompileToJarRelease (Thread[#5262,Execution worker Thread 7,5,main]) started.
+:data:bundleLibCompileToJarRelease (Thread[#5271,Execution worker Thread 15,5,main]) started.
+Resolve mutations for :data:bundleLibRuntimeToJarRelease (Thread[#5262,Execution worker Thread 7,5,main]) started.
+:data:bundleLibRuntimeToJarRelease (Thread[#5262,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :data:processReleaseJavaRes (Thread[#5266,Execution worker Thread 11,5,main]) started.
+:data:processReleaseJavaRes (Thread[#5269,Execution worker Thread 13,5,main]) started.
+
+> Task :data:processReleaseJavaRes UP-TO-DATE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\release\resources', not found
+Caching disabled for task ':data:processReleaseJavaRes' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:processReleaseJavaRes' as it is up-to-date.
+work action resolve out (project :data) (Thread[#5269,Execution worker Thread 13,5,main]) started.
+
+> Task :data:bundleLibCompileToJarRelease
+Caching disabled for task ':data:bundleLibCompileToJarRelease' because:
+  Build cache is disabled
+  Simple merging task
+Task ':data:bundleLibCompileToJarRelease' is not up-to-date because:
+  Input property 'classes' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kotlin-classes\release\com\example\data\LearningRepositoryImpl.class has changed.
+work action resolve classes.jar (project :data) (Thread[#5271,Execution worker Thread 15,5,main]) started.
+Resolve mutations for :app:compileReleaseKotlin (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:app:compileReleaseKotlin (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :data:bundleLibRuntimeToJarRelease
+Caching disabled for task ':data:bundleLibRuntimeToJarRelease' because:
+  Build cache is disabled
+  Simple merging task
+Task ':data:bundleLibRuntimeToJarRelease' is not up-to-date because:
+  Input property 'classes' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kotlin-classes\release\com\example\data\LearningRepositoryImpl.class has changed.
+work action resolve classes.jar (project :data) (Thread[#5262,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :data:compileReleaseUnitTestKotlin (Thread[#5262,Execution worker Thread 7,5,main]) started.
+:data:compileReleaseUnitTestKotlin (Thread[#5262,Execution worker Thread 7,5,main]) started.
+
+> Task :app:compileReleaseKotlin
+Caching disabled for BuildToolsApiClasspathEntrySnapshotTransform: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\compile_library_classes_jar\release\bundleLibCompileToJarRelease\classes.jar because:
+  Build cache is disabled
+Caching disabled for task ':app:compileReleaseKotlin' because:
+  Build cache is disabled
+Task ':app:compileReleaseKotlin' is not up-to-date because:
+  Input property 'classpathSnapshotProperties.classpathSnapshot' file C:\Users\audoc\.gradle\caches\8.14.3\transforms\d9cd61aa194a0c72823506c35292b8df\transformed\classes_jar-snapshot.bin has been removed.
+  Input property 'classpathSnapshotProperties.classpathSnapshot' file C:\Users\audoc\.gradle\caches\8.14.3\transforms\fa55c0314b2755cc58456f1035868122\transformed\classes_jar-snapshot.bin has been added.
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\java', not found
+Kotlin source files: C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\java\com\example\lango_mvp_android\MainActivity.kt
+Java source files: C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\build\generated\source\buildConfig\release\com\example\lango_mvp_android\BuildConfig.java
+Script source files: 
+Script file extensions: 
+Using Kotlin/JVM incremental compilation
+[KOTLIN] Kotlin compilation 'jdkHome' argument: null
+Options for KOTLIN DAEMON: IncrementalCompilationOptions(super=CompilationOptions(compilerMode=INCREMENTAL_COMPILER, targetPlatform=JVM, reportCategories=[0, 3], reportSeverity=2, requestedCompilationResults=[0], kotlinScriptExtensions=[]), sourceChanges=org.jetbrains.kotlin.buildtools.api.SourcesChanges$Known@342caa44, classpathChanges=ToBeComputedByIncrementalCompiler, workingDir=C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\build\kotlin\compileReleaseKotlin\cacheable, multiModuleICSettings=MultiModuleICSettings(buildHistoryFile=C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\build\kotlin\compileReleaseKotlin\local-state\build-history.bin, useModuleDetection=true), icFeatures=IncrementalCompilationFeatures(usePreciseJavaTracking=true, withAbiSnapshot=false, preciseCompilationResultsBackup=true, keepIncrementalCompilationCachesInMemory=true, enableUnsafeIncrementalCompilationForMultiplatform=false, enableMonotonousIncrementalCompileSetExpansion=true), outputFiles=[C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\build\tmp\kotlin-classes\release, C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\build\kotlin\compileReleaseKotlin\cacheable, C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\build\kotlin\compileReleaseKotlin\local-state])
+Finished executing kotlin compiler using DAEMON strategy
+Resolve mutations for :app:compileReleaseJavaWithJavac (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:app:compileReleaseJavaWithJavac (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :app:compileReleaseJavaWithJavac UP-TO-DATE
+Custom actions are attached to task ':app:compileReleaseJavaWithJavac'.
+Caching disabled for task ':app:compileReleaseJavaWithJavac' because:
+  Build cache is disabled
+Task ':app:compileReleaseJavaWithJavac' is not up-to-date because:
+  Input property 'classpath' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\compile_library_classes_jar\release\bundleLibCompileToJarRelease\classes.jar has changed.
+Compilation mode: in-process compilation
+Created classpath snapshot for incremental compilation in 0.017 secs.
+None of the classes needs to be compiled! Analysis took 0.025 secs. 
+Resolve mutations for :app:bundleReleaseClassesToRuntimeJar (Thread[#5271,Execution worker Thread 15,5,main]) started.
+:app:bundleReleaseClassesToRuntimeJar (Thread[#5271,Execution worker Thread 15,5,main]) started.
+
+> Task :app:bundleReleaseClassesToRuntimeJar UP-TO-DATE
+Caching disabled for task ':app:bundleReleaseClassesToRuntimeJar' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:bundleReleaseClassesToRuntimeJar' as it is up-to-date.
+work action resolve classes.jar (project :app) (Thread[#5271,Execution worker Thread 15,5,main]) started.
+Resolve mutations for :app:bundleReleaseClassesToCompileJar (Thread[#5258,Execution worker Thread 3,5,main]) started.
+:app:bundleReleaseClassesToCompileJar (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :app:bundleReleaseClassesToCompileJar UP-TO-DATE
+Caching disabled for task ':app:bundleReleaseClassesToCompileJar' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:bundleReleaseClassesToCompileJar' as it is up-to-date.
+work action resolve classes.jar (project :app) (Thread[#5257,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :app:compileReleaseUnitTestKotlin (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:app:compileReleaseUnitTestKotlin (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :app:compileReleaseUnitTestKotlin NO-SOURCE
+Skipping task ':app:compileReleaseUnitTestKotlin' as it has no source files and no previous output files.
+Resolve mutations for :app:compileReleaseUnitTestJavaWithJavac (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:app:compileReleaseUnitTestJavaWithJavac (Thread[#5257,Execution worker Thread 2,5,main]) started.
+
+> Task :app:compileReleaseUnitTestJavaWithJavac NO-SOURCE
+Skipping task ':app:compileReleaseUnitTestJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :app:processReleaseJavaRes (Thread[#5257,Execution worker Thread 2,5,main]) started.
+:app:processReleaseJavaRes (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :app:processReleaseJavaRes UP-TO-DATE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\release\resources', not found
+Caching disabled for task ':app:processReleaseJavaRes' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:processReleaseJavaRes' as it is up-to-date.
+work action resolve out (project :app) (Thread[#5259,Execution worker Thread 4,5,main]) started.
+Resolve mutations for :app:processReleaseUnitTestJavaRes (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:app:processReleaseUnitTestJavaRes (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :app:processReleaseUnitTestJavaRes NO-SOURCE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\test\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\src\testRelease\resources', not found
+Skipping task ':app:processReleaseUnitTestJavaRes' as it has no source files and no previous output files.
+Resolve mutations for :app:testReleaseUnitTest (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:app:testReleaseUnitTest (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :app:testReleaseUnitTest NO-SOURCE
+Skipping task ':app:testReleaseUnitTest' as it has no source files and no previous output files.
+Resolve mutations for :app:test (Thread[#5259,Execution worker Thread 4,5,main]) started.
+:app:test (Thread[#5259,Execution worker Thread 4,5,main]) started.
+
+> Task :app:test UP-TO-DATE
+Skipping task ':app:test' as it has no actions.
+
+> Task :data:compileDebugUnitTestKotlin
+Caching disabled for task ':data:compileDebugUnitTestKotlin' because:
+  Build cache is disabled
+Task ':data:compileDebugUnitTestKotlin' is not up-to-date because:
+  Input property 'classpathSnapshotProperties.classpathSnapshot' file C:\Users\audoc\.gradle\caches\8.14.3\transforms\f00b324a5198f27641f2e93fc0698a61\transformed\classes_jar-snapshot.bin has been removed.
+  Input property 'classpathSnapshotProperties.classpathSnapshot' file C:\Users\audoc\.gradle\caches\8.14.3\transforms\0a82c28251fe010b9966d739a9d701a2\transformed\classes_jar-snapshot.bin has been added.
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+Kotlin source files: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\test\kotlin\com\example\data\JsonAssetLoaderTest.kt, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\test\kotlin\com\example\data\LearningRepositoryImplTest.kt
+Java source files: 
+Script source files: 
+Script file extensions: 
+Using Kotlin/JVM incremental compilation
+[KOTLIN] Kotlin compilation 'jdkHome' argument: null
+Options for KOTLIN DAEMON: IncrementalCompilationOptions(super=CompilationOptions(compilerMode=INCREMENTAL_COMPILER, targetPlatform=JVM, reportCategories=[0, 3], reportSeverity=2, requestedCompilationResults=[0], kotlinScriptExtensions=[]), sourceChanges=org.jetbrains.kotlin.buildtools.api.SourcesChanges$Known@4915d0d, classpathChanges=ToBeComputedByIncrementalCompiler, workingDir=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugUnitTestKotlin\cacheable, multiModuleICSettings=MultiModuleICSettings(buildHistoryFile=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugUnitTestKotlin\local-state\build-history.bin, useModuleDetection=true), icFeatures=IncrementalCompilationFeatures(usePreciseJavaTracking=true, withAbiSnapshot=false, preciseCompilationResultsBackup=true, keepIncrementalCompilationCachesInMemory=true, enableUnsafeIncrementalCompilationForMultiplatform=false, enableMonotonousIncrementalCompileSetExpansion=true), outputFiles=[C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kotlin-classes\debugUnitTest, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugUnitTestKotlin\cacheable, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugUnitTestKotlin\local-state])
+Finished executing kotlin compiler using DAEMON strategy
+Resolve mutations for :data:compileDebugUnitTestJavaWithJavac (Thread[#5255,included builds,5,main]) started.
+:data:compileDebugUnitTestJavaWithJavac (Thread[#5255,included builds,5,main]) started.
+
+> Task :data:compileDebugUnitTestJavaWithJavac NO-SOURCE
+Skipping task ':data:compileDebugUnitTestJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :data:processDebugUnitTestJavaRes (Thread[#5255,included builds,5,main]) started.
+:data:processDebugUnitTestJavaRes (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :data:processDebugUnitTestJavaRes UP-TO-DATE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\resources', not found
+Caching disabled for task ':data:processDebugUnitTestJavaRes' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:processDebugUnitTestJavaRes' as it is up-to-date.
+Resolve mutations for :data:testDebugUnitTest (Thread[#5270,Execution worker Thread 14,5,main]) started.
+:data:testDebugUnitTest (Thread[#5270,Execution worker Thread 14,5,main]) started.
+
+> Task :data:compileReleaseUnitTestKotlin
+Caching disabled for task ':data:compileReleaseUnitTestKotlin' because:
+  Build cache is disabled
+Task ':data:compileReleaseUnitTestKotlin' is not up-to-date because:
+  Input property 'classpathSnapshotProperties.classpathSnapshot' file C:\Users\audoc\.gradle\caches\8.14.3\transforms\d9cd61aa194a0c72823506c35292b8df\transformed\classes_jar-snapshot.bin has been removed.
+  Input property 'classpathSnapshotProperties.classpathSnapshot' file C:\Users\audoc\.gradle\caches\8.14.3\transforms\fa55c0314b2755cc58456f1035868122\transformed\classes_jar-snapshot.bin has been added.
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\releaseUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\releaseUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\releaseUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\releaseUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testRelease\java', not found
+Kotlin source files: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\test\kotlin\com\example\data\JsonAssetLoaderTest.kt, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\test\kotlin\com\example\data\LearningRepositoryImplTest.kt
+Java source files: 
+Script source files: 
+Script file extensions: 
+Using Kotlin/JVM incremental compilation
+[KOTLIN] Kotlin compilation 'jdkHome' argument: null
+Options for KOTLIN DAEMON: IncrementalCompilationOptions(super=CompilationOptions(compilerMode=INCREMENTAL_COMPILER, targetPlatform=JVM, reportCategories=[0, 3], reportSeverity=2, requestedCompilationResults=[0], kotlinScriptExtensions=[]), sourceChanges=org.jetbrains.kotlin.buildtools.api.SourcesChanges$Known@73c34e51, classpathChanges=ToBeComputedByIncrementalCompiler, workingDir=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileReleaseUnitTestKotlin\cacheable, multiModuleICSettings=MultiModuleICSettings(buildHistoryFile=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileReleaseUnitTestKotlin\local-state\build-history.bin, useModuleDetection=true), icFeatures=IncrementalCompilationFeatures(usePreciseJavaTracking=true, withAbiSnapshot=false, preciseCompilationResultsBackup=true, keepIncrementalCompilationCachesInMemory=true, enableUnsafeIncrementalCompilationForMultiplatform=false, enableMonotonousIncrementalCompileSetExpansion=true), outputFiles=[C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kotlin-classes\releaseUnitTest, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileReleaseUnitTestKotlin\cacheable, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileReleaseUnitTestKotlin\local-state])
+Finished executing kotlin compiler using DAEMON strategy
+Gradle Test Executor 37 started executing tests.
+
+> Task :data:testDebugUnitTest
+Caching disabled for task ':data:testDebugUnitTest' because:
+  Build cache is disabled
+Task ':data:testDebugUnitTest' is not up-to-date because:
+  Task has failed previously.
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\javac\debugUnitTest\compileDebugUnitTestJavaWithJavac\classes', not found
+Starting process 'Gradle Test Executor 37'. Working directory: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data Command: C:\Program Files\Java\jdk-24\bin\java.exe -Djava.awt.headless=true -Djava.library.path=C:\Program Files\Java\jdk-24\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\Gradle\gradle-8.14.3\bin;C:\Users\audoc\.local\bin;C:\Users\audoc\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\audoc\AppData\Local\Programs\Python\Python311\;C:\Users\audoc\AppData\Local\Microsoft\WindowsApps;C:\Users\audoc\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\audoc\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\audoc\AppData\Roaming\npm;.;C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\jniLibs;C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\test\jniLibs -Dorg.gradle.internal.worker.tmpdir=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\testDebugUnitTest\work -Drobolectric.logging.enabled=true --add-opens=java.base/java.io=ALL-UNNAMED @C:\Users\audoc\.gradle\.tmp\gradle-worker-classpath6581960904167910466txt -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 37'
+Successfully started process 'Gradle Test Executor 37'
+
+LearningRepositoryImplTest STANDARD_OUT
+    DEBUG: Shadow provider: org.robolectric.Shadows
+    DEBUG: Manifest file location: build\intermediates\packaged_manifests\debugUnitTest\processDebugUnitTestManifest\AndroidManifest.xml
+    DEBUG: Manifest doc location:
+    build\intermediates\packaged_manifests\debugUnitTest\processDebugUnitTestManifest\AndroidManifest.xml
+    INFO: Found org.robolectric:android-all-instrumented:15-robolectric-12650502-i7 in local maven repository
+
+LearningRepositoryImplTest > loadQueues should load from core_blocks and learned_queue json files from resources STANDARD_OUT
+    com.example.data.LearningRepositoryImplTest.loadQueues should load from core_blocks and learned_queue json files from resources: sdk=35
+    INFO: Loading android native library from: jar:file:/C:/Users/audoc/.m2/repository/org/robolectric/android-all-instrumented/15-robolectric-12650502-i7/android-all-instrumented-15-robolectric-12650502-i7.jar!/native/windows/x86_64/libandroid_runtime.dll
+
+
+> Task :data:testDebugUnitTest
+
+LearningRepositoryImplTest > loadQueues should load from core_blocks and learned_queue json files from resources FAILED
+    java.lang.AssertionError: expected:<70> but was:<99>
+        at org.junit.Assert.fail(Assert.java:89)
+        at org.junit.Assert.failNotEquals(Assert.java:835)
+        at org.junit.Assert.assertEquals(Assert.java:120)
+        at org.junit.Assert.assertEquals(Assert.java:146)
+        at com.example.data.LearningRepositoryImplTest.loadQueues should load from core_blocks and learned_queue json files from resources(LearningRepositoryImplTest.kt:46)
+
+LearningRepositoryImplTest > saveQueues should save to core_blocks and learned_queue json files in internal storage STANDARD_OUT
+    com.example.data.LearningRepositoryImplTest.saveQueues should save to core_blocks and learned_queue json files in internal storage: sdk=35
+
+JsonAssetLoaderTest > loadLearnedQueueFromJson_returnsParsedEntities STANDARD_OUT
+    Deserialized items size: 99
+
+Gradle Test Executor 37 finished executing tests.
+
+> Task :data:testDebugUnitTest FAILED
+Finished generating test XML results (0.004 secs) into: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\test-results\testDebugUnitTest
+Generating HTML test report...
+Finished generating test html results (0.01 secs) into: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\reports\tests\testDebugUnitTest
+Build 67699370-deff-4029-bc33-6c5cfdfe3179 is closed
+173 actionable tasks: 11 executed, 162 up-to-date
+Watched directory hierarchies: [C:\Users\audoc\apps\lango-dev\lango-mvp-android]

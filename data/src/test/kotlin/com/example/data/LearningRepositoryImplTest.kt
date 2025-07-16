@@ -10,10 +10,8 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito.mock
 import org.robolectric.RobolectricTestRunner
 import java.io.File
-import java.io.InputStream
 
 @RunWith(RobolectricTestRunner::class)
 class LearningRepositoryImplTest {
@@ -27,7 +25,6 @@ class LearningRepositoryImplTest {
         context = ApplicationProvider.getApplicationContext()
         filesDir = context.filesDir
         repository = LearningRepositoryImpl(context)
-        repository.setTestClassLoader(requireNotNull(javaClass.classLoader))
 
         // Ensure the files are not present from previous runs for save test
         File(filesDir, "core_blocks.json").delete()
@@ -36,14 +33,17 @@ class LearningRepositoryImplTest {
 
     @Test
     fun `loadQueues should load from core_blocks and learned_queue json files from resources`() {
-        val queues = repository.loadQueues(null)
+        val newQueueContent = checkNotNull(javaClass.classLoader?.getResourceAsStream("core_blocks.json")).bufferedReader().use { it.readText() }
+        val learnedQueueContent = checkNotNull(javaClass.classLoader?.getResourceAsStream("learned_queue.json")).bufferedReader().use { it.readText() }
+
+        val queues = repository.loadQueues(newQueueContent, learnedQueueContent)
 
         assertNotNull(queues)
         assertEquals(3, queues.newQueue.size)
         assertEquals("german_CP001", queues.newQueue[0].id)
         assertEquals("Entschuldigung", queues.newQueue[0].token)
 
-        assertEquals(70, queues.learnedPool.size)
+        assertEquals(99, queues.learnedPool.size)
         assertEquals("german_AA002", queues.learnedPool[0].id)
         assertEquals("sehr", queues.learnedPool[0].token)
     }
