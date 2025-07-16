@@ -2,7 +2,7 @@ package com.example.domain
 
 data class LearningItem(
     val id: String,
-    val text: String,
+    val token: String,
     val category: String? = null,
     val subcategory: String? = null,
     var usageCount: Int = 0,
