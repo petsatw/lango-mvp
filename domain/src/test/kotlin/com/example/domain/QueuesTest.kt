@@ -95,4 +95,27 @@ class QueuesTest {
         assertEquals(initialPresentationCount1 + 1, newQueue[0].presentationCount)
         assertEquals(initialUsageCount3 + 1, learnedPool[0].usageCount)
     }
+
+    @Test
+    fun `copy should create independent copies of mutable lists`() {
+        val copiedQueues = queues.copy(
+            newQueue = queues.newQueue.toMutableList(),
+            learnedPool = queues.learnedPool.toMutableList()
+        )
+
+        // Modify the copied queues
+        copiedQueues.newQueue.add(LearningItem("id4", "text4", "cat4", "sub4", 0, 0, false))
+        copiedQueues.learnedPool.removeAt(0)
+
+        // Assert that the original queues remain unchanged
+        assertEquals(2, queues.newQueue.size)
+        assertEquals(1, queues.learnedPool.size)
+        assertEquals("id1", queues.newQueue[0].id)
+        assertEquals("id3", queues.learnedPool[0].id)
+
+        // Assert that the copied queues reflect the changes
+        assertEquals(3, copiedQueues.newQueue.size)
+        assertEquals(0, copiedQueues.learnedPool.size)
+        assertEquals("id4", copiedQueues.newQueue[2].id)
+    }
 }

@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import com.example.domain.LearningItem
 import com.example.domain.Queues
+import kotlinx.serialization.SerializationException
+
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
@@ -75,5 +77,34 @@ class LearningRepositoryImplTest {
         assertTrue(loadedLearnedQueue.contains("token4"))
     }
 
-    // TODO: Add test for malformed JSON
+    @Test
+    fun `loadQueues should handle malformed JSON for newQueue`() {
+        val malformedJson = "{\"newQueue\": [{\"id\": \"id1\", \"token\": \"token1\", \"cat\": \"cat1\", \"sub\": \"sub1\", \"pres\": 0, \"usage\": 0, \"learned\": false},]}" // Malformed JSON
+        val learnedQueueContent = checkNotNull(javaClass.classLoader?.getResourceAsStream("learned_queue.json")).bufferedReader().use { it.readText() }
+
+        var exceptionThrown = false
+        try {
+            repository.loadQueues(malformedJson, learnedQueueContent)
+        } catch (e: Exception) {
+            exceptionThrown = true
+            // Optionally, assert on the type of exception if known (e.g., JsonSyntaxException)
+            // assertTrue(e is JsonSyntaxException)
+        }
+        assertTrue(exceptionThrown)
+    }
+
+    @Test
+    fun `loadQueues should handle malformed JSON for learnedPool`() {
+        val newQueueContent = checkNotNull(javaClass.classLoader?.getResourceAsStream("core_blocks.json")).bufferedReader().use { it.readText() }
+        val malformedJson = "{\"learnedPool\": [{\"id\": \"id1\", \"token\": \"token1\", \"cat\": \"cat1\", \"sub\": \"sub1\", \"pres\": 0, \"usage\": 0, \"learned\": false},]}" // Malformed JSON
+
+        var exceptionThrown = false
+        try {
+            repository.loadQueues(newQueueContent, malformedJson)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            exceptionThrown = true
+        }
+        assertTrue(exceptionThrown)
+    }
 }

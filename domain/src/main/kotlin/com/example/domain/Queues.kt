@@ -1,6 +1,6 @@
 package com.example.domain
 
-class Queues(
+data class Queues(
     val newQueue: MutableList<LearningItem>,
     val learnedPool: MutableList<LearningItem>
 ) {

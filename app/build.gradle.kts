@@ -44,6 +44,19 @@ android {
             excludes += "META-INF/INDEX.LIST"
         }
     }
+
+    testOptions {
+        unitTests {
+            all {
+                it.jvmArgs(
+                    "--add-opens=java.base/java.lang=ALL-UNNAMED",
+                    "--add-opens=java.base/java.util=ALL-UNNAMED",
+                    "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED",
+                    "--add-opens=java.prefs/java.util.prefs=ALL-UNNAMED"
+                )
+            }
+        }
+    }
 }
 
 dependencies {
@@ -55,6 +68,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.turbine)
+    testImplementation(libs.mockk)
 
     //Project modules
     implementation(project(":data"))

@@ -43,4 +43,6 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.serialization.json)
     implementation(libs.kotlinx.serialization.json)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.kotlin)
 }

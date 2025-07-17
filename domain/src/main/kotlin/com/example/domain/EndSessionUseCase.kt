@@ -1,5 +1,7 @@
 package com.example.domain
 
-class EndSessionUseCase {
-    // TODO: Implement EndSessionUseCase
+class EndSessionUseCase(private val learningRepository: LearningRepository) {
+    fun endSession(queues: Queues) {
+        learningRepository.saveQueues(queues)
+    }
 }

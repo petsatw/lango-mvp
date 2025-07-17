@@ -17,6 +17,7 @@ navigationCompose = "2.8.0-beta06"
 testCore = "1.5.0"
 coil = "2.6.0"
 coroutines = "1.9.0-RC"
+kotlinx-coroutines-test = "1.9.0-RC"
 datetime = "0.6.0"
 kotlinxSerialization = "1.9.0"
 gson = "2.11.0"
@@ -25,6 +26,9 @@ logback = "1.5.6"
 mvikotlin = "4.1.0"
 mockk = "1.13.12"
 mockito = "5.11.0"
+mockito-kotlin = "5.1.0"
+mockito-android = "5.11.0"
+mockito-inline = "5.11.0"
 okhttp = "4.12.0"
 robolectric = "4.15.1"
 sqldelight = "2.0.2"
@@ -56,6 +60,7 @@ androidx-test-core = { group = "androidx.test", name = "core", version.ref = "te
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test" }
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "datetime" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
@@ -69,6 +74,9 @@ mvikotlin-main = { group = "com.arkivanov.mvikotlin", name = "mvikotlin-main", v
 mvikotlin-logging = { group = "com.arkivanov.mvikotlin", name = "mvikotlin-logging", version.ref = "mvikotlin" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockito-kotlin" }
+
+
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
 sqldelight-driver-android = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqldelight" }
