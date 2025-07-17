@@ -3,11 +3,10 @@ package com.example.lango_coach_android
 import io.mockk.mockk
 import io.mockk.every
 import io.mockk.verify
+import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.Runs
 import io.mockk.just
-
-
-
 
 import com.example.domain.EndSessionUseCase
 import com.example.domain.GenerateDialogueUseCase
@@ -24,7 +23,6 @@ import kotlinx.coroutines.test.setMain
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-
 
 @ExperimentalCoroutinesApi
 class MainViewModelTest {
@@ -54,83 +52,169 @@ class MainViewModelTest {
     }
 
     @Test
-    fun `startSession updates queues StateFlow`() = runTest {
-        val expectedQueues = Queues(
+    fun `startSession updates uiState to Loading then CoachSpeaking`() = runTest {
+        val initialQueues = Queues(
             newQueue = mutableListOf(LearningItem("id1", "token1", "cat1", "sub1", 0, 0, false)),
             learnedPool = mutableListOf(LearningItem("id2", "token2", "cat2", "sub2", 0, 0, true))
         )
-        every { startSessionUseCase.startSession() } returns expectedQueues
+        val expectedCoachText = "Hello from coach"
 
-        viewModel.queues.test {
-            assertEquals(null, awaitItem())
+        every { startSessionUseCase.startSession() } returns initialQueues
+        coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns expectedCoachText
+
+        viewModel.uiState.test {
+            assertEquals(UiState.Idle, awaitItem())
             viewModel.startSession()
-            assertEquals(expectedQueues, awaitItem())
+            assertEquals(UiState.Loading, awaitItem())
+            assertEquals(UiState.CoachSpeaking(expectedCoachText), awaitItem())
         }
         verify { startSessionUseCase.startSession() }
+        coVerify { generateDialogueUseCase.generatePrompt(initialQueues) }
     }
 
     @Test
-    fun `processTurn updates queues StateFlow and saves queues`() = runTest {
+    fun `processTurn updates uiState to Waiting then CoachSpeaking`() = runTest {
         val initialQueues = Queues(
             newQueue = mutableListOf(LearningItem("id1", "token1", "cat1", "sub1", 0, 0, false)),
             learnedPool = mutableListOf(LearningItem("id2", "token2", "cat2", "sub2", 0, 0, true))
         )
         val updatedQueues = Queues(
-            newQueue = mutableListOf(),
-            learnedPool = mutableListOf(LearningItem("id1", "token1", "cat1", "sub1", 0, 0, false), LearningItem("id2", "token2", "cat2", "sub2", 0, 0, true))
-        )
-        val presentedItem = LearningItem("id1", "token1", "cat1", "sub1", 0, 0, false)
-
-        every { startSessionUseCase.startSession() } returns initialQueues
-        every { processTurnUseCase.processTurn(initialQueues, presentedItem, true) } returns updatedQueues
-
-        viewModel.queues.test {
-            assertEquals(null, awaitItem())
-            viewModel.startSession()
-            assertEquals(initialQueues, awaitItem())
-
-            viewModel.processTurn(presentedItem, true)
-            assertEquals(updatedQueues, awaitItem())
-        }
-        verify { processTurnUseCase.processTurn(initialQueues, presentedItem, true) }
-    }
-
-    @Test
-    fun `generateDialogue returns prompt from use case`() = runTest {
-        val queues = Queues(
-            newQueue = mutableListOf(LearningItem("id1", "token1", "cat1", "sub1", 0, 0, false)),
+            newQueue = mutableListOf(LearningItem("id1", "token1", "cat1", "sub1", 1, 0, false)),
             learnedPool = mutableListOf(LearningItem("id2", "token2", "cat2", "sub2", 0, 0, true))
         )
-        val expectedPrompt = "Test Prompt"
+        val userResponse = "user says token1"
+        val expectedCoachText = "Next coach response"
 
-        every { startSessionUseCase.startSession() } returns queues
-        every { generateDialogueUseCase.generatePrompt(queues) } returns expectedPrompt
+        every { startSessionUseCase.startSession() } returns initialQueues
+        coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns "Initial coach text"
+        every { processTurnUseCase.processTurn(initialQueues, userResponse) } returns updatedQueues
+        coEvery { generateDialogueUseCase.generatePrompt(updatedQueues) } returns expectedCoachText
 
-        viewModel.startSession()
-        val result = viewModel.generateDialogue()
+        viewModel.uiState.test {
+            assertEquals(UiState.Idle, awaitItem())
+            viewModel.startSession()
+            assertEquals(UiState.Loading, awaitItem())
+            assertEquals(UiState.CoachSpeaking("Initial coach text"), awaitItem())
 
-        assertEquals(expectedPrompt, result)
-        verify { generateDialogueUseCase.generatePrompt(queues) }
+            viewModel.processTurn(userResponse)
+            assertEquals(UiState.Waiting, awaitItem())
+            assertEquals(UiState.CoachSpeaking(expectedCoachText), awaitItem())
+        }
+        verify { processTurnUseCase.processTurn(initialQueues, userResponse) }
+        coVerify { generateDialogueUseCase.generatePrompt(updatedQueues) }
     }
 
     @Test
-    fun `endSession clears queues StateFlow and saves queues`() = runTest {
+    fun `processTurn handles mastery and updates uiState to Congrats`() = runTest {
+        val initialQueues = Queues(
+            newQueue = mutableListOf(LearningItem("id1", "token1", "cat1", "sub1", 2, 0, false)), // usageCount 2
+            learnedPool = mutableListOf(LearningItem("id2", "token2", "cat2", "sub2", 0, 0, true))
+        )
+        val masteredQueues = Queues(
+            newQueue = mutableListOf(), // newQueue is empty after mastery
+            learnedPool = mutableListOf(LearningItem("id2", "token2", "cat2", "sub2", 0, 0, true), LearningItem("id1", "token1", "cat1", "sub1", 3, 0, true)) // usageCount 3
+        )
+        val userResponse = "user says token1"
+
+        every { startSessionUseCase.startSession() } returns initialQueues
+        coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns "Initial coach text"
+        every { processTurnUseCase.processTurn(initialQueues, userResponse) } returns masteredQueues
+        every { endSessionUseCase.endSession(masteredQueues) } just Runs
+
+        viewModel.uiState.test {
+            assertEquals(UiState.Idle, awaitItem())
+            viewModel.startSession()
+            assertEquals(UiState.Loading, awaitItem())
+            assertEquals(UiState.CoachSpeaking("Initial coach text"), awaitItem())
+
+            viewModel.processTurn(userResponse)
+            assertEquals(UiState.Waiting, awaitItem())
+            assertEquals(UiState.Congrats, awaitItem())
+        }
+        verify { processTurnUseCase.processTurn(initialQueues, userResponse) }
+        verify { endSessionUseCase.endSession(masteredQueues) }
+    }
+
+    @Test
+    fun `endSession updates uiState to Idle`() = runTest {
         val initialQueues = Queues(
             newQueue = mutableListOf(LearningItem("id1", "token1", "cat1", "sub1", 0, 0, false)),
             learnedPool = mutableListOf(LearningItem("id2", "token2", "cat2", "sub2", 0, 0, true))
         )
 
         every { startSessionUseCase.startSession() } returns initialQueues
+        coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns "Initial coach text"
+        every { endSessionUseCase.endSession(initialQueues) } just Runs
 
-        viewModel.queues.test {
-            assertEquals(null, awaitItem())
+        viewModel.uiState.test {
+            assertEquals(UiState.Idle, awaitItem())
             viewModel.startSession()
-            assertEquals(initialQueues, awaitItem())
+            assertEquals(UiState.Loading, awaitItem())
+            assertEquals(UiState.CoachSpeaking("Initial coach text"), awaitItem())
 
             viewModel.endSession()
-            assertEquals(null, awaitItem())
+            assertEquals(UiState.Idle, awaitItem())
         }
-        
         verify { endSessionUseCase.endSession(initialQueues) }
+    }
+
+    @Test
+    fun `startSession handles error and updates uiState to Error`() = runTest {
+        val errorMessage = "Failed to load queues"
+        every { startSessionUseCase.startSession() } throws RuntimeException(errorMessage)
+
+        viewModel.uiState.test {
+            assertEquals(UiState.Idle, awaitItem())
+            viewModel.startSession()
+            assertEquals(UiState.Loading, awaitItem())
+            assertEquals(UiState.Error(errorMessage), awaitItem())
+        }
+        verify { startSessionUseCase.startSession() }
+    }
+
+    @Test
+    fun `processTurn handles error and updates uiState to Error`() = runTest {
+        val initialQueues = Queues(
+            newQueue = mutableListOf(LearningItem("id1", "token1", "cat1", "sub1", 0, 0, false)),
+            learnedPool = mutableListOf(LearningItem("id2", "token2", "cat2", "sub2", 0, 0, true))
+        )
+        val errorMessage = "Failed to process turn"
+        val userResponse = "some response"
+
+        every { startSessionUseCase.startSession() } returns initialQueues
+        coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns "Initial coach text"
+        every { processTurnUseCase.processTurn(initialQueues, userResponse) } throws RuntimeException(errorMessage)
+
+        viewModel.uiState.test {
+            assertEquals(UiState.Idle, awaitItem())
+            viewModel.startSession()
+            assertEquals(UiState.Loading, awaitItem())
+            assertEquals(UiState.CoachSpeaking("Initial coach text"), awaitItem())
+
+            viewModel.processTurn(userResponse)
+            assertEquals(UiState.Waiting, awaitItem())
+            assertEquals(UiState.Error(errorMessage), awaitItem())
+        }
+        verify { processTurnUseCase.processTurn(initialQueues, userResponse) }
+    }
+
+    @Test
+    fun `generateCoachDialogue handles error and updates uiState to Error`() = runTest {
+        val initialQueues = Queues(
+            newQueue = mutableListOf(LearningItem("id1", "token1", "cat1", "sub1", 0, 0, false)),
+            learnedPool = mutableListOf(LearningItem("id2", "token2", "cat2", "sub2", 0, 0, true))
+        )
+        val errorMessage = "Failed to generate dialogue"
+
+        every { startSessionUseCase.startSession() } returns initialQueues
+        coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } throws RuntimeException(errorMessage)
+
+        viewModel.uiState.test {
+            assertEquals(UiState.Idle, awaitItem())
+            viewModel.startSession()
+            assertEquals(UiState.Loading, awaitItem())
+            assertEquals(UiState.Error(errorMessage), awaitItem())
+        }
+        coVerify { generateDialogueUseCase.generatePrompt(initialQueues) }
     }
 }

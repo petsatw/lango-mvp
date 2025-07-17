@@ -1,3 +1,5 @@
+package com.example.speech
+
 import android.media.MediaPlayer
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
@@ -38,7 +40,7 @@ class TtsServiceImplTest {
 
         ttsService.speak(testText)
 
-        verify { mockMediaPlayer.setDataSource(any<String>()) }
+        verify { mockMediaPlayer.setDataSource(any() as String) }
         verify { mockMediaPlayer.prepare() }
         verify { mockMediaPlayer.start() }
         verify { mockMediaPlayer.setOnCompletionListener(any()) }

@@ -42,7 +42,6 @@ class EndToEndCoreSequenceIntegrationTest {
     fun setup() {
         context = ApplicationProvider.getApplicationContext()
         learningRepository = LearningRepositoryImpl(context)
-        generateDialogueUseCase = GenerateDialogueUseCase(learningRepository)
         mockMediaPlayer = mockk(relaxed = true)
 
         // Read API key from local.properties
@@ -86,6 +85,7 @@ class EndToEndCoreSequenceIntegrationTest {
                 else -> error("Unhandled request ${request.url}")
             }
         }) { mockMediaPlayer }
+        generateDialogueUseCase = GenerateDialogueUseCase(learningRepository, llmService)
     }
 
     @Test

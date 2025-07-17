@@ -1,14 +1,15 @@
 package com.example.lango_coach_android
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.domain.EndSessionUseCase
 import com.example.domain.GenerateDialogueUseCase
 import com.example.domain.ProcessTurnUseCase
 import com.example.domain.Queues
-import com.example.domain.LearningItem
 import com.example.domain.StartSessionUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 
 class MainViewModel(
     private val startSessionUseCase: StartSessionUseCase,
@@ -17,34 +18,65 @@ class MainViewModel(
     private val endSessionUseCase: EndSessionUseCase
 ) : ViewModel() {
 
-    private val _queues = MutableStateFlow<Queues?>(null)
-    val queues: StateFlow<Queues?> = _queues
+    private val _uiState = MutableStateFlow<UiState>(UiState.Idle)
+    val uiState: StateFlow<UiState> = _uiState
+
+    private var currentQueues: Queues? = null
 
     fun startSession() {
-        val initialQueues = startSessionUseCase.startSession()
-        _queues.value = initialQueues
-    }
-
-    fun processTurn(presentedItem: LearningItem, isCorrect: Boolean) {
-        _queues.value?.let {
-            currentQueues ->
-            val updatedQueues = processTurnUseCase.processTurn(currentQueues, presentedItem, isCorrect)
-            _queues.value = updatedQueues
+        viewModelScope.launch {
+            _uiState.value = UiState.Loading
+            try {
+                val initialQueues = startSessionUseCase.startSession()
+                currentQueues = initialQueues
+                generateCoachDialogue()
+            } catch (e: Exception) {
+                _uiState.value = UiState.Error(e.message ?: "Unknown error during session start")
+            }
         }
     }
 
-    fun generateDialogue(): String {
-        return _queues.value?.let {
-            currentQueues ->
-            generateDialogueUseCase.generatePrompt(currentQueues)
-        } ?: ""
+    fun processTurn(userResponseText: String) {
+        viewModelScope.launch {
+            _uiState.value = UiState.Waiting
+            currentQueues?.let { queues ->
+                try {
+                    val updatedQueues = processTurnUseCase.processTurn(queues, userResponseText)
+                    currentQueues = updatedQueues
+                    if (updatedQueues.newQueue.isEmpty()) {
+                        _uiState.value = UiState.Congrats
+                        endSessionUseCase.endSession(updatedQueues)
+                        currentQueues = null
+                    } else {
+                        generateCoachDialogue()
+                    }
+                } catch (e: Exception) {
+                    _uiState.value = UiState.Error(e.message ?: "Unknown error during turn processing")
+                }
+            } ?: run {
+                _uiState.value = UiState.Error("Session not started.")
+            }
+        }
+    }
+
+    private suspend fun generateCoachDialogue() {
+        currentQueues?.let { queues ->
+            try {
+                val coachText = generateDialogueUseCase.generatePrompt(queues)
+                _uiState.value = UiState.CoachSpeaking(coachText)
+            } catch (e: Exception) {
+                _uiState.value = UiState.Error(e.message ?: "Unknown error during dialogue generation")
+            }
+        }
     }
 
     fun endSession() {
-        _queues.value?.let {
-            currentQueues ->
-            endSessionUseCase.endSession(currentQueues)
-            _queues.value = null // Clear queues after session ends
+        viewModelScope.launch {
+            currentQueues?.let { queues ->
+                endSessionUseCase.endSession(queues)
+                currentQueues = null
+                _uiState.value = UiState.Idle
+            }
         }
     }
 }
