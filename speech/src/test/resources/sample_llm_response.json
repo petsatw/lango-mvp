@@ -1,0 +1,10 @@
+{
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "content": "Hallo! Das ist ein Gruß."
+      }
+    }
+  ]
+}

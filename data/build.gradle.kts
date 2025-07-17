@@ -10,7 +10,6 @@ android {
 
     defaultConfig {
         minSdk = 26
-        targetSdk = 35
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -54,13 +53,13 @@ android {
 dependencies {
     implementation(project(":domain"))
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.gson)
+    
 
     // Test dependencies
     testImplementation(libs.junit)
     testImplementation(libs.robolectric)
     testImplementation(libs.assertj.core)
-    testImplementation(libs.gson)
+    
     testImplementation(libs.mockito.core)
     testImplementation(libs.androidx.test.core)
     testImplementation(project(":domain"))
