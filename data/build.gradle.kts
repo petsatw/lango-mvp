@@ -38,6 +38,8 @@ android {
             kotlin.srcDirs("src/main/java")
         }
         getByName("test") {
+            java.srcDirs("src/test/java")
+            kotlin.srcDirs("src/test/java")
             resources.srcDirs("src/test/resources")
         }
     }
