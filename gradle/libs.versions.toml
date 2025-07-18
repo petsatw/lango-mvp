@@ -24,7 +24,8 @@ gson = "2.11.0"
 ktor = "2.3.12"
 logback = "1.5.6"
 mvikotlin = "4.1.0"
-mockk = "1.13.12"
+mockk = "1.14.4"
+bytebuddy  = "1.14.22"
 mockito = "5.11.0"
 mockito-kotlin = "5.1.0"
 mockito-android = "5.11.0"
@@ -74,7 +75,8 @@ logback-classic = { group = "ch.qos.logback", name = "logback-classic", version.
 mvikotlin = { group = "com.arkivanov.mvikotlin", name = "mvikotlin", version.ref = "mvikotlin" }
 mvikotlin-main = { group = "com.arkivanov.mvikotlin", name = "mvikotlin-main", version.ref = "mvikotlin" }
 mvikotlin-logging = { group = "com.arkivanov.mvikotlin", name = "mvikotlin-logging", version.ref = "mvikotlin" }
-mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+mockk-agent-jvm = { module = "io.mockk:mockk-agent-jvm", version.ref = "mockk" }
 mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
 mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockito-kotlin" }
 ktor-client-mock = { group = "io.ktor", name = "ktor-client-mock", version.ref = "ktor" }
@@ -85,4 +87,6 @@ robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "
 sqldelight-driver-android = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sqldelight" }
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
-mockk-agent-jvm = { group = "io.mockk", name = "mockk-agent-jvm", version.ref = "mockk" }
+
+[bundles]
+mockk = ["mockk"]

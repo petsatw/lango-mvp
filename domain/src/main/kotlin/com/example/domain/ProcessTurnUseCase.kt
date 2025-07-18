@@ -12,15 +12,9 @@ class ProcessTurnUseCase(private val learningRepository: LearningRepository) {
 
             // Mastery check
             if (newTarget.usageCount >= 3) {
-                queues.dequeueNewTarget()?.let { masteredItem ->
-                    masteredItem.isLearned = true
-                    queues.learnedPool.add(masteredItem)
-                }
-                // Dequeue next new_target and reset its counts
-                queues.newQueue.firstOrNull()?.let { nextNewTarget ->
-                    nextNewTarget.usageCount = 0
-                    nextNewTarget.presentationCount = 0
-                }
+                queues.newQueue.removeAt(0)
+                newTarget.isLearned = true
+                queues.learnedPool.add(newTarget)
             }
         }
 

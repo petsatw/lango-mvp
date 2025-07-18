@@ -7,15 +7,20 @@ import com.example.domain.GenerateDialogueUseCase
 import com.example.domain.ProcessTurnUseCase
 import com.example.domain.Queues
 import com.example.domain.StartSessionUseCase
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 
 class MainViewModel(
     private val startSessionUseCase: StartSessionUseCase,
     private val processTurnUseCase: ProcessTurnUseCase,
     private val generateDialogueUseCase: GenerateDialogueUseCase,
-    private val endSessionUseCase: EndSessionUseCase
+    private val endSessionUseCase: EndSessionUseCase,
+    private val dispatcher: CoroutineDispatcher = Dispatchers.Main
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<UiState>(UiState.Idle)
@@ -23,8 +28,10 @@ class MainViewModel(
 
     private var currentQueues: Queues? = null
 
+    private val vmScope = CoroutineScope(SupervisorJob() + dispatcher)
+
     fun startSession() {
-        viewModelScope.launch {
+        vmScope.launch {
             _uiState.value = UiState.Loading
             try {
                 val initialQueues = startSessionUseCase.startSession()
@@ -37,7 +44,7 @@ class MainViewModel(
     }
 
     fun processTurn(userResponseText: String) {
-        viewModelScope.launch {
+        vmScope.launch {
             _uiState.value = UiState.Waiting
             currentQueues?.let { queues ->
                 try {
@@ -71,7 +78,7 @@ class MainViewModel(
     }
 
     fun endSession() {
-        viewModelScope.launch {
+        vmScope.launch {
             currentQueues?.let { queues ->
                 endSessionUseCase.endSession(queues)
                 currentQueues = null

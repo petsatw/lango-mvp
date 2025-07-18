@@ -64,4 +64,6 @@ dependencies {
     testImplementation(libs.androidx.test.core)
     testImplementation(project(":domain"))
     testImplementation(project(":data"))
+    testImplementation(libs.mockk)
+    testImplementation(libs.mockk.agent.jvm)
 }

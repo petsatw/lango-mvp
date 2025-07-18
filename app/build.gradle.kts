@@ -46,15 +46,16 @@ android {
     }
 
     testOptions {
-        unitTests {
-            all {
-                it.jvmArgs(
-                    "--add-opens=java.base/java.lang=ALL-UNNAMED",
-                    "--add-opens=java.base/java.util=ALL-UNNAMED",
-                    "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED",
-                    "--add-opens=java.prefs/java.util.prefs=ALL-UNNAMED"
-                )
-            }
+        unitTests.isIncludeAndroidResources = true
+        unitTests.all {
+            it.systemProperties["robolectric.logging.enabled"] = "true"
+            it.jvmArgs(
+                "--add-opens=java.base/java.lang=ALL-UNNAMED",
+                "--add-opens=java.base/java.util=ALL-UNNAMED",
+                "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED",
+                "--add-opens=java.prefs/java.util.prefs=ALL-UNNAMED",
+                "-Dnet.bytebuddy.experimental=true"
+            )
         }
     }
 }
@@ -69,9 +70,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.mockk)
+    testImplementation(libs.mockk.agent.jvm)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.turbine)
-    testImplementation(libs.mockk)
     testImplementation(libs.robolectric)
     testImplementation(libs.ktor.client.mock)
     testImplementation(libs.androidx.test.core)

@@ -24,6 +24,7 @@ class GenerateDialogueUseCase(private val learningRepository: LearningRepository
             return "Congratulations! You've completed your learning objectives."
         }
 
-        return llmService.generateDialogue(promptBuilder.toString())
+        val finalPrompt = promptBuilder.toString()
+        return llmService.generateDialogue(finalPrompt)
     }
 }
