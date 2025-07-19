@@ -10,7 +10,6 @@ android {
 
     defaultConfig {
         minSdk = 26
-        targetSdk = 35
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -38,7 +37,9 @@ android {
             kotlin.srcDirs("src/main/java")
         }
         getByName("test") {
-            assets.srcDirs("src/test/assets")
+            java.srcDirs("src/test/java")
+            kotlin.srcDirs("src/test/java")
+            resources.srcDirs("src/test/resources")
         }
     }
     testOptions {
@@ -52,15 +53,17 @@ android {
 dependencies {
     implementation(project(":domain"))
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.gson)
+    
 
     // Test dependencies
     testImplementation(libs.junit)
     testImplementation(libs.robolectric)
     testImplementation(libs.assertj.core)
-    testImplementation(libs.gson)
+    
     testImplementation(libs.mockito.core)
     testImplementation(libs.androidx.test.core)
     testImplementation(project(":domain"))
     testImplementation(project(":data"))
+    testImplementation(libs.mockk)
+    testImplementation(libs.mockk.agent.jvm)
 }

@@ -25,5 +25,5 @@ dependencyResolutionManagement {
 rootProject.name = "Lango MVP Android"
 include(":app")
 include(":data")
-include(":domain")
+include("domain")
 include(":speech")

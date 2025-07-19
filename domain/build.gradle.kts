@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
@@ -39,4 +40,13 @@ android {
 
 dependencies {
     // No direct dependencies on other modules for now, as per clean architecture principles
+    testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.serialization.json)
+    implementation(libs.kotlinx.serialization.json)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.mockk.agent.jvm)
+    
 }
