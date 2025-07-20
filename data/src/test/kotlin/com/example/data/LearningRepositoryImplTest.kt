@@ -17,6 +17,7 @@ import org.robolectric.annotation.Config
 import android.os.Build
 import java.io.File
 import java.io.ByteArrayInputStream
+import kotlinx.serialization.json.Json
 
 @Config(sdk = [Build.VERSION_CODES.O])
 @RunWith(RobolectricTestRunner::class)
@@ -32,11 +33,11 @@ class LearningRepositoryImplTest {
     fun setup() {
         context = ApplicationProvider.getApplicationContext()
         filesDir = context.filesDir
-        repository = LearningRepositoryImpl(context)
+        repository = LearningRepositoryImpl(context, Json { ignoreUnknownKeys = true; encodeDefaults = true; coerceInputValues = true }, context.assets, filesDir)
 
         // Ensure the files are not present from previous runs for save test
-        File(filesDir, "core_blocks.json").delete()
-        File(filesDir, "learned_queue.json").delete()
+        File(filesDir, "queues/new_queue.json").delete()
+        File(filesDir, "queues/learned_queue.json").delete()
 
         coreBlocksJsonContent = checkNotNull(javaClass.classLoader?.getResourceAsStream("core_blocks.json")).bufferedReader().use { it.readText() }
         learnedQueueJsonContent = checkNotNull(javaClass.classLoader?.getResourceAsStream("learned_queue.json")).bufferedReader().use { it.readText() }
@@ -71,8 +72,8 @@ class LearningRepositoryImplTest {
 
         repository.saveQueues(queuesToSave)
 
-        val coreBlocksFile = File(filesDir, "core_blocks.json")
-        val learnedQueueFile = File(filesDir, "learned_queue.json")
+        val coreBlocksFile = File(filesDir, "queues/new_queue.json")
+        val learnedQueueFile = File(filesDir, "queues/learned_queue.json")
 
         assertTrue(coreBlocksFile.exists())
         assertTrue(learnedQueueFile.exists())

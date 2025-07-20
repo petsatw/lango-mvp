@@ -1,5 +1,8 @@
 package com.example.domain
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Queues(
     val newQueue: MutableList<LearningItem>,
     val learnedPool: MutableList<LearningItem>
