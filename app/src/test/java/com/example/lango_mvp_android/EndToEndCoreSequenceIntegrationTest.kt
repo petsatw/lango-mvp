@@ -30,6 +30,8 @@ import org.robolectric.annotation.Config
 import java.io.File
 import java.io.InputStreamReader
 
+import kotlinx.serialization.json.Json
+
 @RunWith(RobolectricTestRunner::class)
 @Config(manifest=Config.NONE)
 class EndToEndCoreSequenceIntegrationTest {
@@ -41,11 +43,13 @@ class EndToEndCoreSequenceIntegrationTest {
     private lateinit var ttsService: TtsServiceImpl
     private lateinit var mockMediaPlayer: MediaPlayer
     private lateinit var openAiApiKey: String
+    private lateinit var json: Json
 
     @Before
     fun setup() {
         context = ApplicationProvider.getApplicationContext()
-        learningRepository = LearningRepositoryImpl(context)
+        json = Json { ignoreUnknownKeys = true; encodeDefaults = true; coerceInputValues = true }
+        learningRepository = LearningRepositoryImpl(context, json, context.assets, context.filesDir)
         mockMediaPlayer = mockk(relaxed = true)
 
         // Read API key from local.properties

@@ -1,7 +1,12 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.kapt")
     id("org.jetbrains.kotlin.plugin.serialization")
+    id("com.google.dagger.hilt.android")
+}
+kapt {
+    correctErrorTypes = true
 }
 
 android {
@@ -57,7 +62,7 @@ dependencies {
 
     // Test dependencies
     testImplementation(libs.junit)
-    testImplementation(libs.robolectric)
+    testImplementation(libs.robolectric) // for FS-1 and FS-2
     testImplementation(libs.assertj.core)
     
     testImplementation(libs.mockito.core)
@@ -66,4 +71,6 @@ dependencies {
     testImplementation(project(":data"))
     testImplementation(libs.mockk)
     testImplementation(libs.mockk.agent.jvm)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 }

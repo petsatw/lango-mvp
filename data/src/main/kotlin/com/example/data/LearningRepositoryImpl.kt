@@ -12,16 +12,16 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.SerializationException
 
-class LearningRepositoryImpl(private val context: Context) : LearningRepository {
+import javax.inject.Inject
 
-    private val json = Json { ignoreUnknownKeys = true; encodeDefaults = true; coerceInputValues = true }
+class LearningRepositoryImpl @Inject constructor(private val context: Context, private val json: Json, private val assetManager: android.content.res.AssetManager, private val baseDir: File) : LearningRepository {
 
     override fun loadQueues(filePaths: Pair<String?, String?>?): Queues {
-        val newQueuePath = filePaths?.first ?: "core_blocks.json"
-        val learnedQueuePath = filePaths?.second ?: "learned_queue.json"
+        val newQueuePath = filePaths?.first ?: "queues/new_queue.json"
+        val learnedQueuePath = filePaths?.second ?: "queues/learned_queue.json"
 
-        val newQueueStream = context.assets.open(newQueuePath)
-        val learnedQueueStream = context.assets.open(learnedQueuePath)
+        val newQueueStream = assetManager.open(newQueuePath)
+        val learnedQueueStream = assetManager.open(learnedQueuePath)
 
         return loadQueues(newQueueStream, learnedQueueStream)
     }
@@ -53,8 +53,11 @@ class LearningRepositoryImpl(private val context: Context) : LearningRepository 
     }
 
     override fun saveQueues(queues: Queues) {
-        val newQueueFile = File(context.filesDir, "core_blocks.json")
-        val learnedQueueFile = File(context.filesDir, "learned_queue.json")
+        val newQueueFile = File(baseDir, "queues/new_queue.json")
+        val learnedQueueFile = File(baseDir, "queues/learned_queue.json")
+
+        newQueueFile.parentFile?.mkdirs()
+        learnedQueueFile.parentFile?.mkdirs()
 
         newQueueFile.writeText(json.encodeToString(queues.newQueue))
         learnedQueueFile.writeText(json.encodeToString(queues.learnedPool))
