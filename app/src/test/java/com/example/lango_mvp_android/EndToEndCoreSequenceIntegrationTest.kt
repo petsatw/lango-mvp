@@ -49,7 +49,7 @@ class EndToEndCoreSequenceIntegrationTest {
     fun setup() {
         context = ApplicationProvider.getApplicationContext()
         json = Json { ignoreUnknownKeys = true; encodeDefaults = true; coerceInputValues = true }
-        learningRepository = LearningRepositoryImpl(context, json, context.assets, context.filesDir)
+        learningRepository = LearningRepositoryImpl(context.assets, context.filesDir, json)
         mockMediaPlayer = mockk(relaxed = true)
 
         // Read API key from local.properties
@@ -72,7 +72,8 @@ class EndToEndCoreSequenceIntegrationTest {
         // 1. Load JSON files into memory
         val newQueueJson = javaClass.classLoader?.getResourceAsStream("core_blocks.json")?.bufferedReader().use { it?.readText() ?: "" }
         val learnedQueueJson = javaClass.classLoader?.getResourceAsStream("learned_queue.json")?.bufferedReader().use { it?.readText() ?: "" }
-        val queues = learningRepository.loadQueues(newQueueJson, learnedQueueJson)
+        val queuesResult = learningRepository.loadQueues()
+        val queues = queuesResult.getOrThrow()
 
         // 2. Generate dialogue
         coEvery { llmService.generateDialogue(any<String>()) } returns "Hallo! Das ist ein Gruß."

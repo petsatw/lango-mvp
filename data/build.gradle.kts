@@ -45,6 +45,7 @@ android {
             java.srcDirs("src/test/java")
             kotlin.srcDirs("src/test/java")
             resources.srcDirs("src/test/resources")
+            assets.srcDirs("src/test/assets")
         }
     }
     testOptions {
@@ -53,6 +54,10 @@ android {
             it.systemProperties["robolectric.logging.enabled"] = "true"
         }
     }
+}
+
+tasks.withType<Test> {
+    useJUnit()
 }
 
 dependencies {
@@ -64,6 +69,7 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.robolectric) // for FS-1 and FS-2
     testImplementation(libs.assertj.core)
+    testImplementation(libs.kotlinx.coroutines.test)
     
     testImplementation(libs.mockito.core)
     testImplementation(libs.androidx.test.core)

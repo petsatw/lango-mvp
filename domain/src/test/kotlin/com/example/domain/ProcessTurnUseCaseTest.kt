@@ -1,11 +1,13 @@
 package com.example.domain
 
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.mock
 import org.mockito.Mockito.verify
+import org.mockito.kotlin.whenever
 
 class ProcessTurnUseCaseTest {
 
@@ -19,7 +21,7 @@ class ProcessTurnUseCaseTest {
     }
 
     @Test
-    fun `processTurn increments usageCount if newTarget is in user response`() {
+    fun `processTurn increments usageCount if newTarget is in user response`() = runTest {
         // Arrange
         val newTarget = LearningItem("id1", "token1", "cat1", "sub1", 0, 0, false)
         val queues = Queues(
@@ -27,17 +29,18 @@ class ProcessTurnUseCaseTest {
             learnedPool = mutableListOf()
         )
         val userResponse = "User says token1"
+        whenever(mockLearningRepository.saveQueues(queues)).thenReturn(Result.success(Unit))
 
         // Act
-        val updatedQueues = processTurnUseCase.processTurn(queues, userResponse)
+        val updatedQueuesResult = processTurnUseCase.processTurn(queues, userResponse)
 
         // Assert
-        assertEquals(1, updatedQueues.newQueue[0].usageCount)
-        verify(mockLearningRepository).saveQueues(updatedQueues)
+        assertEquals(1, updatedQueuesResult.getOrThrow().newQueue[0].usageCount)
+        verify(mockLearningRepository).saveQueues(queues)
     }
 
     @Test
-    fun `processTurn moves newTarget to learnedPool and dequeues next when mastered`() {
+    fun `processTurn moves newTarget to learnedPool and dequeues next when mastered`() = runTest {
         // Arrange
         val newTarget = LearningItem("id1", "token1", "cat1", "sub1", 2, 0, false) // usageCount = 2
         val nextNewTarget = LearningItem("id2", "token2", "cat2", "sub2", 0, 0, false)
@@ -46,9 +49,11 @@ class ProcessTurnUseCaseTest {
             learnedPool = mutableListOf()
         )
         val userResponse = "User says token1"
+        whenever(mockLearningRepository.saveQueues(queues)).thenReturn(Result.success(Unit))
 
         // Act
-        val updatedQueues = processTurnUseCase.processTurn(queues, userResponse)
+        val updatedQueuesResult = processTurnUseCase.processTurn(queues, userResponse)
+        val updatedQueues = updatedQueuesResult.getOrThrow()
 
         // Assert
         assertTrue(updatedQueues.newQueue.first() == nextNewTarget) // Next new_target dequeued
@@ -57,11 +62,11 @@ class ProcessTurnUseCaseTest {
         assertTrue(newTarget.isLearned) // isLearned set to true
         assertEquals(0, nextNewTarget.usageCount) // New new_target counts reset
         assertEquals(0, nextNewTarget.presentationCount) // New new_target counts reset
-        verify(mockLearningRepository).saveQueues(updatedQueues)
+        verify(mockLearningRepository).saveQueues(queues)
     }
 
     @Test
-    fun `processTurn does not increment usageCount if newTarget is not in user response`() {
+    fun `processTurn does not increment usageCount if newTarget is not in user response`() = runTest {
         // Arrange
         val newTarget = LearningItem("id1", "token1", "cat1", "sub1", 0, 0, false)
         val queues = Queues(
@@ -69,12 +74,13 @@ class ProcessTurnUseCaseTest {
             learnedPool = mutableListOf()
         )
         val userResponse = "User says something else"
+        whenever(mockLearningRepository.saveQueues(queues)).thenReturn(Result.success(Unit))
 
         // Act
-        val updatedQueues = processTurnUseCase.processTurn(queues, userResponse)
+        val updatedQueuesResult = processTurnUseCase.processTurn(queues, userResponse)
 
         // Assert
-        assertEquals(0, updatedQueues.newQueue[0].usageCount)
-        verify(mockLearningRepository).saveQueues(updatedQueues)
+        assertEquals(0, updatedQueuesResult.getOrThrow().newQueue[0].usageCount)
+        verify(mockLearningRepository).saveQueues(queues)
     }
 }

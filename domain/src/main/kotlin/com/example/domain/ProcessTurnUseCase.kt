@@ -1,7 +1,7 @@
 package com.example.domain
 
 class ProcessTurnUseCase(private val learningRepository: LearningRepository) {
-    fun processTurn(queues: Queues, userResponseText: String): Queues {
+    suspend fun processTurn(queues: Queues, userResponseText: String): Result<Queues> {
         val currentNewTarget = queues.newQueue.firstOrNull()
 
         currentNewTarget?.let { newTarget ->
@@ -20,6 +20,6 @@ class ProcessTurnUseCase(private val learningRepository: LearningRepository) {
 
         // Save the updated queues
         learningRepository.saveQueues(queues)
-        return queues
+        return Result.success(queues)
     }
 }
