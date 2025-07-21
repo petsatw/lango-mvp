@@ -1,12 +1,14 @@
 package com.example.domain
 
 class StartSessionUseCase(private val learningRepository: LearningRepository) {
-    fun startSession(): Queues {
-        val queues = learningRepository.loadQueues(null as Pair<String, String>?)
-        queues.newQueue.firstOrNull()?.let {
-            it.usageCount = 0
-            it.presentationCount = 0
+    suspend fun startSession(): Result<Queues> {
+        val queuesResult = learningRepository.loadQueues()
+                return queuesResult.map {
+            it.newQueue.firstOrNull()?.let {
+                it.usageCount = 0
+                it.presentationCount = 0
+            }
+            it
         }
-        return queues
     }
 }

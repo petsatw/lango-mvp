@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import com.example.domain.LearningItem
 import com.example.domain.Queues
+import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
@@ -13,11 +14,11 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
-import org.junit.Ignore
 import java.io.File
 
-@Ignore("Enable after FR-1 merges")
-@Config(manifest=Config.NONE)
+import org.robolectric.shadows.ShadowAssetManager
+
+@Config(sdk = [26])
 @RunWith(RobolectricTestRunner::class)
 class BootstrapSmokeTest {
 
@@ -31,17 +32,19 @@ class BootstrapSmokeTest {
         context = ApplicationProvider.getApplicationContext()
         filesDir = context.filesDir
         json = Json { ignoreUnknownKeys = true; encodeDefaults = true; coerceInputValues = true }
-        repository = LearningRepositoryImpl(context, json, context.assets, filesDir)
+        repository = LearningRepositoryImpl(context.assets, filesDir, json)
 
         // Ensure the files are not present from previous runs for save test
-        File(filesDir, "queues/new_queue.json").delete()
-        File(filesDir, "queues/learned_queue.json").delete()
+        File(filesDir, "queues").deleteRecursively()
+        println("Test filesDir: ${filesDir.absolutePath}")
     }
 
     @Test
-    fun `smoke test - initial load and save`() {
+    fun `smoke test - initial load and save`() = runTest {
         // Load initial queues from assets
-        val initialQueues = repository.loadQueues(null)
+        val initialQueuesResult = repository.loadQueues()
+        assertTrue(initialQueuesResult.isSuccess)
+        val initialQueues = initialQueuesResult.getOrThrow()
 
         assertNotNull(initialQueues)
         assertEquals(3, initialQueues.newQueue.size)
@@ -55,7 +58,9 @@ class BootstrapSmokeTest {
         repository.saveQueues(initialQueues)
 
         // Load queues again to verify persistence
-        val loadedQueues = repository.loadQueues(null)
+        val loadedQueuesResult = repository.loadQueues()
+        assertTrue(loadedQueuesResult.isSuccess)
+        val loadedQueues = loadedQueuesResult.getOrThrow()
 
         assertNotNull(loadedQueues)
         assertEquals(2, loadedQueues.newQueue.size) // One item should have moved to learnedPool
@@ -68,7 +73,7 @@ class BootstrapSmokeTest {
     }
 
     @Test
-    fun `smoke test - empty queues after mastery`() {
+    fun `smoke test - empty queues after mastery`() = runTest {
         // Create a scenario where newQueue becomes empty after mastery
         val singleItemNewQueue = mutableListOf(
             LearningItem("test_id", "TestToken", "TestCategory", "TestSubcategory", 0, 0, false)
@@ -85,7 +90,9 @@ class BootstrapSmokeTest {
         queues.newQueue.first().usageCount = 3
         repository.saveQueues(queues)
 
-        val loadedQueues = repository.loadQueues(null)
+        val loadedQueuesResult = repository.loadQueues()
+        assertTrue(loadedQueuesResult.isSuccess)
+        val loadedQueues = loadedQueuesResult.getOrThrow()
 
         assertTrue(loadedQueues.newQueue.isEmpty())
         assertEquals(1, loadedQueues.learnedPool.size)

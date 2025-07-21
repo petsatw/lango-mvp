@@ -51,4 +51,5 @@ class JsonAssetLoaderTest {
         assertEquals("Blocks", firstItem.category)
         assertEquals("fixed", firstItem.subcategory)
     }
-}
+
+    }

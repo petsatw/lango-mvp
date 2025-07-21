@@ -33,36 +33,47 @@ class MainViewModel(
     fun startSession() {
         vmScope.launch {
             _uiState.value = UiState.Loading
-            try {
-                val initialQueues = startSessionUseCase.startSession()
-                currentQueues = initialQueues
-                generateCoachDialogue()
-            } catch (e: Exception) {
-                _uiState.value = UiState.Error(e.message ?: "Unknown error during session start")
-            }
+
+            startSessionUseCase.startSession()
+                .onSuccess { queues ->
+                    currentQueues = queues
+                    generateCoachDialogue()
+                }
+                .onFailure { e ->
+                    _uiState.value = UiState.Error(
+                        e.message ?: "Unknown error during session start"
+                    )
+                }
         }
     }
 
     fun processTurn(userResponseText: String) {
         vmScope.launch {
             _uiState.value = UiState.Waiting
-            currentQueues?.let { queues ->
-                try {
-                    val updatedQueues = processTurnUseCase.processTurn(queues, userResponseText)
-                    currentQueues = updatedQueues
-                    if (updatedQueues.newQueue.isEmpty()) {
+
+            val queues = currentQueues
+            if (queues == null) {
+                _uiState.value = UiState.Error("Session not started")
+                return@launch
+            }
+
+            processTurnUseCase.processTurn(queues, userResponseText)
+                .onSuccess { updated ->
+                    currentQueues = updated
+
+                    if (updated.newQueue.isEmpty()) {
                         _uiState.value = UiState.Congrats
-                        endSessionUseCase.endSession(updatedQueues)
+                        endSessionUseCase.endSession(updated)
                         currentQueues = null
                     } else {
                         generateCoachDialogue()
                     }
-                } catch (e: Exception) {
-                    _uiState.value = UiState.Error(e.message ?: "Unknown error during turn processing")
                 }
-            } ?: run {
-                _uiState.value = UiState.Error("Session not started.")
-            }
+                .onFailure { e ->
+                    _uiState.value = UiState.Error(
+                        e.message ?: "Unknown error during turn processing"
+                    )
+                }
         }
     }
 
@@ -80,9 +91,12 @@ class MainViewModel(
     fun endSession() {
         vmScope.launch {
             currentQueues?.let { queues ->
-                endSessionUseCase.endSession(queues)
-                currentQueues = null
-                _uiState.value = UiState.Idle
+                endSessionUseCase.endSession(queues).onSuccess {
+                    currentQueues = null
+                    _uiState.value = UiState.Idle
+                }.onFailure {
+                    _uiState.value = UiState.Error(it.message ?: "Unknown error during session end")
+                }
             }
         }
     }
