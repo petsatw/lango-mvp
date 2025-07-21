@@ -49,8 +49,6 @@ class LearningRepositoryImpl @Inject constructor(
             return@withLock runCatching {
                 atomicWrite(newQueueFile, json.encodeToString(queues.newQueue))
                 atomicWrite(learnedQueueFile, json.encodeToString(queues.learnedPool))
-            }.onFailure { throwable ->
-                // No-op for now, let the test fail loudly
             }
         }
     }
@@ -77,7 +75,7 @@ class LearningRepositoryImpl @Inject constructor(
             )
         } catch (e: AtomicMoveNotSupportedException) {
             // Falls back to a regular, still thread-safe replace.
-            Files.move(
+            Files.copy(
                 tmp.toPath(), target.toPath(),
                 StandardCopyOption.REPLACE_EXISTING
             )

@@ -56,8 +56,9 @@ android {
     }
 }
 
-tasks.withType<Test> {
+tasks.withType<Test>().configureEach {
     useJUnit()
+    testLogging { events("standard_out", "standard_error") }
 }
 
 dependencies {
