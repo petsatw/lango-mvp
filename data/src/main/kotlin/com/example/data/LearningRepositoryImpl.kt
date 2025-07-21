@@ -32,17 +32,13 @@ class LearningRepositoryImpl @Inject constructor(
 
     override suspend fun loadQueues(): Result<Queues> = withContext(Dispatchers.IO) {
         ioMutex.withLock {
-            try {
+            runCatching {
                 ensureBootstrap()
-                val newItems: List<LearningItem> =
-                    json.decodeFromString(newQueueFile.readText())
-                val learnedItems: List<LearningItem> =
-                    json.decodeFromString(learnedQueueFile.readText())
-                Result.success(Queues(newItems.toMutableList(), learnedItems.toMutableList()))
-            } catch (e: SerializationException) {
-                Result.failure(e)
-            } catch (e: IOException) {
-                Result.failure(e)
+                val newItems: List<LearningItem> = json.decodeFromString(newQueueFile.readText())
+                val learnedItems: List<LearningItem> = json.decodeFromString(learnedQueueFile.readText())
+                Queues(newItems.toMutableList(), learnedItems.toMutableList())
+            }.recoverCatching {
+                restoreFromAssets()
             }
         }
     }
@@ -75,5 +71,12 @@ class LearningRepositoryImpl @Inject constructor(
         tmp.writeText(text)
         Files.move(tmp.toPath(), target.toPath(),
                    StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING)
+    }
+
+    private fun restoreFromAssets(): Queues {
+        copyFromAssets()
+        val newItems: List<LearningItem> = json.decodeFromString(newQueueFile.readText())
+        val learnedItems: List<LearningItem> = json.decodeFromString(learnedQueueFile.readText())
+        return Queues(newItems.toMutableList(), learnedItems.toMutableList())
     }
 }

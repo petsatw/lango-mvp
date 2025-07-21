@@ -27,8 +27,7 @@ class JsonAssetLoaderTest {
         // Assert: Verify fields (adjust based on actual JSON)
         assertEquals("german_AA002", firstItem.id)
         assertEquals("sehr", firstItem.token)
-        assertEquals("Adjectives/Adverbs", firstItem.category)
-        assertEquals("adverb", firstItem.subcategory)
+        assertTrue(firstItem.isLearned)
     }
 
     @Test
@@ -48,8 +47,7 @@ class JsonAssetLoaderTest {
         // Assert: Verify fields (adjust based on actual JSON)
         assertEquals("german_CP001", firstItem.id)
         assertEquals("Entschuldigung", firstItem.token)
-        assertEquals("Blocks", firstItem.category)
-        assertEquals("fixed", firstItem.subcategory)
+        assertFalse(firstItem.isLearned)
     }
 
     }

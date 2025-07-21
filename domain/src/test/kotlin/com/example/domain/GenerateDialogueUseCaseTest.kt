@@ -26,13 +26,13 @@ class GenerateDialogueUseCaseTest {
     @Test
     fun `generatePrompt creates correct prompt string for new target`() = runTest {
         // Arrange
-        val newTarget = LearningItem("id1", "new1", "cat1", "sub1", 0, 0, false)
+        val newTarget = LearningItem("id1", "token1", 0, 0)
         val learnedItems = mutableListOf(
-            LearningItem("id3", "learned1", "cat3", "sub3", 0, 0, true)
+            LearningItem("id3", "token3", 0, 0)
         )
         val queues = Queues(mutableListOf(newTarget), learnedItems)
 
-        val expectedLlmPrompt = "Say 'new1' by itself. Explain what 'new1' means in a very short sentence that a 5-year-old would understand. Give one simple example with 'new1' that a 5-year-old would understand, preferably with items from the learned pool: learned1. "
+        val expectedLlmPrompt = "Say 'token1' by itself. Explain what 'token1' means in a very short sentence that a 5-year-old would understand. Give one simple example with 'token1' that a 5-year-old would understand, preferably with items from the learned pool: token3. "
         val expectedLlmResponse = "LLM generated response for new target"
 
         coEvery { mockLlmService.generateDialogue(expectedLlmPrompt) } returns expectedLlmResponse
@@ -48,13 +48,13 @@ class GenerateDialogueUseCaseTest {
     @Test
     fun `generatePrompt creates correct prompt string for existing target`() = runTest {
         // Arrange
-        val newTarget = LearningItem("id1", "new1", "cat1", "sub1", 1, 1, false)
+        val newTarget = LearningItem("id1", "token1", 1, 1)
         val learnedItems = mutableListOf(
-            LearningItem("id3", "learned1", "cat3", "sub3", 0, 0, true)
+            LearningItem("id3", "token3", 0, 0)
         )
         val queues = Queues(mutableListOf(newTarget), learnedItems)
 
-        val expectedLlmPrompt = "Generate natural German dialogue using only 'new1' and items from the learned pool: learned1. Bias towards less used or less familiar items (consider their usage and presentation counts). Avoid repeating the same learned pool item twice in a row. Frequently use strategic questions to elicit the learner’s use of 'new1'."
+        val expectedLlmPrompt = "Generate natural German dialogue using only 'token1' and items from the learned pool: token3. Bias towards less used or less familiar items (consider their usage and presentation counts). Avoid repeating the same learned pool item twice in a row. Frequently use strategic questions to elicit the learner’s use of 'token1'."
         val expectedLlmResponse = "LLM generated response for existing target"
 
         coEvery { mockLlmService.generateDialogue(expectedLlmPrompt) } returns expectedLlmResponse
@@ -71,7 +71,7 @@ class GenerateDialogueUseCaseTest {
         // Arrange
         val queues = Queues(
             newQueue = mutableListOf(),
-            learnedPool = mutableListOf(LearningItem("id1", "token1", "cat1", "sub1", 0, 0, true))
+            learnedPool = mutableListOf(LearningItem("id1", "token1", 0, 0))
         )
 
         // Act

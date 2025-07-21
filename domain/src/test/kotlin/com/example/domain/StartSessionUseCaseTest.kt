@@ -22,8 +22,8 @@ class StartSessionUseCaseTest {
     fun `startSession returns queues from repository`() = runTest {
         // Arrange
         val expectedQueues = Queues(
-            newQueue = mutableListOf(LearningItem("id1", "token1", "cat1", "sub1", 0, 0, false)),
-            learnedPool = mutableListOf(LearningItem("id2", "token2", "cat2", "sub2", 0, 0, true))
+            newQueue = mutableListOf(LearningItem("id1", "token1", 0, 0)),
+            learnedPool = mutableListOf(LearningItem("id2", "token2", 0, 0))
         )
         `when`(mockLearningRepository.loadQueues()).thenReturn(Result.success(expectedQueues))
 
