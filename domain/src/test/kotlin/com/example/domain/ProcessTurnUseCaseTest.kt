@@ -30,7 +30,7 @@ class ProcessTurnUseCaseTest {
             learnedPool = mutableListOf()
         )
         val userResponse = "User says token1"
-        whenever(mockLearningRepository.saveQueues(queues)).thenReturn(Result.success(Unit))
+        whenever(mockLearningRepository.saveQueues(org.mockito.kotlin.any())).thenReturn(Result.success(Unit))
 
         // Act
         val updatedQueuesResult = processTurnUseCase.processTurn(queues, userResponse)
@@ -43,7 +43,7 @@ class ProcessTurnUseCaseTest {
     @Test
     fun `processTurn moves newTarget to learnedPool and dequeues next when mastered`() = runTest {
         // Arrange
-        val newTarget = LearningItem("id1", "token1", 2, 0) // usageCount = 2
+        val newTarget = LearningItem("id1", "token1", 0, 2) // usageCount = 2
         val nextNewTarget = LearningItem("id2", "token2", 0, 0)
         val queues = Queues(
             newQueue = mutableListOf(newTarget, nextNewTarget),
@@ -51,7 +51,7 @@ class ProcessTurnUseCaseTest {
         )
         val initialLearnedPoolSize = queues.learnedPool.size
         val userResponse = "User says token1"
-        whenever(mockLearningRepository.saveQueues(queues)).thenReturn(Result.success(Unit))
+        whenever(mockLearningRepository.saveQueues(org.mockito.kotlin.any())).thenReturn(Result.success(Unit))
 
         // Act
         val updatedQueuesResult = processTurnUseCase.processTurn(queues, userResponse)
@@ -60,8 +60,10 @@ class ProcessTurnUseCaseTest {
         // Assert
         // Assert
         assertEquals(1, updatedQueues.newQueue.size) // New queue should have one item
-        assertTrue(newTarget.isLearned) // The original newTarget should now be learned
-        assertEquals(3, newTarget.usageCount) // usageCount should be 3
+        assertEquals(initialLearnedPoolSize + 1, updatedQueues.learnedPool.size) // Learned pool should have one more item
+        val movedItem = updatedQueues.learnedPool.first { it.id == newTarget.id } // Get the moved item from learnedPool
+        assertTrue(movedItem.isLearned) // The moved item should now be learned
+        assertEquals(3, movedItem.usageCount) // usageCount should be 3
     }
 
     @Test
@@ -73,7 +75,7 @@ class ProcessTurnUseCaseTest {
             learnedPool = mutableListOf()
         )
         val userResponse = "User says something else"
-        whenever(mockLearningRepository.saveQueues(queues)).thenReturn(Result.success(Unit))
+        whenever(mockLearningRepository.saveQueues(org.mockito.kotlin.any())).thenReturn(Result.success(Unit))
 
         // Act
         val updatedQueuesResult = processTurnUseCase.processTurn(queues, userResponse)

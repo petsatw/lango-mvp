@@ -18,6 +18,7 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
+import java.nio.file.AtomicMoveNotSupportedException
 
 @Singleton
 class LearningRepositoryImpl @Inject constructor(
@@ -45,12 +46,11 @@ class LearningRepositoryImpl @Inject constructor(
 
     override suspend fun saveQueues(queues: Queues): Result<Unit> = withContext(Dispatchers.IO) {
         ioMutex.withLock {
-            try {
+            return@withLock runCatching {
                 atomicWrite(newQueueFile, json.encodeToString(queues.newQueue))
                 atomicWrite(learnedQueueFile, json.encodeToString(queues.learnedPool))
-                Result.success(Unit)
-            } catch (e: IOException) {
-                Result.failure(e)
+            }.onFailure { throwable ->
+                // No-op for now, let the test fail loudly
             }
         }
     }
@@ -67,10 +67,21 @@ class LearningRepositoryImpl @Inject constructor(
     }
 
     private fun atomicWrite(target: File, text: String) {
-        val tmp = File.createTempFile(target.nameWithoutExtension, ".tmp", target.parentFile)
+        val tmp = File.createTempFile(target.name, ".tmp", target.parentFile)
         tmp.writeText(text)
-        Files.move(tmp.toPath(), target.toPath(),
-                   StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING)
+        try {
+            Files.move(
+                tmp.toPath(), target.toPath(),
+                StandardCopyOption.ATOMIC_MOVE,
+                StandardCopyOption.REPLACE_EXISTING
+            )
+        } catch (e: AtomicMoveNotSupportedException) {
+            // Falls back to a regular, still thread-safe replace.
+            Files.move(
+                tmp.toPath(), target.toPath(),
+                StandardCopyOption.REPLACE_EXISTING
+            )
+        }
     }
 
     private fun restoreFromAssets(): Queues {

@@ -20,6 +20,9 @@ import com.example.domain.LearningRepository
 import kotlinx.serialization.SerializationException
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.coroutineScope
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
+import java.nio.file.AtomicMoveNotSupportedException
 
 @Config(sdk = [26])
 @RunWith(RobolectricTestRunner::class)
@@ -85,6 +88,32 @@ class LearningRepositoryImplTest {
 
         // Incremented count is present; call returns success.
         assertEquals(itemToModify.presentationCount, reloadedQueues.newQueue.first { it.id == itemToModify.id }.presentationCount)
+    }
+
+    // FS-2b: Unsupported-atomic-move fallback
+    @Test
+    fun `FS-2b Unsupported-atomic-move fallback`() = runTest {
+        mockkStatic(Files::class) {
+            every { Files.move(any(), any(), *anyVararg()) } throws AtomicMoveNotSupportedException("Atomic move not supported")
+
+            // 1. Load queues.
+            val initialQueues = repository.loadQueues().getOrThrow()
+
+            // 2. Increment presentationCount on first item.
+            val itemToModify = initialQueues.newQueue.first()
+            itemToModify.presentationCount++
+
+            // 3. repo.saveQueues().
+            val saveResult = repository.saveQueues(initialQueues)
+            assertTrue(saveResult.isSuccess)
+
+            // 4. New repo -> loadQueues()
+            val newRepository = LearningRepositoryImpl(context.assets, filesDir, json)
+            val reloadedQueues = newRepository.loadQueues().getOrThrow()
+
+            // Incremented count is present; call returns success.
+            assertEquals(itemToModify.presentationCount, reloadedQueues.newQueue.first { it.id == itemToModify.id }.presentationCount)
+        }
     }
 
     // FS-3: Concurrent read/write

@@ -77,6 +77,7 @@ dependencies {
     testImplementation(project(":data"))
     testImplementation(libs.mockk)
     testImplementation(libs.mockk.agent.jvm)
+    testImplementation("com.google.jimfs:jimfs:1.3.0")
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 }
