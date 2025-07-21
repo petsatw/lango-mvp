@@ -1,0 +1,965 @@
+Initialized native services in: C:\Users\audoc\.gradle\native
+Initialized jansi services in: C:\Users\audoc\.gradle\native
+The client will now receive all logging from the daemon (pid: 6620). The daemon log file: C:\Users\audoc\.gradle\daemon\8.14.3\daemon-6620.out.log
+Starting 22nd build in daemon [uptime: 2 hrs 9 mins 58.053 secs, performance: 99%, GC rate: 0.00/s, heap usage: 3% of 2 GiB, non-heap usage: 66% of 512 MiB]
+Using 16 worker leases.
+Now considering [C:\Users\audoc\apps\lango-dev\lango-mvp-android] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Settings evaluated using settings file 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\settings.gradle.kts'.
+Projects loaded. Root project using build file 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\build.gradle.kts'.
+Included projects: [root project 'Lango MVP Android', project ':app', project ':data', project ':domain', project ':speech']
+
+> Configure project :
+Evaluating root project 'Lango MVP Android' using build file 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\build.gradle.kts'.
+Resolved plugin [id: 'com.android.application', version: '8.6.0', apply: false]
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.2.0', apply: false]
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '2.2.0', apply: false]
+Resolved plugin [id: 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin', version: '2.0.1', apply: false]
+Resolved plugin [id: 'com.google.dagger.hilt.android', version: '2.56.1', apply: false]
+
+> Configure project :app
+Evaluating project ':app' using build file 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\app\build.gradle.kts'.
+Resolved plugin [id: 'com.android.application', version: '8.6.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.2.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.kapt']
+Resolved plugin [id: 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin', version: '2.0.1']
+Resolved plugin [id: 'com.google.dagger.hilt.android']
+Using default execution profile
+Build 8aa050ab-37aa-4087-8e35-77215efc0c5d is started
+Using Kotlin Gradle Plugin gradle813 variant
+
+> Configure project :data
+Evaluating project ':data' using build file 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build.gradle.kts'.
+Resolved plugin [id: 'com.android.library', version: '8.6.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.2.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.kapt']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '2.2.0']
+Resolved plugin [id: 'com.google.dagger.hilt.android']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle813 variant
+
+> Configure project :domain
+Evaluating project ':domain' using build file 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\build.gradle.kts'.
+Resolved plugin [id: 'com.android.library', version: '8.6.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.2.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '2.2.0']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle813 variant
+
+> Configure project :speech
+Evaluating project ':speech' using build file 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\speech\build.gradle.kts'.
+Resolved plugin [id: 'com.android.library', version: '8.6.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.android', version: '2.2.0']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '2.2.0']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle813 variant
+All projects evaluated.
+Task path ':data:testDebugUnitTest' matched project ':data'
+Task name matched 'testDebugUnitTest'
+Selected primary task 'testDebugUnitTest' from project :data
+Tasks to be executed: [task ':data:preBuild', task ':data:preDebugBuild', task ':data:checkKotlinGradlePluginConfigurationErrors', task ':data:generateDebugResValues', task ':data:generateDebugResources', task ':data:packageDebugResources', task ':data:parseDebugLocalResources', task ':data:generateDebugRFile', task ':domain:checkKotlinGradlePluginConfigurationErrors', task ':domain:preBuild', task ':domain:preDebugBuild', task ':domain:generateDebugResValues', task ':domain:generateDebugResources', task ':domain:packageDebugResources', task ':domain:parseDebugLocalResources', task ':domain:generateDebugRFile', task ':domain:compileDebugKotlin', task ':domain:javaPreCompileDebug', task ':domain:compileDebugJavaWithJavac', task ':domain:bundleLibCompileToJarDebug', task ':data:kaptGenerateStubsDebugKotlin', task ':data:kaptDebugKotlin', task ':data:compileDebugKotlin', task ':data:javaPreCompileDebug', task ':data:compileDebugJavaWithJavac', task ':domain:bundleLibRuntimeToJarDebug', task ':data:transformDebugClassesWithAsm', task ':data:bundleLibRuntimeToJarDebug', task ':data:mergeDebugShaders', task ':data:compileDebugShaders', task ':data:generateDebugAssets', task ':domain:mergeDebugShaders', task ':domain:compileDebugShaders', task ':domain:generateDebugAssets', task ':domain:packageDebugAssets', task ':data:mergeDebugAssets', task ':data:generateDebugUnitTestAssets', task ':data:packageDebugAssets', task ':data:preDebugUnitTestBuild', task ':data:mergeDebugUnitTestAssets', task ':data:writeDebugAarMetadata', task ':domain:writeDebugAarMetadata', task ':data:checkDebugUnitTestAarMetadata', task ':data:compileDebugLibraryResources', task ':data:generateDebugUnitTestResValues', task ':data:mapDebugUnitTestSourceSetPaths', task ':data:generateDebugUnitTestResources', task ':data:mergeDebugUnitTestResources', task ':data:extractDeepLinksDebug', task ':data:processDebugManifest', task ':domain:extractDeepLinksDebug', task ':domain:processDebugManifest', task ':data:processDebugUnitTestManifest', task ':domain:compileDebugLibraryResources', task ':data:processDebugUnitTestResources', task ':data:packageDebugUnitTestForUnitTest', task ':data:generateDebugUnitTestConfig', task ':data:processDebugJavaRes', task ':data:bundleLibCompileToJarDebug', task ':data:kaptGenerateStubsDebugUnitTestKotlin', task ':data:kaptDebugUnitTestKotlin', task ':data:compileDebugUnitTestKotlin', task ':data:javaPreCompileDebugUnitTest', task ':data:compileDebugUnitTestJavaWithJavac', task ':data:hiltAggregateDepsDebugUnitTest', task ':data:hiltJavaCompileDebugUnitTest', task ':data:processDebugUnitTestJavaRes', task ':data:transformDebugUnitTestClassesWithAsm', task ':domain:processDebugJavaRes', task ':data:testDebugUnitTest']
+Tasks that were excluded: []
+work action Parameters of IdentityTransform (Thread[#4335,Execution worker,5,main]) started.
+work action Parameters of CopyTransform (Thread[#4335,Execution worker,5,main]) started.
+work action Parameters of AggregatedPackagesTransform (Thread[#4335,Execution worker,5,main]) started.
+Resolve mutations for :data:preBuild (Thread[#4335,Execution worker,5,main]) started.
+:data:preBuild (Thread[#4335,Execution worker,5,main]) started.
+
+> Task :data:preBuild UP-TO-DATE
+Skipping task ':data:preBuild' as it has no actions.
+Resolve mutations for :data:preDebugBuild (Thread[#4335,Execution worker,5,main]) started.
+:data:preDebugBuild (Thread[#4335,Execution worker,5,main]) started.
+
+> Task :data:preDebugBuild UP-TO-DATE
+Skipping task ':data:preDebugBuild' as it has no actions.
+Resolve mutations for :data:checkKotlinGradlePluginConfigurationErrors (Thread[#4334,included builds,5,main]) started.
+:data:checkKotlinGradlePluginConfigurationErrors (Thread[#4348,Execution worker Thread 14,5,main]) started.
+
+> Task :data:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':data:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :data:generateDebugResValues (Thread[#4348,Execution worker Thread 14,5,main]) started.
+:data:generateDebugResValues (Thread[#4335,Execution worker,5,main]) started.
+
+> Task :data:generateDebugResValues UP-TO-DATE
+Caching disabled for task ':data:generateDebugResValues' because:
+  Build cache is disabled
+Skipping task ':data:generateDebugResValues' as it is up-to-date.
+Resolve mutations for :data:generateDebugResources (Thread[#4335,Execution worker,5,main]) started.
+:data:generateDebugResources (Thread[#4345,Execution worker Thread 11,5,main]) started.
+
+> Task :data:generateDebugResources UP-TO-DATE
+Caching disabled for task ':data:generateDebugResources' because:
+  Build cache is disabled
+Skipping task ':data:generateDebugResources' as it is up-to-date.
+Resolve mutations for :data:packageDebugResources (Thread[#4345,Execution worker Thread 11,5,main]) started.
+:data:packageDebugResources (Thread[#4343,Execution worker Thread 9,5,main]) started.
+
+> Task :data:packageDebugResources UP-TO-DATE
+Caching disabled for task ':data:packageDebugResources' because:
+  Build cache is disabled
+Skipping task ':data:packageDebugResources' as it is up-to-date.
+work action resolve packageDebugResources (project :data) (Thread[#4343,Execution worker Thread 9,5,main]) started.
+Resolve mutations for :data:parseDebugLocalResources (Thread[#4343,Execution worker Thread 9,5,main]) started.
+:data:parseDebugLocalResources (Thread[#4343,Execution worker Thread 9,5,main]) started.
+
+> Task :data:parseDebugLocalResources UP-TO-DATE
+Caching disabled for task ':data:parseDebugLocalResources' because:
+  Build cache is disabled
+Skipping task ':data:parseDebugLocalResources' as it is up-to-date.
+Resolve mutations for :data:generateDebugRFile (Thread[#4343,Execution worker Thread 9,5,main]) started.
+:data:generateDebugRFile (Thread[#4343,Execution worker Thread 9,5,main]) started.
+
+> Task :data:generateDebugRFile UP-TO-DATE
+Caching disabled for task ':data:generateDebugRFile' because:
+  Build cache is disabled
+Skipping task ':data:generateDebugRFile' as it is up-to-date.
+work action resolve package-aware-r.txt (project :data) (Thread[#4343,Execution worker Thread 9,5,main]) started.
+Resolve mutations for :domain:checkKotlinGradlePluginConfigurationErrors (Thread[#4343,Execution worker Thread 9,5,main]) started.
+:domain:checkKotlinGradlePluginConfigurationErrors (Thread[#4346,Execution worker Thread 12,5,main]) started.
+
+> Task :domain:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':domain:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :domain:preBuild (Thread[#4346,Execution worker Thread 12,5,main]) started.
+:domain:preBuild (Thread[#4345,Execution worker Thread 11,5,main]) started.
+
+> Task :domain:preBuild UP-TO-DATE
+Skipping task ':domain:preBuild' as it has no actions.
+Resolve mutations for :domain:preDebugBuild (Thread[#4345,Execution worker Thread 11,5,main]) started.
+:domain:preDebugBuild (Thread[#4345,Execution worker Thread 11,5,main]) started.
+
+> Task :domain:preDebugBuild UP-TO-DATE
+Skipping task ':domain:preDebugBuild' as it has no actions.
+Resolve mutations for :domain:generateDebugResValues (Thread[#4345,Execution worker Thread 11,5,main]) started.
+:domain:generateDebugResValues (Thread[#4343,Execution worker Thread 9,5,main]) started.
+
+> Task :domain:generateDebugResValues UP-TO-DATE
+Caching disabled for task ':domain:generateDebugResValues' because:
+  Build cache is disabled
+Skipping task ':domain:generateDebugResValues' as it is up-to-date.
+Resolve mutations for :domain:generateDebugResources (Thread[#4343,Execution worker Thread 9,5,main]) started.
+:domain:generateDebugResources (Thread[#4343,Execution worker Thread 9,5,main]) started.
+
+> Task :domain:generateDebugResources UP-TO-DATE
+Caching disabled for task ':domain:generateDebugResources' because:
+  Build cache is disabled
+Skipping task ':domain:generateDebugResources' as it is up-to-date.
+Resolve mutations for :domain:packageDebugResources (Thread[#4343,Execution worker Thread 9,5,main]) started.
+:domain:packageDebugResources (Thread[#4343,Execution worker Thread 9,5,main]) started.
+
+> Task :domain:packageDebugResources UP-TO-DATE
+Caching disabled for task ':domain:packageDebugResources' because:
+  Build cache is disabled
+Skipping task ':domain:packageDebugResources' as it is up-to-date.
+work action resolve packageDebugResources (project :domain) (Thread[#4343,Execution worker Thread 9,5,main]) started.
+Resolve mutations for :domain:parseDebugLocalResources (Thread[#4343,Execution worker Thread 9,5,main]) started.
+:domain:parseDebugLocalResources (Thread[#4343,Execution worker Thread 9,5,main]) started.
+
+> Task :domain:parseDebugLocalResources UP-TO-DATE
+Caching disabled for task ':domain:parseDebugLocalResources' because:
+  Build cache is disabled
+Skipping task ':domain:parseDebugLocalResources' as it is up-to-date.
+Resolve mutations for :domain:generateDebugRFile (Thread[#4343,Execution worker Thread 9,5,main]) started.
+:domain:generateDebugRFile (Thread[#4343,Execution worker Thread 9,5,main]) started.
+
+> Task :domain:generateDebugRFile UP-TO-DATE
+Caching disabled for task ':domain:generateDebugRFile' because:
+  Build cache is disabled
+Skipping task ':domain:generateDebugRFile' as it is up-to-date.
+work action resolve package-aware-r.txt (project :domain) (Thread[#4343,Execution worker Thread 9,5,main]) started.
+Resolve mutations for :domain:compileDebugKotlin (Thread[#4343,Execution worker Thread 9,5,main]) started.
+:domain:compileDebugKotlin (Thread[#4343,Execution worker Thread 9,5,main]) started.
+
+> Task :domain:compileDebugKotlin UP-TO-DATE
+GradleBuildProject.Builder should not be accessed through AnalyticsConfiguratorService after AnalyticsService is created. Analytics information of this build might be incomplete.
+Caching disabled for task ':domain:compileDebugKotlin' because:
+  Build cache is disabled
+Skipping task ':domain:compileDebugKotlin' as it is up-to-date.
+Resolve mutations for :domain:javaPreCompileDebug (Thread[#4343,Execution worker Thread 9,5,main]) started.
+:domain:javaPreCompileDebug (Thread[#4343,Execution worker Thread 9,5,main]) started.
+
+> Task :domain:javaPreCompileDebug UP-TO-DATE
+Caching disabled for task ':domain:javaPreCompileDebug' because:
+  Build cache is disabled
+Skipping task ':domain:javaPreCompileDebug' as it is up-to-date.
+Resolve mutations for :domain:compileDebugJavaWithJavac (Thread[#4343,Execution worker Thread 9,5,main]) started.
+:domain:compileDebugJavaWithJavac (Thread[#4343,Execution worker Thread 9,5,main]) started.
+
+> Task :domain:compileDebugJavaWithJavac NO-SOURCE
+Skipping task ':domain:compileDebugJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :domain:bundleLibCompileToJarDebug (Thread[#4343,Execution worker Thread 9,5,main]) started.
+:domain:bundleLibCompileToJarDebug (Thread[#4335,Execution worker,5,main]) started.
+
+> Task :domain:bundleLibCompileToJarDebug UP-TO-DATE
+Caching disabled for task ':domain:bundleLibCompileToJarDebug' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':domain:bundleLibCompileToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :domain) (Thread[#4335,Execution worker,5,main]) started.
+Resolve mutations for :data:kaptGenerateStubsDebugKotlin (Thread[#4335,Execution worker,5,main]) started.
+:data:kaptGenerateStubsDebugKotlin (Thread[#4335,Execution worker,5,main]) started.
+Resolve mutations for :data:javaPreCompileDebug (Thread[#4344,Execution worker Thread 10,5,main]) started.
+:data:javaPreCompileDebug (Thread[#4344,Execution worker Thread 10,5,main]) started.
+
+> Task :data:javaPreCompileDebug UP-TO-DATE
+Caching disabled for task ':data:javaPreCompileDebug' because:
+  Build cache is disabled
+Skipping task ':data:javaPreCompileDebug' as it is up-to-date.
+Resolve mutations for :domain:bundleLibRuntimeToJarDebug (Thread[#4344,Execution worker Thread 10,5,main]) started.
+:domain:bundleLibRuntimeToJarDebug (Thread[#4344,Execution worker Thread 10,5,main]) started.
+
+> Task :domain:bundleLibRuntimeToJarDebug UP-TO-DATE
+Caching disabled for task ':domain:bundleLibRuntimeToJarDebug' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':domain:bundleLibRuntimeToJarDebug' as it is up-to-date.
+work action resolve classes.jar (project :domain) (Thread[#4344,Execution worker Thread 10,5,main]) started.
+Resolve mutations for :data:mergeDebugShaders (Thread[#4344,Execution worker Thread 10,5,main]) started.
+IdentityTransform (Thread[#4336,Execution worker Thread 2,5,main]) started.
+:data:mergeDebugShaders (Thread[#4338,Execution worker Thread 4,5,main]) started.
+CopyTransform (Thread[#4336,Execution worker Thread 2,5,main]) started.
+AggregatedPackagesTransform (Thread[#4345,Execution worker Thread 11,5,main]) started.
+
+> Task :data:mergeDebugShaders UP-TO-DATE
+Caching disabled for task ':data:mergeDebugShaders' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':data:mergeDebugShaders' as it is up-to-date.
+Resolve mutations for :data:compileDebugShaders (Thread[#4338,Execution worker Thread 4,5,main]) started.
+:data:compileDebugShaders (Thread[#4338,Execution worker Thread 4,5,main]) started.
+
+> Task :data:compileDebugShaders NO-SOURCE
+Skipping task ':data:compileDebugShaders' as it has no source files and no previous output files.
+Resolve mutations for :data:generateDebugAssets (Thread[#4338,Execution worker Thread 4,5,main]) started.
+:data:generateDebugAssets (Thread[#4338,Execution worker Thread 4,5,main]) started.
+
+> Task :data:generateDebugAssets UP-TO-DATE
+Skipping task ':data:generateDebugAssets' as it has no actions.
+Resolve mutations for :domain:mergeDebugShaders (Thread[#4338,Execution worker Thread 4,5,main]) started.
+:domain:mergeDebugShaders (Thread[#4338,Execution worker Thread 4,5,main]) started.
+
+> Task :domain:mergeDebugShaders UP-TO-DATE
+Caching disabled for task ':domain:mergeDebugShaders' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':domain:mergeDebugShaders' as it is up-to-date.
+Resolve mutations for :domain:compileDebugShaders (Thread[#4338,Execution worker Thread 4,5,main]) started.
+:domain:compileDebugShaders (Thread[#4345,Execution worker Thread 11,5,main]) started.
+
+> Task :domain:compileDebugShaders NO-SOURCE
+Skipping task ':domain:compileDebugShaders' as it has no source files and no previous output files.
+Resolve mutations for :domain:generateDebugAssets (Thread[#4345,Execution worker Thread 11,5,main]) started.
+:domain:generateDebugAssets (Thread[#4345,Execution worker Thread 11,5,main]) started.
+
+> Task :domain:generateDebugAssets UP-TO-DATE
+Skipping task ':domain:generateDebugAssets' as it has no actions.
+Resolve mutations for :domain:packageDebugAssets (Thread[#4345,Execution worker Thread 11,5,main]) started.
+:domain:packageDebugAssets (Thread[#4345,Execution worker Thread 11,5,main]) started.
+
+> Task :domain:packageDebugAssets UP-TO-DATE
+Caching disabled for task ':domain:packageDebugAssets' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':domain:packageDebugAssets' as it is up-to-date.
+work action resolve out (project :domain) (Thread[#4345,Execution worker Thread 11,5,main]) started.
+Resolve mutations for :data:mergeDebugAssets (Thread[#4345,Execution worker Thread 11,5,main]) started.
+:data:mergeDebugAssets (Thread[#4345,Execution worker Thread 11,5,main]) started.
+
+> Task :data:mergeDebugAssets UP-TO-DATE
+Caching disabled for task ':data:mergeDebugAssets' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':data:mergeDebugAssets' as it is up-to-date.
+Resolve mutations for :data:generateDebugUnitTestAssets (Thread[#4345,Execution worker Thread 11,5,main]) started.
+:data:generateDebugUnitTestAssets (Thread[#4345,Execution worker Thread 11,5,main]) started.
+
+> Task :data:generateDebugUnitTestAssets UP-TO-DATE
+Skipping task ':data:generateDebugUnitTestAssets' as it has no actions.
+Resolve mutations for :data:packageDebugAssets (Thread[#4336,Execution worker Thread 2,5,main]) started.
+:data:packageDebugAssets (Thread[#4336,Execution worker Thread 2,5,main]) started.
+
+> Task :data:packageDebugAssets UP-TO-DATE
+Caching disabled for task ':data:packageDebugAssets' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':data:packageDebugAssets' as it is up-to-date.
+work action resolve out (project :data) (Thread[#4336,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :data:preDebugUnitTestBuild (Thread[#4336,Execution worker Thread 2,5,main]) started.
+:data:preDebugUnitTestBuild (Thread[#4336,Execution worker Thread 2,5,main]) started.
+
+> Task :data:preDebugUnitTestBuild UP-TO-DATE
+Skipping task ':data:preDebugUnitTestBuild' as it has no actions.
+Resolve mutations for :data:mergeDebugUnitTestAssets (Thread[#4344,Execution worker Thread 10,5,main]) started.
+:data:mergeDebugUnitTestAssets (Thread[#4344,Execution worker Thread 10,5,main]) started.
+
+> Task :data:mergeDebugUnitTestAssets UP-TO-DATE
+Caching disabled for task ':data:mergeDebugUnitTestAssets' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':data:mergeDebugUnitTestAssets' as it is up-to-date.
+Resolve mutations for :data:writeDebugAarMetadata (Thread[#4344,Execution worker Thread 10,5,main]) started.
+:data:writeDebugAarMetadata (Thread[#4344,Execution worker Thread 10,5,main]) started.
+
+> Task :data:writeDebugAarMetadata UP-TO-DATE
+Caching disabled for task ':data:writeDebugAarMetadata' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:writeDebugAarMetadata' as it is up-to-date.
+work action resolve aar-metadata.properties (project :data) (Thread[#4344,Execution worker Thread 10,5,main]) started.
+Resolve mutations for :domain:writeDebugAarMetadata (Thread[#4344,Execution worker Thread 10,5,main]) started.
+:domain:writeDebugAarMetadata (Thread[#4344,Execution worker Thread 10,5,main]) started.
+
+> Task :domain:writeDebugAarMetadata UP-TO-DATE
+Caching disabled for task ':domain:writeDebugAarMetadata' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':domain:writeDebugAarMetadata' as it is up-to-date.
+work action resolve aar-metadata.properties (project :domain) (Thread[#4344,Execution worker Thread 10,5,main]) started.
+Resolve mutations for :data:checkDebugUnitTestAarMetadata (Thread[#4344,Execution worker Thread 10,5,main]) started.
+:data:checkDebugUnitTestAarMetadata (Thread[#4342,Execution worker Thread 8,5,main]) started.
+
+> Task :data:checkDebugUnitTestAarMetadata UP-TO-DATE
+Caching disabled for task ':data:checkDebugUnitTestAarMetadata' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:checkDebugUnitTestAarMetadata' as it is up-to-date.
+Resolve mutations for :data:compileDebugLibraryResources (Thread[#4342,Execution worker Thread 8,5,main]) started.
+:data:compileDebugLibraryResources (Thread[#4347,Execution worker Thread 13,5,main]) started.
+
+> Task :data:compileDebugLibraryResources UP-TO-DATE
+Caching disabled for task ':data:compileDebugLibraryResources' because:
+  Build cache is disabled
+Skipping task ':data:compileDebugLibraryResources' as it is up-to-date.
+work action resolve out (project :data) (Thread[#4347,Execution worker Thread 13,5,main]) started.
+Resolve mutations for :data:generateDebugUnitTestResValues (Thread[#4347,Execution worker Thread 13,5,main]) started.
+:data:generateDebugUnitTestResValues (Thread[#4347,Execution worker Thread 13,5,main]) started.
+
+> Task :data:generateDebugUnitTestResValues UP-TO-DATE
+Caching disabled for task ':data:generateDebugUnitTestResValues' because:
+  Build cache is disabled
+Skipping task ':data:generateDebugUnitTestResValues' as it is up-to-date.
+Resolve mutations for :data:mapDebugUnitTestSourceSetPaths (Thread[#4347,Execution worker Thread 13,5,main]) started.
+:data:mapDebugUnitTestSourceSetPaths (Thread[#4347,Execution worker Thread 13,5,main]) started.
+
+> Task :data:mapDebugUnitTestSourceSetPaths UP-TO-DATE
+Caching disabled for task ':data:mapDebugUnitTestSourceSetPaths' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:mapDebugUnitTestSourceSetPaths' as it is up-to-date.
+Resolve mutations for :data:generateDebugUnitTestResources (Thread[#4347,Execution worker Thread 13,5,main]) started.
+:data:generateDebugUnitTestResources (Thread[#4336,Execution worker Thread 2,5,main]) started.
+
+> Task :data:generateDebugUnitTestResources UP-TO-DATE
+Caching disabled for task ':data:generateDebugUnitTestResources' because:
+  Build cache is disabled
+Skipping task ':data:generateDebugUnitTestResources' as it is up-to-date.
+Resolve mutations for :data:mergeDebugUnitTestResources (Thread[#4336,Execution worker Thread 2,5,main]) started.
+:data:mergeDebugUnitTestResources (Thread[#4341,Execution worker Thread 7,5,main]) started.
+
+> Task :data:mergeDebugUnitTestResources UP-TO-DATE
+Caching disabled for task ':data:mergeDebugUnitTestResources' because:
+  Build cache is disabled
+Skipping task ':data:mergeDebugUnitTestResources' as it is up-to-date.
+Resolve mutations for :data:extractDeepLinksDebug (Thread[#4341,Execution worker Thread 7,5,main]) started.
+:data:extractDeepLinksDebug (Thread[#4341,Execution worker Thread 7,5,main]) started.
+
+> Task :data:extractDeepLinksDebug UP-TO-DATE
+Caching disabled for task ':data:extractDeepLinksDebug' because:
+  Build cache is disabled
+Skipping task ':data:extractDeepLinksDebug' as it is up-to-date.
+work action resolve navigation.json (project :data) (Thread[#4341,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :data:processDebugManifest (Thread[#4341,Execution worker Thread 7,5,main]) started.
+:data:processDebugManifest (Thread[#4341,Execution worker Thread 7,5,main]) started.
+
+> Task :data:processDebugManifest UP-TO-DATE
+Caching disabled for task ':data:processDebugManifest' because:
+  Build cache is disabled
+Skipping task ':data:processDebugManifest' as it is up-to-date.
+work action resolve AndroidManifest.xml (project :data) (Thread[#4341,Execution worker Thread 7,5,main]) started.
+Resolve mutations for :domain:extractDeepLinksDebug (Thread[#4341,Execution worker Thread 7,5,main]) started.
+:domain:extractDeepLinksDebug (Thread[#4336,Execution worker Thread 2,5,main]) started.
+
+> Task :domain:extractDeepLinksDebug UP-TO-DATE
+Caching disabled for task ':domain:extractDeepLinksDebug' because:
+  Build cache is disabled
+Skipping task ':domain:extractDeepLinksDebug' as it is up-to-date.
+work action resolve navigation.json (project :domain) (Thread[#4336,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :domain:processDebugManifest (Thread[#4336,Execution worker Thread 2,5,main]) started.
+:domain:processDebugManifest (Thread[#4336,Execution worker Thread 2,5,main]) started.
+
+> Task :domain:processDebugManifest UP-TO-DATE
+Caching disabled for task ':domain:processDebugManifest' because:
+  Build cache is disabled
+Skipping task ':domain:processDebugManifest' as it is up-to-date.
+work action resolve AndroidManifest.xml (project :domain) (Thread[#4336,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :data:processDebugUnitTestManifest (Thread[#4336,Execution worker Thread 2,5,main]) started.
+:data:processDebugUnitTestManifest (Thread[#4334,included builds,5,main]) started.
+
+> Task :data:processDebugUnitTestManifest UP-TO-DATE
+Caching disabled for task ':data:processDebugUnitTestManifest' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:processDebugUnitTestManifest' as it is up-to-date.
+Resolve mutations for :domain:compileDebugLibraryResources (Thread[#4334,included builds,5,main]) started.
+:domain:compileDebugLibraryResources (Thread[#4334,included builds,5,main]) started.
+
+> Task :domain:compileDebugLibraryResources UP-TO-DATE
+Caching disabled for task ':domain:compileDebugLibraryResources' because:
+  Build cache is disabled
+Skipping task ':domain:compileDebugLibraryResources' as it is up-to-date.
+work action resolve out (project :domain) (Thread[#4334,included builds,5,main]) started.
+Resolve mutations for :data:processDebugUnitTestResources (Thread[#4334,included builds,5,main]) started.
+:data:processDebugUnitTestResources (Thread[#4346,Execution worker Thread 12,5,main]) started.
+
+> Task :data:processDebugUnitTestResources UP-TO-DATE
+Caching disabled for task ':data:processDebugUnitTestResources' because:
+  Build cache is disabled
+Skipping task ':data:processDebugUnitTestResources' as it is up-to-date.
+Resolve mutations for :data:packageDebugUnitTestForUnitTest (Thread[#4346,Execution worker Thread 12,5,main]) started.
+:data:packageDebugUnitTestForUnitTest (Thread[#4349,Execution worker Thread 15,5,main]) started.
+
+> Task :data:packageDebugUnitTestForUnitTest UP-TO-DATE
+Caching disabled for task ':data:packageDebugUnitTestForUnitTest' because:
+  Build cache is disabled
+  Simple merging task
+Skipping task ':data:packageDebugUnitTestForUnitTest' as it is up-to-date.
+Resolve mutations for :data:generateDebugUnitTestConfig (Thread[#4349,Execution worker Thread 15,5,main]) started.
+:data:generateDebugUnitTestConfig (Thread[#4341,Execution worker Thread 7,5,main]) started.
+
+> Task :data:generateDebugUnitTestConfig UP-TO-DATE
+Caching disabled for task ':data:generateDebugUnitTestConfig' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:generateDebugUnitTestConfig' as it is up-to-date.
+Resolve mutations for :data:javaPreCompileDebugUnitTest (Thread[#4341,Execution worker Thread 7,5,main]) started.
+:data:javaPreCompileDebugUnitTest (Thread[#4341,Execution worker Thread 7,5,main]) started.
+
+> Task :data:javaPreCompileDebugUnitTest UP-TO-DATE
+Caching disabled for task ':data:javaPreCompileDebugUnitTest' because:
+  Build cache is disabled
+Skipping task ':data:javaPreCompileDebugUnitTest' as it is up-to-date.
+Resolve mutations for :domain:processDebugJavaRes (Thread[#4341,Execution worker Thread 7,5,main]) started.
+:domain:processDebugJavaRes (Thread[#4341,Execution worker Thread 7,5,main]) started.
+
+> Task :domain:processDebugJavaRes UP-TO-DATE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\debug\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\domain\src\debug\resources', not found
+Caching disabled for task ':domain:processDebugJavaRes' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':domain:processDebugJavaRes' as it is up-to-date.
+work action resolve out (project :domain) (Thread[#4341,Execution worker Thread 7,5,main]) started.
+
+> Task :data:kaptGenerateStubsDebugKotlin
+GradleBuildProject.Builder should not be accessed through AnalyticsConfiguratorService after AnalyticsService is created. Analytics information of this build might be incomplete.
+Caching disabled for task ':data:kaptGenerateStubsDebugKotlin' because:
+  Build cache is disabled
+Task ':data:kaptGenerateStubsDebugKotlin' is not up-to-date because:
+  Input property 'sources' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\main\kotlin\com\example\data\LearningRepositoryImpl.kt has changed.
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+Using Kotlin/JVM incremental compilation
+[KOTLIN] Kotlin compilation 'jdkHome' argument: null
+Options for KOTLIN DAEMON: IncrementalCompilationOptions(super=CompilationOptions(compilerMode=INCREMENTAL_COMPILER, targetPlatform=JVM, reportCategories=[0, 3], reportSeverity=2, requestedCompilationResults=[0], kotlinScriptExtensions=[]), sourceChanges=org.jetbrains.kotlin.buildtools.api.SourcesChanges$Known@1c66584a, classpathChanges=NoChanges, workingDir=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\kaptGenerateStubsDebugKotlin\cacheable, multiModuleICSettings=MultiModuleICSettings(buildHistoryFile=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\kaptGenerateStubsDebugKotlin\local-state\build-history.bin, useModuleDetection=true), icFeatures=IncrementalCompilationFeatures(usePreciseJavaTracking=true, withAbiSnapshot=false, preciseCompilationResultsBackup=true, keepIncrementalCompilationCachesInMemory=true, enableUnsafeIncrementalCompilationForMultiplatform=false, enableMonotonousIncrementalCompileSetExpansion=true), outputFiles=[C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kapt3\incrementalData\debug, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kapt3\stubs\debug, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\kaptGenerateStubsDebugKotlin\cacheable, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\kaptGenerateStubsDebugKotlin\local-state])
+Finished executing kotlin compiler using DAEMON strategy
+Resolve mutations for :data:kaptDebugKotlin (Thread[#4335,Execution worker,5,main]) started.
+:data:kaptDebugKotlin (Thread[#4335,Execution worker,5,main]) started.
+
+> Task :data:kaptDebugKotlin UP-TO-DATE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+Caching disabled for task ':data:kaptDebugKotlin' because:
+  Build cache is disabled
+Skipping task ':data:kaptDebugKotlin' as it is up-to-date.
+Resolve mutations for :data:compileDebugKotlin (Thread[#4335,Execution worker,5,main]) started.
+:data:compileDebugKotlin (Thread[#4335,Execution worker,5,main]) started.
+
+> Task :data:compileDebugKotlin
+Caching disabled for task ':data:compileDebugKotlin' because:
+  Build cache is disabled
+Task ':data:compileDebugKotlin' is not up-to-date because:
+  Input property 'sources' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\main\kotlin\com\example\data\LearningRepositoryImpl.kt has changed.
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+Kotlin source files: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\main\kotlin\com\example\data\LearningRepositoryImpl.kt
+Java source files: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\generated\source\kapt\debug\com\example\data\LearningRepositoryImpl_Factory.java
+Script source files: 
+Script file extensions: 
+Using Kotlin/JVM incremental compilation
+[KOTLIN] Kotlin compilation 'jdkHome' argument: null
+Options for KOTLIN DAEMON: IncrementalCompilationOptions(super=CompilationOptions(compilerMode=INCREMENTAL_COMPILER, targetPlatform=JVM, reportCategories=[0, 3], reportSeverity=2, requestedCompilationResults=[0], kotlinScriptExtensions=[]), sourceChanges=org.jetbrains.kotlin.buildtools.api.SourcesChanges$Known@12ec6a6d, classpathChanges=NoChanges, workingDir=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugKotlin\cacheable, multiModuleICSettings=MultiModuleICSettings(buildHistoryFile=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugKotlin\local-state\build-history.bin, useModuleDetection=true), icFeatures=IncrementalCompilationFeatures(usePreciseJavaTracking=true, withAbiSnapshot=false, preciseCompilationResultsBackup=true, keepIncrementalCompilationCachesInMemory=true, enableUnsafeIncrementalCompilationForMultiplatform=false, enableMonotonousIncrementalCompileSetExpansion=true), outputFiles=[C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kotlin-classes\debug, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugKotlin\cacheable, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugKotlin\local-state])
+Finished executing kotlin compiler using DAEMON strategy
+Resolve mutations for :data:compileDebugJavaWithJavac (Thread[#4335,Execution worker,5,main]) started.
+:data:compileDebugJavaWithJavac (Thread[#4335,Execution worker,5,main]) started.
+
+> Task :data:compileDebugJavaWithJavac
+Custom actions are attached to task ':data:compileDebugJavaWithJavac'.
+Caching disabled for task ':data:compileDebugJavaWithJavac' because:
+  Build cache is disabled
+Task ':data:compileDebugJavaWithJavac' is not up-to-date because:
+  Input property 'classpath' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kotlin-classes\debug\com\example\data\LearningRepositoryImpl.class has changed.
+Compilation mode: in-process compilation
+Created classpath snapshot for incremental compilation in 0.016 secs.
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+Compiling with toolchain 'C:\Program Files\Java\jdk-24'.
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\java', not found
+Compiling with JDK Java compiler API.
+Incremental compilation of 1 classes completed in 0.561 secs.
+Class dependency analysis for incremental compilation took 0.003 secs.
+Resolve mutations for :data:transformDebugClassesWithAsm (Thread[#4335,Execution worker,5,main]) started.
+:data:transformDebugClassesWithAsm (Thread[#4335,Execution worker,5,main]) started.
+Resolve mutations for :data:processDebugJavaRes (Thread[#4347,Execution worker Thread 13,5,main]) started.
+:data:processDebugJavaRes (Thread[#4347,Execution worker Thread 13,5,main]) started.
+
+> Task :data:processDebugJavaRes UP-TO-DATE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\main\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debug\resources', not found
+Caching disabled for task ':data:processDebugJavaRes' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:processDebugJavaRes' as it is up-to-date.
+work action resolve out (project :data) (Thread[#4347,Execution worker Thread 13,5,main]) started.
+
+> Task :data:transformDebugClassesWithAsm
+Caching disabled for task ':data:transformDebugClassesWithAsm' because:
+  Build cache is disabled
+Task ':data:transformDebugClassesWithAsm' is not up-to-date because:
+  Input property 'inputClassesDir' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kotlin-classes\debug\com\example\data\LearningRepositoryImpl$loadQueues$2.class has changed.
+  Input property 'inputClassesDir' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kotlin-classes\debug\com\example\data\LearningRepositoryImpl$saveQueues$2.class has changed.
+  Input property 'inputClassesDir' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kotlin-classes\debug\com\example\data\LearningRepositoryImpl.class has changed.
+Resolve mutations for :data:bundleLibRuntimeToJarDebug (Thread[#4335,Execution worker,5,main]) started.
+:data:bundleLibRuntimeToJarDebug (Thread[#4335,Execution worker,5,main]) started.
+Resolve mutations for :data:bundleLibCompileToJarDebug (Thread[#4344,Execution worker Thread 10,5,main]) started.
+:data:bundleLibCompileToJarDebug (Thread[#4349,Execution worker Thread 15,5,main]) started.
+
+> Task :data:bundleLibRuntimeToJarDebug
+Caching disabled for task ':data:bundleLibRuntimeToJarDebug' because:
+  Build cache is disabled
+  Simple merging task
+Task ':data:bundleLibRuntimeToJarDebug' is not up-to-date because:
+  Input property 'classes' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\classes\debug\transformDebugClassesWithAsm\dirs\com\example\data\LearningRepositoryImpl$loadQueues$2.class has changed.
+  Input property 'classes' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\classes\debug\transformDebugClassesWithAsm\dirs\com\example\data\LearningRepositoryImpl$saveQueues$2.class has changed.
+  Input property 'classes' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\classes\debug\transformDebugClassesWithAsm\dirs\com\example\data\LearningRepositoryImpl.class has changed.
+work action resolve classes.jar (project :data) (Thread[#4335,Execution worker,5,main]) started.
+IdentityTransform (Thread[#4335,Execution worker,5,main]) started.
+
+> Task :data:bundleLibCompileToJarDebug
+Caching disabled for task ':data:bundleLibCompileToJarDebug' because:
+  Build cache is disabled
+  Simple merging task
+Task ':data:bundleLibCompileToJarDebug' is not up-to-date because:
+  Input property 'classes' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\classes\debug\transformDebugClassesWithAsm\dirs\com\example\data\LearningRepositoryImpl$loadQueues$2.class has changed.
+  Input property 'classes' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\classes\debug\transformDebugClassesWithAsm\dirs\com\example\data\LearningRepositoryImpl$saveQueues$2.class has changed.
+  Input property 'classes' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\classes\debug\transformDebugClassesWithAsm\dirs\com\example\data\LearningRepositoryImpl.class has changed.
+work action resolve classes.jar (project :data) (Thread[#4349,Execution worker Thread 15,5,main]) started.
+Resolve mutations for :data:kaptGenerateStubsDebugUnitTestKotlin (Thread[#4349,Execution worker Thread 15,5,main]) started.
+:data:kaptGenerateStubsDebugUnitTestKotlin (Thread[#4349,Execution worker Thread 15,5,main]) started.
+
+> Transform classes.jar (project :data) with IdentityTransform
+Caching disabled for IdentityTransform: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\runtime_library_classes_jar\debug\bundleLibRuntimeToJarDebug\classes.jar because:
+  Build cache is disabled
+  Caching not enabled.
+CopyTransform (Thread[#4335,Execution worker,5,main]) started.
+
+> Transform classes.jar (project :data) with CopyTransform
+Caching disabled for CopyTransform: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\runtime_library_classes_jar\debug\bundleLibRuntimeToJarDebug\classes.jar because:
+  Build cache is disabled
+  Caching not enabled.
+AggregatedPackagesTransform (Thread[#4335,Execution worker,5,main]) started.
+
+> Transform classes.jar (project :data) with AggregatedPackagesTransform
+Caching disabled for AggregatedPackagesTransform: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\runtime_library_classes_jar\debug\bundleLibRuntimeToJarDebug\classes.jar because:
+  Build cache is disabled
+
+> Task :data:kaptGenerateStubsDebugUnitTestKotlin
+Caching disabled for BuildToolsApiClasspathEntrySnapshotTransform: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\compile_library_classes_jar\debug\bundleLibCompileToJarDebug\classes.jar because:
+  Build cache is disabled
+Caching disabled for task ':data:kaptGenerateStubsDebugUnitTestKotlin' because:
+  Build cache is disabled
+Task ':data:kaptGenerateStubsDebugUnitTestKotlin' is not up-to-date because:
+  Input property 'classpathSnapshotProperties.classpathSnapshot' file C:\Users\audoc\.gradle\caches\8.14.3\transforms\86f21d82dac40520880877403e7e9828\transformed\classes_jar-snapshot.bin has been removed.
+  Input property 'classpathSnapshotProperties.classpathSnapshot' file C:\Users\audoc\.gradle\caches\8.14.3\transforms\6586dfdcbeb4bcdedbf29482d771bba3\transformed\classes_jar-snapshot.bin has been added.
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+Using Kotlin/JVM incremental compilation
+[KOTLIN] Kotlin compilation 'jdkHome' argument: null
+Options for KOTLIN DAEMON: IncrementalCompilationOptions(super=CompilationOptions(compilerMode=INCREMENTAL_COMPILER, targetPlatform=JVM, reportCategories=[0, 3], reportSeverity=2, requestedCompilationResults=[0], kotlinScriptExtensions=[]), sourceChanges=org.jetbrains.kotlin.buildtools.api.SourcesChanges$Known@70193936, classpathChanges=ToBeComputedByIncrementalCompiler, workingDir=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\kaptGenerateStubsDebugUnitTestKotlin\cacheable, multiModuleICSettings=MultiModuleICSettings(buildHistoryFile=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\kaptGenerateStubsDebugUnitTestKotlin\local-state\build-history.bin, useModuleDetection=true), icFeatures=IncrementalCompilationFeatures(usePreciseJavaTracking=true, withAbiSnapshot=false, preciseCompilationResultsBackup=true, keepIncrementalCompilationCachesInMemory=true, enableUnsafeIncrementalCompilationForMultiplatform=false, enableMonotonousIncrementalCompileSetExpansion=true), outputFiles=[C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kapt3\incrementalData\debugUnitTest, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kapt3\stubs\debugUnitTest, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\kaptGenerateStubsDebugUnitTestKotlin\cacheable, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\kaptGenerateStubsDebugUnitTestKotlin\local-state])
+Finished executing kotlin compiler using DAEMON strategy
+Resolve mutations for :data:kaptDebugUnitTestKotlin (Thread[#4349,Execution worker Thread 15,5,main]) started.
+:data:kaptDebugUnitTestKotlin (Thread[#4349,Execution worker Thread 15,5,main]) started.
+
+> Task :data:kaptDebugUnitTestKotlin
+Caching disabled for StructureTransformAction: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\compile_library_classes_jar\debug\bundleLibCompileToJarDebug\classes.jar because:
+  Build cache is disabled
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+Caching disabled for task ':data:kaptDebugUnitTestKotlin' because:
+  Build cache is disabled
+Task ':data:kaptDebugUnitTestKotlin' is not up-to-date because:
+  Input property 'classpathStructure' file C:\Users\audoc\.gradle\caches\8.14.3\transforms\4668571fc27c981d4887c95110e74409\transformed\output.bin has been added.
+  Input property 'classpathStructure' file C:\Users\audoc\.gradle\caches\8.14.3\transforms\e2ab79cab519f663e96515edd5dd788c\transformed\output.bin has been removed.
+  Input property 'internalNonAbiClasspath$kotlin_gradle_plugin_common' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\compile_library_classes_jar\debug\bundleLibCompileToJarDebug\classes.jar has changed.
+Running kapt annotation processing using the Gradle Worker API
+Full list of impacted classpath names: [com/example/data/LearningRepositoryImpl$saveQueues$2, com/example/data/LearningRepositoryImpl$loadQueues$2, com/example/data/LearningRepositoryImpl, com/example/data/LearningRepositoryImpl$saveQueues$1, com/example/data/LearningRepositoryImpl_Factory, com/example/data/LearningRepositoryImpl$loadQueues$1]. Took 152ms.
+Using workers NONE isolation mode to run kapt
+warning: The following options were not recognized by any processor: '[dagger.fastInit, dagger.hilt.android.internal.disableAndroidSuperclassValidation, dagger.hilt.android.internal.projectType, dagger.hilt.internal.useAggregatingRootProcessor, kapt.kotlin.generated]'
+Resolve mutations for :data:compileDebugUnitTestKotlin (Thread[#4349,Execution worker Thread 15,5,main]) started.
+:data:compileDebugUnitTestKotlin (Thread[#4334,included builds,5,main]) started.
+
+> Task :data:compileDebugUnitTestKotlin
+Caching disabled for task ':data:compileDebugUnitTestKotlin' because:
+  Build cache is disabled
+Task ':data:compileDebugUnitTestKotlin' is not up-to-date because:
+  Input property 'classpathSnapshotProperties.classpathSnapshot' file C:\Users\audoc\.gradle\caches\8.14.3\transforms\86f21d82dac40520880877403e7e9828\transformed\classes_jar-snapshot.bin has been removed.
+  Input property 'classpathSnapshotProperties.classpathSnapshot' file C:\Users\audoc\.gradle\caches\8.14.3\transforms\6586dfdcbeb4bcdedbf29482d771bba3\transformed\classes_jar-snapshot.bin has been added.
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\debugUnitTest\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\kotlin', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\java', not found
+Kotlin source files: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\test\kotlin\com\example\data\BootstrapSmokeTest.kt, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\test\kotlin\com\example\data\JsonAssetLoaderTest.kt, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\test\kotlin\com\example\data\LearningRepositoryImplTest.kt
+Java source files: 
+Script source files: 
+Script file extensions: 
+Using Kotlin/JVM incremental compilation
+[KOTLIN] Kotlin compilation 'jdkHome' argument: null
+Options for KOTLIN DAEMON: IncrementalCompilationOptions(super=CompilationOptions(compilerMode=INCREMENTAL_COMPILER, targetPlatform=JVM, reportCategories=[0, 3], reportSeverity=2, requestedCompilationResults=[0], kotlinScriptExtensions=[]), sourceChanges=org.jetbrains.kotlin.buildtools.api.SourcesChanges$Known@4d40457a, classpathChanges=ToBeComputedByIncrementalCompiler, workingDir=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugUnitTestKotlin\cacheable, multiModuleICSettings=MultiModuleICSettings(buildHistoryFile=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugUnitTestKotlin\local-state\build-history.bin, useModuleDetection=true), icFeatures=IncrementalCompilationFeatures(usePreciseJavaTracking=true, withAbiSnapshot=false, preciseCompilationResultsBackup=true, keepIncrementalCompilationCachesInMemory=true, enableUnsafeIncrementalCompilationForMultiplatform=false, enableMonotonousIncrementalCompileSetExpansion=true), outputFiles=[C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\kotlin-classes\debugUnitTest, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugUnitTestKotlin\cacheable, C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\kotlin\compileDebugUnitTestKotlin\local-state])
+Finished executing kotlin compiler using DAEMON strategy
+Resolve mutations for :data:compileDebugUnitTestJavaWithJavac (Thread[#4334,included builds,5,main]) started.
+:data:compileDebugUnitTestJavaWithJavac (Thread[#4334,included builds,5,main]) started.
+
+> Task :data:compileDebugUnitTestJavaWithJavac NO-SOURCE
+Skipping task ':data:compileDebugUnitTestJavaWithJavac' as it has no source files and no previous output files.
+Resolve mutations for :data:hiltAggregateDepsDebugUnitTest (Thread[#4334,included builds,5,main]) started.
+:data:hiltAggregateDepsDebugUnitTest (Thread[#4334,included builds,5,main]) started.
+
+> Task :data:hiltAggregateDepsDebugUnitTest UP-TO-DATE
+Caching disabled for IdentityTransform: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\compile_library_classes_jar\debug\bundleLibCompileToJarDebug\classes.jar because:
+  Build cache is disabled
+  Caching not enabled.
+Caching disabled for CopyTransform: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\compile_library_classes_jar\debug\bundleLibCompileToJarDebug\classes.jar because:
+  Build cache is disabled
+  Caching not enabled.
+Caching disabled for AggregatedPackagesTransform: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\compile_library_classes_jar\debug\bundleLibCompileToJarDebug\classes.jar because:
+  Build cache is disabled
+Caching disabled for task ':data:hiltAggregateDepsDebugUnitTest' because:
+  Build cache is disabled
+Skipping task ':data:hiltAggregateDepsDebugUnitTest' as it is up-to-date.
+Resolve mutations for :data:hiltJavaCompileDebugUnitTest (Thread[#4334,included builds,5,main]) started.
+:data:hiltJavaCompileDebugUnitTest (Thread[#4334,included builds,5,main]) started.
+
+> Task :data:hiltJavaCompileDebugUnitTest NO-SOURCE
+Skipping task ':data:hiltJavaCompileDebugUnitTest' as it has no source files and no previous output files.
+Resolve mutations for :data:processDebugUnitTestJavaRes (Thread[#4334,included builds,5,main]) started.
+:data:processDebugUnitTestJavaRes (Thread[#4334,included builds,5,main]) started.
+
+> Task :data:processDebugUnitTestJavaRes UP-TO-DATE
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\resources', not found
+file or directory 'C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\resources', not found
+Caching disabled for task ':data:processDebugUnitTestJavaRes' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':data:processDebugUnitTestJavaRes' as it is up-to-date.
+Resolve mutations for :data:transformDebugUnitTestClassesWithAsm (Thread[#4334,included builds,5,main]) started.
+:data:transformDebugUnitTestClassesWithAsm (Thread[#4334,included builds,5,main]) started.
+
+> Task :data:transformDebugUnitTestClassesWithAsm
+Caching disabled for task ':data:transformDebugUnitTestClassesWithAsm' because:
+  Build cache is disabled
+Task ':data:transformDebugUnitTestClassesWithAsm' is not up-to-date because:
+  Input property 'runtimeClasspath' file C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\intermediates\runtime_library_classes_jar\debug\bundleLibRuntimeToJarDebug\classes.jar has changed.
+The input changes require a full rebuild for incremental task ':data:transformDebugUnitTestClassesWithAsm'.
+Resolve mutations for :data:testDebugUnitTest (Thread[#4334,included builds,5,main]) started.
+:data:testDebugUnitTest (Thread[#4334,included builds,5,main]) started.
+Gradle Test Executor 19 started executing tests.
+
+> Task :data:testDebugUnitTest
+Caching disabled for task ':data:testDebugUnitTest' because:
+  Build cache is disabled
+Task ':data:testDebugUnitTest' is not up-to-date because:
+  Task has failed previously.
+Starting process 'Gradle Test Executor 19'. Working directory: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data Command: C:\Program Files\Java\jdk-24\bin\java.exe -Djava.awt.headless=true -Djava.library.path=C:\Program Files\Java\jdk-24\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\Gradle\gradle-8.14.3\bin;C:\Users\audoc\.local\bin;C:\Users\audoc\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\audoc\AppData\Local\Programs\Python\Python311\;C:\Users\audoc\AppData\Local\Microsoft\WindowsApps;C:\Users\audoc\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\audoc\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\audoc\AppData\Roaming\npm;.;C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\testDebug\jniLibs;C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\src\test\jniLibs -Dorg.gradle.internal.worker.tmpdir=C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\tmp\testDebugUnitTest\work -Drobolectric.logging.enabled=true --add-opens=java.base/java.io=ALL-UNNAMED @C:\Users\audoc\.gradle\.tmp\gradle-worker-classpath9807416229248153230txt -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -ea worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Test Executor 19'
+Successfully started process 'Gradle Test Executor 19'
+
+LearningRepositoryImplTest STANDARD_OUT
+    DEBUG: Shadow provider: org.robolectric.Shadows
+    DEBUG: Manifest file location: build\intermediates\packaged_manifests\debugUnitTest\processDebugUnitTestManifest\AndroidManifest.xml
+    DEBUG: Manifest doc location:
+    build\intermediates\packaged_manifests\debugUnitTest\processDebugUnitTestManifest\AndroidManifest.xml
+    INFO: Found org.robolectric:android-all-instrumented:8.0.0_r4-robolectric-r1-i7 in local maven repository
+
+LearningRepositoryImplTest > saveQueues should save to files in internal storage STANDARD_OUT
+    com.example.data.LearningRepositoryImplTest.saveQueues should save to files in internal storage: sdk=26
+
+
+> Task :data:testDebugUnitTest
+    Test filesDir: C:\Users\audoc\AppData\Local\Temp\robolectric-LearningRepositoryImplTest_saveQueues_should_save_to_files_in_internal_storage3047253481462624046\com.example.data.test-dataDir\files
+    atomicWrite: target=C:\Users\audoc\AppData\Local\Temp\robolectric-LearningRepositoryImplTest_saveQueues_should_save_to_files_in_internal_storage3047253481462624046\com.example.data.test-dataDir\files\queues\new_queue.json, text=[{"id":"id3","token":"token3","category":"cat3","subcategory":"sub3","usage_count":0,"presentation_count":0,"is_learned":false}]
+    atomicWrite: tmp file created at C:\Users\audoc\AppData\Local\Temp\robolectric-LearningRepositoryImplTest_saveQueues_should_save_to_files_in_internal_storage3047253481462624046\com.example.data.test-dataDir\files\queues\new_queue7452942303792983422.tmp
+    atomicWrite: text written to tmp file
+    atomicWrite: Files.move successful
+    atomicWrite: target=C:\Users\audoc\AppData\Local\Temp\robolectric-LearningRepositoryImplTest_saveQueues_should_save_to_files_in_internal_storage3047253481462624046\com.example.data.test-dataDir\files\queues\learned_queue.json, text=[{"id":"id4","token":"token4","category":"cat4","subcategory":"sub4","usage_count":2,"presentation_count":2,"is_learned":true}]
+    atomicWrite: tmp file created at C:\Users\audoc\AppData\Local\Temp\robolectric-LearningRepositoryImplTest_saveQueues_should_save_to_files_in_internal_storage3047253481462624046\com.example.data.test-dataDir\files\queues\learned_queue3337161088139440748.tmp
+    atomicWrite: text written to tmp file
+    atomicWrite: Files.move successful
+
+LearningRepositoryImplTest > loadQueues should return failure for malformed JSON STANDARD_OUT
+    com.example.data.LearningRepositoryImplTest.loadQueues should return failure for malformed JSON: sdk=26
+    Test filesDir: C:\Users\audoc\AppData\Local\Temp\robolectric-LearningRepositoryImplTest_loadQueues_should_return_failure_for_malformed_JSON15645640224567439887\com.example.data.test-dataDir\files
+
+LearningRepositoryImplTest > loadQueues should return failure for malformed JSON FAILED
+    java.lang.AssertionError
+        at org.junit.Assert.fail(Assert.java:87)
+        at org.junit.Assert.assertTrue(Assert.java:42)
+        at org.junit.Assert.assertTrue(Assert.java:53)
+        at com.example.data.LearningRepositoryImplTest$loadQueues should return failure for malformed JSON$1.invokeSuspend(LearningRepositoryImplTest.kt:94)
+        at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+        at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+        at kotlinx.coroutines.test.TestDispatcher.processEvent$kotlinx_coroutines_test(TestDispatcher.kt:24)
+        at kotlinx.coroutines.test.TestCoroutineScheduler.tryRunNextTaskUnless$kotlinx_coroutines_test(TestCoroutineScheduler.kt:99)
+        at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt$runTest$2$1$workRunner$1.invokeSuspend(TestBuilders.kt:326)
+        at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+        at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+        at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:263)
+        at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:95)
+        at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:69)
+        at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source)
+        at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:47)
+        at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source)
+        at kotlinx.coroutines.test.TestBuildersJvmKt.createTestResult(TestBuildersJvm.kt:10)
+        at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(TestBuilders.kt:309)
+        at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(Unknown Source)
+        at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0(TestBuilders.kt:167)
+        at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0(Unknown Source)
+        at kotlinx.coroutines.test.TestBuildersKt__TestBuildersKt.runTest-8Mi8wO0$default(TestBuilders.kt:159)
+        at kotlinx.coroutines.test.TestBuildersKt.runTest-8Mi8wO0$default(Unknown Source)
+        at com.example.data.LearningRepositoryImplTest.loadQueues should return failure for malformed JSON(LearningRepositoryImplTest.kt:86)
+
+LearningRepositoryImplTest > loadQueues should load from assets when no files exist STANDARD_OUT
+    com.example.data.LearningRepositoryImplTest.loadQueues should load from assets when no files exist: sdk=26
+    Test filesDir: C:\Users\audoc\AppData\Local\Temp\robolectric-LearningRepositoryImplTest_loadQueues_should_load_from_assets_when_no_files_exist6106360035644884476\com.example.data.test-dataDir\files
+
+LearningRepositoryImplTest > assetManager can open new_queue_json STANDARD_OUT
+    com.example.data.LearningRepositoryImplTest.assetManager can open new_queue_json: sdk=26
+    Test filesDir: C:\Users\audoc\AppData\Local\Temp\robolectric-LearningRepositoryImplTest_assetManager_can_open_new_queue_json13223522660475378676\com.example.data.test-dataDir\files
+
+BootstrapSmokeTest > smoke test - initial load and save STANDARD_OUT
+    com.example.data.BootstrapSmokeTest.smoke test - initial load and save: sdk=26
+    Test filesDir: C:\Users\audoc\AppData\Local\Temp\robolectric-BootstrapSmokeTest_smoke_test_-_initial_load_and_save9173030426976696169\com.example.data.test-dataDir\files
+    atomicWrite: target=C:\Users\audoc\AppData\Local\Temp\robolectric-BootstrapSmokeTest_smoke_test_-_initial_load_and_save9173030426976696169\com.example.data.test-dataDir\files\queues\new_queue.json, text=[{"id":"german_CP001","token":"Entschuldigung","category":null,"subcategory":null,"usage_count":0,"presentation_count":0,"is_learned":false},{"id":"german_BB009","token":"Keine Ahnung","category":null,"subcategory":null,"usage_count":0,"presentation_count":0,"is_learned":false},{"id":"german_BB050","token":"Bis gleich","category":null,"subcategory":null,"usage_count":0,"presentation_count":0,"is_learned":false}]
+    atomicWrite: tmp file created at C:\Users\audoc\AppData\Local\Temp\robolectric-BootstrapSmokeTest_smoke_test_-_initial_load_and_save9173030426976696169\com.example.data.test-dataDir\files\queues\new_queue15126514251992737131.tmp
+    atomicWrite: text written to tmp file
+    atomicWrite: IOException during Files.move: C:\Users\audoc\AppData\Local\Temp\robolectric-BootstrapSmokeTest_smoke_test_-_initial_load_and_save9173030426976696169\com.example.data.test-dataDir\files\queues\new_queue15126514251992737131.tmp -> C:\Users\audoc\AppData\Local\Temp\robolectric-BootstrapSmokeTest_smoke_test_-_initial_load_and_save9173030426976696169\com.example.data.test-dataDir\files\queues\new_queue.json
+
+BootstrapSmokeTest > smoke test - initial load and save STANDARD_ERROR
+    java.nio.file.AccessDeniedException: C:\Users\audoc\AppData\Local\Temp\robolectric-BootstrapSmokeTest_smoke_test_-_initial_load_and_save9173030426976696169\com.example.data.test-dataDir\files\queues\new_queue15126514251992737131.tmp -> C:\Users\audoc\AppData\Local\Temp\robolectric-BootstrapSmokeTest_smoke_test_-_initial_load_and_save9173030426976696169\com.example.data.test-dataDir\files\queues\new_queue.json
+    	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+    	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+    	at java.base/sun.nio.fs.WindowsFileCopy.move(WindowsFileCopy.java:311)
+    	at java.base/sun.nio.fs.WindowsFileSystemProvider.move(WindowsFileSystemProvider.java:287)
+    	at java.base/java.nio.file.Files.move(Files.java:1316)
+    	at com.example.data.LearningRepositoryImpl.atomicWrite(LearningRepositoryImpl.kt:81)
+    	at com.example.data.LearningRepositoryImpl.access$atomicWrite(LearningRepositoryImpl.kt:22)
+    	at com.example.data.LearningRepositoryImpl$saveQueues$2.invokeSuspend(LearningRepositoryImpl.kt:53)
+    	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+    	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+    	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:113)
+    	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+    	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+
+BootstrapSmokeTest > smoke test - initial load and save STANDARD_OUT
+    atomicWrite: tmp file deleted
+
+JsonAssetLoaderTest > loadLearnedQueueFromJson_returnsParsedEntities STANDARD_OUT
+    Deserialized items size: 99
+
+Gradle Test Executor 19 finished executing tests.
+
+> Task :data:testDebugUnitTest FAILED
+Finished generating test XML results (0.008 secs) into: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\test-results\testDebugUnitTest
+Generating HTML test report...
+Finished generating test html results (0.033 secs) into: C:\Users\audoc\apps\lango-dev\lango-mvp-android\data\build\reports\tests\testDebugUnitTest
+Build 8aa050ab-37aa-4087-8e35-77215efc0c5d is closed
+55 actionable tasks: 11 executed, 44 up-to-date
+Watched directory hierarchies: [C:\Users\audoc\apps\lango-dev\lango-mvp-android]

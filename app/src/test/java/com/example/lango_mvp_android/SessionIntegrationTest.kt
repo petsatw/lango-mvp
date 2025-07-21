@@ -207,14 +207,14 @@ class SessionIntegrationTest {
             LearningItem("german_CP016", "Wo ist ___?", "Blocks", "parametric", 4, 7, true)
         )
         val initialQueues = Queues(initialNewQueue, initialLearnedPool)
-        coEvery { learningRepository.loadQueues(any()) } returns initialQueues
+        coEvery { learningRepository.loadQueues() } returns Result.success(initialQueues)
 
         // Mock repository to return our initial queues
         // Note: For a true integration test, you might want to use actual file operations
         // or a in-memory repository that you can manipulate directly.
         // For simplicity and control in this test, we'll mock the loadQueues behavior.
         
-        coEvery { learningRepository.saveQueues(any()) } answers { /* do nothing or verify state */ }
+        coEvery { learningRepository.saveQueues(any()) } returns Result.success(Unit)
 
         
         

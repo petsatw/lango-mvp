@@ -35,17 +35,13 @@ class LearningRepositoryImpl @Inject constructor(
             try {
                 ensureBootstrap()
                 val newItems: List<LearningItem> =
-                    json.decodeFromString(newQueueFile.readText().also { println("New Queue Content: $it") })
+                    json.decodeFromString(newQueueFile.readText())
                 val learnedItems: List<LearningItem> =
-                    json.decodeFromString(learnedQueueFile.readText().also { println("Learned Queue Content: $it") })
+                    json.decodeFromString(learnedQueueFile.readText())
                 Result.success(Queues(newItems.toMutableList(), learnedItems.toMutableList()))
             } catch (e: SerializationException) {
-                println("SerializationException: ${e.message}")
-                e.printStackTrace()
                 Result.failure(e)
             } catch (e: IOException) {
-                println("IOException: ${e.message}")
-                e.printStackTrace()
                 Result.failure(e)
             }
         }
@@ -58,8 +54,6 @@ class LearningRepositoryImpl @Inject constructor(
                 atomicWrite(learnedQueueFile, json.encodeToString(queues.learnedPool))
                 Result.success(Unit)
             } catch (e: IOException) {
-                println("IOException during save: ${e.message}")
-                e.printStackTrace()
                 Result.failure(e)
             }
         }
@@ -71,39 +65,15 @@ class LearningRepositoryImpl @Inject constructor(
     }
 
     private fun copyFromAssets() {
-        println("copyFromAssets: Creating parent directories for ${newQueueFile.parentFile?.absolutePath}")
         newQueueFile.parentFile?.mkdirs()
-        println("copyFromAssets: Parent directories created: ${newQueueFile.parentFile?.exists()}")
-
-        println("copyFromAssets: Copying new_queue.json from assets")
-        assetManager.open("queues/new_queue.json")
-            .use { it.copyTo(newQueueFile.outputStream()) }
-        println("copyFromAssets: new_queue.json copied: ${newQueueFile.exists()}")
-
-        println("copyFromAssets: Copying learned_queue.json from assets")
-        assetManager.open("queues/learned_queue.json")
-            .use { it.copyTo(learnedQueueFile.outputStream()) }
-        println("copyFromAssets: learned_queue.json copied: ${learnedQueueFile.exists()}")
+        assetManager.open("queues/new_queue.json").use { it.copyTo(newQueueFile.outputStream()) }
+        assetManager.open("queues/learned_queue.json").use { it.copyTo(learnedQueueFile.outputStream()) }
     }
 
     private fun atomicWrite(target: File, text: String) {
         val tmp = File.createTempFile(target.nameWithoutExtension, ".tmp", target.parentFile)
         tmp.writeText(text)
-
-        try {
-            Files.move(
-                tmp.toPath(),
-                target.toPath(),
-                StandardCopyOption.ATOMIC_MOVE,
-                StandardCopyOption.REPLACE_EXISTING
-            )
-        } catch (ioe: IOException) {
-            // Windows or exotic FS: ATOMIC_MOVE unsupported or file locked – retry non-atomic
-            Files.move(
-                tmp.toPath(),
-                target.toPath(),
-                StandardCopyOption.REPLACE_EXISTING
-            )
-        }
+        Files.move(tmp.toPath(), target.toPath(),
+                   StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING)
     }
 }

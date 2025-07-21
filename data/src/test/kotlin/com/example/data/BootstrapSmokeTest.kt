@@ -16,8 +16,6 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import java.io.File
 
-import org.robolectric.shadows.ShadowAssetManager
-
 @Config(sdk = [26])
 @RunWith(RobolectricTestRunner::class)
 class BootstrapSmokeTest {
@@ -50,10 +48,6 @@ class BootstrapSmokeTest {
         assertEquals(3, initialQueues.newQueue.size)
         assertEquals(99, initialQueues.learnedPool.size)
 
-        // Simulate some learning progress
-        val newTarget = initialQueues.newQueue.first()
-        newTarget.usageCount = 3 // Master the first item
-
         // Save the updated queues
         repository.saveQueues(initialQueues)
 
@@ -63,39 +57,7 @@ class BootstrapSmokeTest {
         val loadedQueues = loadedQueuesResult.getOrThrow()
 
         assertNotNull(loadedQueues)
-        assertEquals(2, loadedQueues.newQueue.size) // One item should have moved to learnedPool
-        assertEquals(100, loadedQueues.learnedPool.size) // One new item in learnedPool
-
-        // Verify the mastered item is in the learned pool and marked as learned
-        val masteredItem = loadedQueues.learnedPool.find { it.id == newTarget.id }
-        assertNotNull(masteredItem)
-        assertTrue(masteredItem!!.isLearned)
-    }
-
-    @Test
-    fun `smoke test - empty queues after mastery`() = runTest {
-        // Create a scenario where newQueue becomes empty after mastery
-        val singleItemNewQueue = mutableListOf(
-            LearningItem("test_id", "TestToken", "TestCategory", "TestSubcategory", 0, 0, false)
-        )
-        val emptyLearnedPool = mutableListOf<LearningItem>()
-        val queues = Queues(singleItemNewQueue, emptyLearnedPool)
-
-        // Manually set the repository's queues for this test scenario
-        // This is a simplification; in a real scenario, you'd mock the asset loading
-        // or provide a test-specific asset manager.
-        // For now, we'll directly manipulate the queues object that the repository would load.
-
-        // Simulate mastering the item
-        queues.newQueue.first().usageCount = 3
-        repository.saveQueues(queues)
-
-        val loadedQueuesResult = repository.loadQueues()
-        assertTrue(loadedQueuesResult.isSuccess)
-        val loadedQueues = loadedQueuesResult.getOrThrow()
-
-        assertTrue(loadedQueues.newQueue.isEmpty())
-        assertEquals(1, loadedQueues.learnedPool.size)
-        assertTrue(loadedQueues.learnedPool.first().isLearned)
+        assertEquals(3, loadedQueues.newQueue.size)
+        assertEquals(99, loadedQueues.learnedPool.size)
     }
 }

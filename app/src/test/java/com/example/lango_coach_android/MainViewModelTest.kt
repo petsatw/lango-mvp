@@ -59,7 +59,7 @@ class MainViewModelTest {
         )
         val expectedCoachText = "Hello from coach"
 
-        every { startSessionUseCase.startSession() } returns initialQueues
+        coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
         coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns expectedCoachText
 
         viewModel.uiState.test {
@@ -68,7 +68,7 @@ class MainViewModelTest {
             assertEquals(UiState.Loading, awaitItem())
             assertEquals(UiState.CoachSpeaking(expectedCoachText), awaitItem())
         }
-        verify { startSessionUseCase.startSession() }
+        coVerify { startSessionUseCase.startSession() }
         coVerify { generateDialogueUseCase.generatePrompt(initialQueues) }
     }
 
@@ -85,9 +85,9 @@ class MainViewModelTest {
         val userResponse = "user says token1"
         val expectedCoachText = "Next coach response"
 
-        every { startSessionUseCase.startSession() } returns initialQueues
+        coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
         coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns "Initial coach text"
-        every { processTurnUseCase.processTurn(initialQueues, userResponse) } returns updatedQueues
+        coEvery { processTurnUseCase.processTurn(initialQueues, userResponse) } returns Result.success(updatedQueues)
         coEvery { generateDialogueUseCase.generatePrompt(updatedQueues) } returns expectedCoachText
 
         viewModel.uiState.test {
@@ -100,7 +100,7 @@ class MainViewModelTest {
             assertEquals(UiState.Waiting, awaitItem())
             assertEquals(UiState.CoachSpeaking(expectedCoachText), awaitItem())
         }
-        verify { processTurnUseCase.processTurn(initialQueues, userResponse) }
+        coVerify { processTurnUseCase.processTurn(initialQueues, userResponse) }
         coVerify { generateDialogueUseCase.generatePrompt(updatedQueues) }
     }
 
@@ -116,10 +116,10 @@ class MainViewModelTest {
         )
         val userResponse = "user says token1"
 
-        every { startSessionUseCase.startSession() } returns initialQueues
+        coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
         coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns "Initial coach text"
-        every { processTurnUseCase.processTurn(initialQueues, userResponse) } returns masteredQueues
-        every { endSessionUseCase.endSession(masteredQueues) } just Runs
+        coEvery { processTurnUseCase.processTurn(initialQueues, userResponse) } returns Result.success(masteredQueues)
+        coEvery { endSessionUseCase.endSession(masteredQueues) } returns Result.success(Unit)
 
         viewModel.uiState.test {
             assertEquals(UiState.Idle, awaitItem())
@@ -131,8 +131,8 @@ class MainViewModelTest {
             assertEquals(UiState.Waiting, awaitItem())
             assertEquals(UiState.Congrats, awaitItem())
         }
-        verify { processTurnUseCase.processTurn(initialQueues, userResponse) }
-        verify { endSessionUseCase.endSession(masteredQueues) }
+        coVerify { processTurnUseCase.processTurn(initialQueues, userResponse) }
+        coVerify { endSessionUseCase.endSession(masteredQueues) }
     }
 
     @Test
@@ -142,9 +142,9 @@ class MainViewModelTest {
             learnedPool = mutableListOf(LearningItem("id2", "token2", "cat2", "sub2", 0, 0, true))
         )
 
-        every { startSessionUseCase.startSession() } returns initialQueues
+        coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
         coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns "Initial coach text"
-        every { endSessionUseCase.endSession(initialQueues) } just Runs
+        coEvery { endSessionUseCase.endSession(initialQueues) } returns Result.success(Unit)
 
         viewModel.uiState.test {
             assertEquals(UiState.Idle, awaitItem())
@@ -155,13 +155,13 @@ class MainViewModelTest {
             viewModel.endSession()
             assertEquals(UiState.Idle, awaitItem())
         }
-        verify { endSessionUseCase.endSession(initialQueues) }
+        coVerify { endSessionUseCase.endSession(initialQueues) }
     }
 
     @Test
     fun `startSession handles error and updates uiState to Error`() = runTest {
         val errorMessage = "Failed to load queues"
-        every { startSessionUseCase.startSession() } throws RuntimeException(errorMessage)
+        coEvery { startSessionUseCase.startSession() } returns Result.failure(RuntimeException(errorMessage))
 
         viewModel.uiState.test {
             assertEquals(UiState.Idle, awaitItem())
@@ -169,7 +169,7 @@ class MainViewModelTest {
             assertEquals(UiState.Loading, awaitItem())
             assertEquals(UiState.Error(errorMessage), awaitItem())
         }
-        verify { startSessionUseCase.startSession() }
+        coVerify { startSessionUseCase.startSession() }
     }
 
     @Test
@@ -181,9 +181,9 @@ class MainViewModelTest {
         val errorMessage = "Failed to process turn"
         val userResponse = "some response"
 
-        every { startSessionUseCase.startSession() } returns initialQueues
+        coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
         coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns "Initial coach text"
-        every { processTurnUseCase.processTurn(initialQueues, userResponse) } throws RuntimeException(errorMessage)
+        coEvery { processTurnUseCase.processTurn(initialQueues, userResponse) } returns Result.failure(RuntimeException(errorMessage))
 
         viewModel.uiState.test {
             assertEquals(UiState.Idle, awaitItem())
@@ -195,7 +195,7 @@ class MainViewModelTest {
             assertEquals(UiState.Waiting, awaitItem())
             assertEquals(UiState.Error(errorMessage), awaitItem())
         }
-        verify { processTurnUseCase.processTurn(initialQueues, userResponse) }
+        coVerify { processTurnUseCase.processTurn(initialQueues, userResponse) }
     }
 
     @Test
@@ -206,7 +206,7 @@ class MainViewModelTest {
         )
         val errorMessage = "Failed to generate dialogue"
 
-        every { startSessionUseCase.startSession() } returns initialQueues
+        coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
         coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } throws RuntimeException(errorMessage)
 
         viewModel.uiState.test {
