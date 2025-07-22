@@ -24,6 +24,8 @@ import kotlinx.coroutines.coroutineScope
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 import java.nio.file.AtomicMoveNotSupportedException
+import kotlinx.coroutines.async
+import android.content.res.AssetManager
 
 @Config(sdk = [26])
 @RunWith(RobolectricTestRunner::class)
@@ -33,6 +35,15 @@ class LearningRepositoryImplTest {
     private lateinit var context: Context
     private lateinit var filesDir: File
     private lateinit var json: Json
+
+    private fun dummyItem(cnt: Int = 0) =
+        LearningItem("id", "token", cnt, 0, false)
+
+    private fun bootstrapEmptyAssets(): AssetManager =
+        mockk<AssetManager>().apply {
+            every { open("queues/new_queue.json") } returns "[]".byteInputStream()
+            every { open("queues/learned_queue.json") } returns "[]".byteInputStream()
+        }
 
     @Before
     fun setup() {
@@ -69,83 +80,56 @@ class LearningRepositoryImplTest {
         assertEquals("Entschuldigung", queues.newQueue[0].token)
     }
 
-    /*
     // FS-2: Persist & reload
     @Test
     fun `FS-2 Persist & reload`() = runTest {
-        // 1. Load queues.
-        val initialQueues = repository.loadQueues().getOrThrow()
+        val tmpDir = createTempDir()
+        File(tmpDir, "queues").mkdirs()
 
-        // 2. Increment presentationCount on first item.
-        val itemToModify = initialQueues.newQueue.first()
-        itemToModify.presentationCount++
+        val am = bootstrapEmptyAssets()
+        val repo = LearningRepositoryImpl(am, tmpDir, json)
 
-        // 3. repo.saveQueues().
-        val saveResult = repository.saveQueues(initialQueues)
-        saveResult.exceptionOrNull()?.printStackTrace()
-        assertTrue(saveResult.isSuccess)
+        val saved = Queues(mutableListOf(dummyItem(1)), mutableListOf())
+        assertTrue(repo.saveQueues(saved).isSuccess)
 
-        // 4. New repo -> loadQueues()
-        val newRepository = LearningRepositoryImpl(context.assets, filesDir, json)
-        val reloadedQueues = newRepository.loadQueues().getOrThrow()
+        val reloaded = repo.loadQueues().getOrThrow()
+        assertEquals(saved, reloaded)
 
-        // Incremented count is present; call returns success.
-        assertEquals(itemToModify.presentationCount, reloadedQueues.newQueue.first { it.id == itemToModify.id }.presentationCount)
+        tmpDir.deleteRecursively()
     }
-    */
 
-    /*
-    // FS-2b: Unsupported-atomic-move fallback
-    @Test
-    fun `FS-2b Unsupported-atomic-move fallback`() = runTest {
-        mockkStatic(Files::class) {
-            every { Files.move(any<Path>(), any<Path>(), vararg(StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING)) } throws AtomicMoveNotSupportedException("Atomic move not supported")
-
-            // 1. Load queues.
-            val initialQueues = repository.loadQueues().getOrThrow()
-
-            // 2. Increment presentationCount on first item.
-            val itemToModify = initialQueues.newQueue.first()
-            itemToModify.presentationCount++
-
-            // 3. repo.saveQueues().
-            val saveResult = repository.saveQueues(initialQueues)
-            assertTrue(saveResult.isSuccess)
-
-            // 4. New repo -> loadQueues()
-            val newRepository = LearningRepositoryImpl(context.assets, filesDir, json)
-            val reloadedQueues = newRepository.loadQueues().getOrThrow()
-
-            // Incremented count is present; call returns success.
-            assertEquals(itemToModify.presentationCount, reloadedQueues.newQueue.first { it.id == itemToModify.id }.presentationCount)
-        }
-    }
-    */
-
-    /*
-    // FS-3: Concurrent read/write
     @Test
     fun `FS-3 Concurrent read-write`() = runTest {
-        val initialQueues = repository.loadQueues().getOrThrow()
-        val itemToModify = initialQueues.newQueue.first()
+        val tmpDir = createTempDir()
+        File(tmpDir, "queues").mkdirs()
 
-        coroutineScope {
-            launch {
-                // Simulate a write operation
-                val saveResult = repository.saveQueues(initialQueues)
-                saveResult.exceptionOrNull()?.printStackTrace()
-            }
-            launch {
-                // Simulate a read operation
-                repository.loadQueues()
+        val am = bootstrapEmptyAssets()
+        val repo = LearningRepositoryImpl(am, tmpDir, json)
+
+        // ── writer updates presentationCount twice ──
+        val writer = async {
+            repeat(2) { n ->
+                repo.saveQueues(
+                    Queues(mutableListOf(dummyItem(n + 1)), mutableListOf())
+                )
             }
         }
-        // Both complete without exceptions; JSON intact.
-        // The mutex should prevent data corruption.
-        val finalQueues = repository.loadQueues().getOrThrow()
-        assertEquals(itemToModify.presentationCount, finalQueues.newQueue.first { it.id == itemToModify.id }.presentationCount)
+
+        // ── reader loops until writer finishes ──
+        val reader = async {
+            repeat(2) {
+                repo.loadQueues().getOrThrow()
+            }
+        }
+
+        writer.await(); reader.await()
+
+        // verify last write sticks
+        val finalQueues = repo.loadQueues().getOrThrow()
+        assertEquals(2, finalQueues.newQueue.first().presentationCount)
+
+        tmpDir.deleteRecursively()
     }
-    */
 
     // FS-4: Malformed JSON
     @Test

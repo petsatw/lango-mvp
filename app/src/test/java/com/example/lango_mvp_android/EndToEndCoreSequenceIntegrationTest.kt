@@ -64,7 +64,8 @@ class EndToEndCoreSequenceIntegrationTest {
 
         llmService = mockk(relaxed = true)
         ttsService = mockk(relaxed = true)
-        generateDialogueUseCase = GenerateDialogueUseCase(learningRepository, llmService)
+        val mockInitialPromptBuilder = mockk<com.example.domain.InitialPromptBuilder>(relaxed = true)
+        generateDialogueUseCase = GenerateDialogueUseCase(learningRepository, llmService, mockInitialPromptBuilder)
     }
 
     @Test

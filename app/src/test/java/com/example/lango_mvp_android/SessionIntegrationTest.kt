@@ -41,6 +41,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import java.io.File
 import java.io.InputStreamReader
+import kotlin.text.RegexOption
 
 @ExperimentalCoroutinesApi
 @RunWith(RobolectricTestRunner::class)
@@ -78,10 +79,11 @@ class SessionIntegrationTest {
 
         llmService = mockk(relaxed = true)
         ttsService = mockk(relaxed = true)
+        val mockInitialPromptBuilder = mockk<com.example.domain.InitialPromptBuilder>(relaxed = true)
 
         startSessionUseCase = StartSessionUseCase(learningRepository)
         processTurnUseCase = ProcessTurnUseCase(learningRepository)
-        generateDialogueUseCase = GenerateDialogueUseCase(learningRepository, llmService)
+        generateDialogueUseCase = GenerateDialogueUseCase(learningRepository, llmService, mockInitialPromptBuilder)
         endSessionUseCase = EndSessionUseCase(learningRepository)
 
         mainViewModel = MainViewModel(
@@ -220,7 +222,7 @@ class SessionIntegrationTest {
         
 
 
-        val initialCoachText = "Coach: Entschuldigung. Das bedeutet 'sorry'. Zum Beispiel: Entschuldigung, ich bin spät."
+        val initialCoachText = "Hallo! Das ist ein Gruß."
         val secondCoachText = "Coach: Entschuldigung. Wie geht es dir?"
         val thirdCoachText = "Coach: Keine Ahnung. Das bedeutet 'no idea'. Zum Beispiel: Ich habe keine Ahnung."
         val fourthCoachText = "Coach: Keine Ahnung. Wie geht es dir?"
@@ -228,18 +230,52 @@ class SessionIntegrationTest {
         val sixthCoachText = "Coach: Bis gleich. Wir sehen uns später."
         val congratsText = "Congratulations! You've completed your learning objectives."
 
+        val initialPromptJsonPattern = """
+{
+    "header": {
+        "sessionId": ".*?",
+        "newTarget": {
+            "id": "german_CP001",
+            "token": "Entschuldigung",
+            "presentationCount": 0,
+            "usageCount": 0
+        },
+        "learnedPool": [
+            {
+                "id": "german_AA002",
+                "token": "sehr",
+                "presentationCount": 6,
+                "usageCount": 4
+            },
+            {
+                "id": "german_AA003",
+                "token": "viel",
+                "presentationCount": 4,
+                "usageCount": 7
+            }
+        ],
+        "delimiter": "—"
+    },
+    "body": [
+        "You are now “Lango,” a voice‐only German coach for beginners in Linz, Austria.",
+        "Explain what 'Entschuldigung' means in a very short sentence.",
+        "Give one simple example with 'Entschuldigung'."
+    ]
+}""".trimIndent().toRegex(RegexOption.DOT_ALL)
+
         val promptSlot = slot<String>()
 
         coEvery { llmService.generateDialogue(capture(promptSlot)) } answers {
+            val capturedPrompt = promptSlot.captured
             when {
-                promptSlot.captured.contains("Say 'Entschuldigung' by itself.") -> initialCoachText
-                promptSlot.captured.contains("Generate natural German dialogue using only 'Entschuldigung'") -> secondCoachText
-                promptSlot.captured.contains("Say 'Keine Ahnung' by itself.") -> thirdCoachText
-                promptSlot.captured.contains("Generate natural German dialogue using only 'Keine Ahnung'") -> fourthCoachText
-                promptSlot.captured.contains("Say 'Bis gleich' by itself.") -> fifthCoachText
-                promptSlot.captured.contains("Generate natural German dialogue using only 'Bis gleich'") -> sixthCoachText
-                promptSlot.captured == "Congratulations! You've completed your learning objectives." -> congratsText
-                else -> throw IllegalArgumentException("Unexpected prompt: ${promptSlot.captured}")
+                capturedPrompt.matches(initialPromptJsonPattern) -> initialCoachText
+                capturedPrompt.contains("Generate natural German dialogue using only 'Entschuldigung'") -> secondCoachText
+                capturedPrompt.contains("Say 'Keine Ahnung' by itself.") -> thirdCoachText
+                capturedPrompt.contains("Generate natural German dialogue using only 'Keine Ahnung'") -> fourthCoachText
+                capturedPrompt.contains("Say 'Bis gleich' by itself.") -> fifthCoachText
+                capturedPrompt.contains("Generate natural German dialogue using only 'Bis gleich'") -> sixthCoachText
+                capturedPrompt == "Congratulations! You've completed your learning objectives." -> congratsText
+                else -> throw IllegalArgumentException("Unexpected prompt: ${capturedPrompt}")
             }
         }
 
@@ -247,7 +283,7 @@ class SessionIntegrationTest {
         // Start the session
         mainViewModel.startSession()
         testDispatcher.scheduler.advanceUntilIdle()
-        assertEquals(UiState.CoachSpeaking("Coach: Entschuldigung. Das bedeutet 'sorry'. Zum Beispiel: Entschuldigung, ich bin spät."), mainViewModel.uiState.value)
+        assertEquals(UiState.CoachSpeaking(initialCoachText), mainViewModel.uiState.value)
 
         // Simulate user response 1 (not mastered)
         mainViewModel.processTurn("Entschuldigung")

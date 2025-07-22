@@ -1,6 +1,10 @@
 package com.example.domain
 
-class GenerateDialogueUseCase(private val learningRepository: LearningRepository, private val llmService: LlmService) {
+class GenerateDialogueUseCase(
+    private val learningRepository: LearningRepository,
+    private val llmService: LlmService,
+    private val initialPromptBuilder: InitialPromptBuilder
+) {
     suspend fun generatePrompt(queues: Queues): String {
         val newTarget = queues.newQueue.firstOrNull()
         val learnedPool = queues.learnedPool
@@ -8,11 +12,11 @@ class GenerateDialogueUseCase(private val learningRepository: LearningRepository
         val promptBuilder = StringBuilder()
 
         if (newTarget != null && newTarget.usageCount == 0 && newTarget.presentationCount == 0) {
-            // Introduce brand new target
-            promptBuilder.append("Say '${newTarget.token}' by itself. ")
-            promptBuilder.append("Explain what '${newTarget.token}' means in a very short sentence that a 5-year-old would understand. ")
-            promptBuilder.append("Give one simple example with '${newTarget.token}' that a 5-year-old would understand, preferably with items from the learned pool: ${learnedPool.joinToString { it.token }}. ")
+            // Introduce brand new target using the InitialPromptBuilder
+            val prompt = initialPromptBuilder.build(queues)
+            val generatedDialogue = llmService.generateDialogue(prompt)
             newTarget.presentationCount++ // Increment presentation count for new target introduction
+            return generatedDialogue
         } else if (newTarget != null) {
             // Dialogue stage loop
             promptBuilder.append("Generate natural German dialogue using only '${newTarget.token}' and items from the learned pool: ${learnedPool.joinToString { it.token }}. ")

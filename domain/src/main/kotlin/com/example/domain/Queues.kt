@@ -13,4 +13,14 @@ data class Queues(
         }
         return newQueue.removeAt(0)
     }
+
+    internal fun dequeueAndReset(): LearningItem? {
+        if (newQueue.isEmpty()) {
+            return null
+        }
+        val item = newQueue.removeAt(0)
+        item.presentationCount = 0
+        item.usageCount = 0
+        return item
+    }
 }

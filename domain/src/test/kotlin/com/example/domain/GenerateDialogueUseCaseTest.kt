@@ -14,17 +14,19 @@ class GenerateDialogueUseCaseTest {
 
     private lateinit var mockLearningRepository: LearningRepository
     private lateinit var mockLlmService: LlmService
+    private lateinit var mockInitialPromptBuilder: InitialPromptBuilder
     private lateinit var generateDialogueUseCase: GenerateDialogueUseCase
 
     @Before
     fun setup() {
         mockLearningRepository = mockk()
         mockLlmService = mockk()
-        generateDialogueUseCase = GenerateDialogueUseCase(mockLearningRepository, mockLlmService)
+        mockInitialPromptBuilder = mockk()
+        generateDialogueUseCase = GenerateDialogueUseCase(mockLearningRepository, mockLlmService, mockInitialPromptBuilder)
     }
 
     @Test
-    fun `generatePrompt creates correct prompt string for new target`() = runTest {
+    fun `generatePrompt uses InitialPromptBuilder for new target introduction`() = runTest {
         // Arrange
         val newTarget = LearningItem("id1", "token1", 0, 0)
         val learnedItems = mutableListOf(
@@ -32,16 +34,19 @@ class GenerateDialogueUseCaseTest {
         )
         val queues = Queues(mutableListOf(newTarget), learnedItems)
 
-        val expectedLlmPrompt = "Say 'token1' by itself. Explain what 'token1' means in a very short sentence that a 5-year-old would understand. Give one simple example with 'token1' that a 5-year-old would understand, preferably with items from the learned pool: token3. "
-        val expectedLlmResponse = "LLM generated response for new target"
+        val mockedInitialPrompt = "mocked initial prompt"
+        val mockedLlmResponse = "mocked LLM response"
 
-        coEvery { mockLlmService.generateDialogue(expectedLlmPrompt) } returns expectedLlmResponse
+        coEvery { mockInitialPromptBuilder.build(queues, any()) } returns mockedInitialPrompt
+        coEvery { mockLlmService.generateDialogue(mockedInitialPrompt) } returns mockedLlmResponse
 
         // Act
         val resultPrompt = generateDialogueUseCase.generatePrompt(queues)
 
         // Assert
-        assertEquals(expectedLlmResponse, resultPrompt)
+        assertEquals(mockedLlmResponse, resultPrompt)
+        coVerify { mockInitialPromptBuilder.build(queues, any()) }
+        coVerify { mockLlmService.generateDialogue(mockedInitialPrompt) }
         assertEquals(1, newTarget.presentationCount)
     }
 
