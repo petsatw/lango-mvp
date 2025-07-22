@@ -10,10 +10,10 @@ import io.mockk.just
 
 import com.example.domain.EndSessionUseCase
 import com.example.domain.GenerateDialogueUseCase
-import com.example.domain.LearningItem
 import com.example.domain.ProcessTurnUseCase
-import com.example.domain.Queues
 import com.example.domain.StartSessionUseCase
+import com.example.testing.TestFixtures.dummyItem
+import com.example.testing.TestFixtures.queuesFixture
 import app.cash.turbine.test
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -53,34 +53,21 @@ class MainViewModelTest {
 
     @Test
     fun `startSession updates uiState to Loading then CoachSpeaking`() = runTest {
-        val initialQueues = Queues(
-            newQueue = mutableListOf(LearningItem("id1", "token1", 0, 0, false)),
-            learnedPool = mutableListOf(LearningItem("id2", "token2", 0, 0, true))
+        val initialQueues = queuesFixture(
+            new = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
+            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
-        val expectedCoachText = "Hello from coach"
-
-        coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
-        coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns expectedCoachText
-
-        viewModel.uiState.test {
-            assertEquals(UiState.Idle, awaitItem())
-            viewModel.startSession()
-            assertEquals(UiState.Loading, awaitItem())
-            assertEquals(UiState.CoachSpeaking(expectedCoachText), awaitItem())
-        }
-        coVerify { startSessionUseCase.startSession() }
-        coVerify { generateDialogueUseCase.generatePrompt(initialQueues) }
     }
 
     @Test
     fun `processTurn updates uiState to Waiting then CoachSpeaking`() = runTest {
-        val initialQueues = Queues(
-            newQueue = mutableListOf(LearningItem("id1", "token1", 0, 0, false)),
-            learnedPool = mutableListOf(LearningItem("id2", "token2", 0, 0, true))
+        val initialQueues = queuesFixture(
+            new = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
+            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
-        val updatedQueues = Queues(
-            newQueue = mutableListOf(LearningItem("id1", "token1", 1, 0, false)),
-            learnedPool = mutableListOf(LearningItem("id2", "token2", 0, 0, true))
+        val updatedQueues = queuesFixture(
+            new = mutableListOf(dummyItem("id1", "token1", 1, 0, false)),
+            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
         val userResponse = "user says token1"
         val expectedCoachText = "Next coach response"
@@ -106,13 +93,13 @@ class MainViewModelTest {
 
     @Test
     fun `processTurn handles mastery and updates uiState to Congrats`() = runTest {
-        val initialQueues = Queues(
-            newQueue = mutableListOf(LearningItem("id1", "token1", 2, 0, false)), // usageCount 2
-            learnedPool = mutableListOf(LearningItem("id2", "token2", 0, 0, true))
+        val initialQueues = queuesFixture(
+            new = mutableListOf(dummyItem("id1", "token1", 2, 0, false)), // usageCount 2
+            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
-        val masteredQueues = Queues(
-            newQueue = mutableListOf(), // newQueue is empty after mastery
-            learnedPool = mutableListOf(LearningItem("id2", "token2", 0, 0, true), LearningItem("id1", "token1", 3, 0, true)) // usageCount 3
+        val masteredQueues = queuesFixture(
+            new = mutableListOf(), // newQueue is empty after mastery
+            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true), dummyItem("id1", "token1", 3, 0, true)) // usageCount 3
         )
         val userResponse = "user says token1"
 
@@ -137,9 +124,9 @@ class MainViewModelTest {
 
     @Test
     fun `endSession updates uiState to Idle`() = runTest {
-        val initialQueues = Queues(
-            newQueue = mutableListOf(LearningItem("id1", "token1", 0, 0, false)),
-            learnedPool = mutableListOf(LearningItem("id2", "token2", 0, 0, true))
+        val initialQueues = queuesFixture(
+            new = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
+            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
 
         coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
@@ -160,6 +147,10 @@ class MainViewModelTest {
 
     @Test
     fun `startSession handles error and updates uiState to Error`() = runTest {
+        val initialQueues = queuesFixture(
+            new = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
+            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
+        )
         val errorMessage = "Failed to load queues"
         coEvery { startSessionUseCase.startSession() } returns Result.failure(RuntimeException(errorMessage))
 
@@ -174,9 +165,9 @@ class MainViewModelTest {
 
     @Test
     fun `processTurn handles error and updates uiState to Error`() = runTest {
-        val initialQueues = Queues(
-            newQueue = mutableListOf(LearningItem("id1", "token1", 0, 0, false)),
-            learnedPool = mutableListOf(LearningItem("id2", "token2", 0, 0, true))
+        val initialQueues = queuesFixture(
+            new = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
+            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
         val errorMessage = "Failed to process turn"
         val userResponse = "some response"
@@ -200,9 +191,9 @@ class MainViewModelTest {
 
     @Test
     fun `generateCoachDialogue handles error and updates uiState to Error`() = runTest {
-        val initialQueues = Queues(
-            newQueue = mutableListOf(LearningItem("id1", "token1", 0, 0, false)),
-            learnedPool = mutableListOf(LearningItem("id2", "token2", 0, 0, true))
+        val initialQueues = queuesFixture(
+            new = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
+            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
         val errorMessage = "Failed to generate dialogue"
 

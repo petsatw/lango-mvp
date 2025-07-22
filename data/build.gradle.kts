@@ -44,8 +44,6 @@ android {
         getByName("test") {
             java.srcDirs("src/test/java")
             kotlin.srcDirs("src/test/java")
-            resources.srcDirs("src/test/resources")
-            assets.srcDirs("src/test/assets")
         }
     }
     testOptions {
@@ -75,7 +73,7 @@ dependencies {
     testImplementation(libs.mockito.core)
     testImplementation(libs.androidx.test.core)
     testImplementation(project(":domain"))
-    testImplementation(project(":data"))
+    testImplementation(project(":shared-test"))
     testImplementation(libs.mockk)
     testImplementation(libs.mockk.agent.jvm)
     testImplementation("com.google.jimfs:jimfs:1.3.0")

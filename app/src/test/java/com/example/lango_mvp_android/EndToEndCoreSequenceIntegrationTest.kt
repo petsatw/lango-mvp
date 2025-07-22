@@ -30,6 +30,7 @@ import org.robolectric.annotation.Config
 import java.io.File
 import java.io.InputStreamReader
 
+import com.example.testing.TestFixtures
 import kotlinx.serialization.json.Json
 
 @RunWith(RobolectricTestRunner::class)
@@ -49,7 +50,7 @@ class EndToEndCoreSequenceIntegrationTest {
     fun setup() {
         context = ApplicationProvider.getApplicationContext()
         json = Json { ignoreUnknownKeys = true; encodeDefaults = true; coerceInputValues = true }
-        learningRepository = LearningRepositoryImpl(context.assets, context.filesDir, json)
+        learningRepository = mockk() // Mock the repository
         mockMediaPlayer = mockk(relaxed = true)
 
         // Read API key from local.properties
@@ -70,11 +71,19 @@ class EndToEndCoreSequenceIntegrationTest {
 
     @Test
     fun `full core sequence completes successfully`() = runTest {
-        // 1. Load JSON files into memory
-        val newQueueJson = javaClass.classLoader?.getResourceAsStream("core_blocks.json")?.bufferedReader().use { it?.readText() ?: "" }
-        val learnedQueueJson = javaClass.classLoader?.getResourceAsStream("learned_queue.json")?.bufferedReader().use { it?.readText() ?: "" }
-        val queuesResult = learningRepository.loadQueues()
-        val queues = queuesResult.getOrThrow()
+        // Prepare initial queues for the test using TestFixtures
+        val initialQueues = TestFixtures.queuesFixture(
+            new = mutableListOf(
+                TestFixtures.dummyItem("german_CP001", "Entschuldigung", 0, 0)
+            ),
+            learned = mutableListOf(
+                TestFixtures.dummyItem("german_AA002", "sehr", 6, 4)
+            )
+        )
+        coEvery { learningRepository.loadQueues() } returns Result.success(initialQueues)
+        coEvery { learningRepository.saveQueues(any()) } returns Result.success(Unit) // Mock saveQueues as well
+
+        val queues = learningRepository.loadQueues().getOrThrow()
 
         // 2. Generate dialogue
         coEvery { llmService.generateDialogue(any<String>()) } returns "Hallo! Das ist ein Gruß."

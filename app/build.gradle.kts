@@ -83,6 +83,7 @@ dependencies {
     testImplementation(libs.robolectric)
     testImplementation(libs.ktor.client.mock)
     testImplementation(libs.androidx.test.core)
+    testImplementation(project(":shared-test"))
 
     //Project modules
     implementation(project(":data"))

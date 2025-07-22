@@ -13,10 +13,23 @@ import kotlinx.serialization.decodeFromString
 
 class LlmServiceImplTest {
 
+    private val sampleLlmResponseJson = """
+        {
+          "choices": [
+            {
+              "message": {
+                "role": "assistant",
+                "content": "Hallo! Das ist ein Gruß."
+              }
+            }
+          ]
+        }
+    """.trimIndent()
+
     @Test
     fun `generateDialogue sends correct request and parses response`() = runTest {
         val mockEngine = MockEngine {
-            respond(content = ByteReadChannel(javaClass.classLoader?.getResourceAsStream("sample_llm_response.json")?.readBytes()?.decodeToString() ?: ""),
+            respond(content = ByteReadChannel(sampleLlmResponseJson),
                 status = HttpStatusCode.OK,
                 headers = headersOf(HttpHeaders.ContentType, "application/json")
             )
@@ -36,7 +49,7 @@ class LlmServiceImplTest {
 
     @Test
     fun `ChatCompletionResponse deserialization test`() {
-        val jsonString = javaClass.classLoader?.getResourceAsStream("sample_llm_response.json")?.readBytes()?.decodeToString() ?: ""
+        val jsonString = sampleLlmResponseJson
         val json = Json { ignoreUnknownKeys = true; prettyPrint = true; isLenient = true }
         val response = json.decodeFromString<ChatCompletionResponse>(jsonString)
         assertEquals("Hallo! Das ist ein Gruß.", response.choices.first().message.content)
