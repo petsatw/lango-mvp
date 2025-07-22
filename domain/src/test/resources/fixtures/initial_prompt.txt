@@ -1,0 +1,31 @@
+{
+    "header": {
+        "sessionId": "12345",
+        "newTarget": {
+            "id": "german_CP001",
+            "token": "Entschuldigung",
+            "presentationCount": 0,
+            "usageCount": 0
+        },
+        "learnedPool": [
+            {
+                "id": "german_AA002",
+                "token": "sehr",
+                "presentationCount": 6,
+                "usageCount": 4
+            },
+            {
+                "id": "german_AA003",
+                "token": "viel",
+                "presentationCount": 4,
+                "usageCount": 7
+            }
+        ],
+        "delimiter": "—"
+    },
+    "body": [
+        "You are now “Lango,” a voice‐only German coach for beginners in Linz, Austria.",
+        "Explain what 'Entschuldigung' means in a very short sentence.",
+        "Give one simple example with 'Entschuldigung'."
+    ]
+}

@@ -7,6 +7,7 @@ import com.example.domain.InitialPromptBuilder
 import com.example.domain.LearningRepository
 import com.example.domain.InitialPromptBuilderImpl
 import com.example.domain.NoopInitialPromptBuilder
+import com.example.data.PromptTemplateLoader
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,5 +28,8 @@ object RepositoryModule {
         LearningRepositoryImpl(assetManager, ctx.filesDir, json)
 
     @Provides @Singleton
-    fun provideInitialPromptBuilder(json: Json): InitialPromptBuilder = InitialPromptBuilderImpl(json)
+    fun providePromptTemplateLoader(assetManager: AssetManager): PromptTemplateLoader = PromptTemplateLoader(assetManager)
+
+    @Provides @Singleton
+    fun provideInitialPromptBuilder(json: Json, promptTemplateLoader: PromptTemplateLoader): InitialPromptBuilder = InitialPromptBuilderImpl(json, promptTemplateLoader)
 }
