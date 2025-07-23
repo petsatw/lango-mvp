@@ -8,7 +8,6 @@ import javax.inject.Singleton
 class CoachOrchestratorImpl @Inject constructor(
     private val startSessionUseCase: StartSessionUseCase,
     private val processTurnUseCase: ProcessTurnUseCase,
-    private val generateDialogueUseCase: GenerateDialogueUseCase,
     private val endSessionUseCase: EndSessionUseCase
 ) : CoachOrchestrator {
 
@@ -24,19 +23,21 @@ class CoachOrchestratorImpl @Inject constructor(
     }
 
     override suspend fun processTurn(userResponseText: String): Result<Session> {
-        val session = currentSession
-        if (session == null) {
-            return Result.failure(IllegalStateException("Session not started"))
-        }
+        val session = currentSession ?: return Result.failure(IllegalStateException("Session not started"))
 
-        return processTurnUseCase.processTurn(session.queues, userResponseText)
-            .onSuccess { updatedQueues ->
-                currentSession = session.copy(queues = updatedQueues, newTarget = updatedQueues.newQueue.firstOrNull() ?: session.newTarget)
-                if (updatedQueues.newQueue.isEmpty()) {
-                    endSessionUseCase.endSession(updatedQueues)
-                    currentSession = null
-                }
-            }.map { currentSession!! }
+        return processTurnUseCase.processTurn(session.queues, userResponseText).map { updatedQueues ->
+            val updatedSession = session.copy(
+                queues = updatedQueues,
+                newTarget = updatedQueues.newQueue.firstOrNull() ?: session.newTarget
+            )
+            if (updatedQueues.newQueue.isEmpty()) {
+                endSessionUseCase.endSession(updatedQueues)
+                currentSession = null
+            } else {
+                currentSession = updatedSession
+            }
+            updatedSession
+        }
     }
 
     override suspend fun endSession(queues: Queues): Result<Unit> {

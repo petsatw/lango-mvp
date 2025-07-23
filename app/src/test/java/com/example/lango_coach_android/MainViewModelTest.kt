@@ -11,6 +11,7 @@ import io.mockk.Runs
 import io.mockk.just
 
 import com.example.domain.CoachOrchestrator
+import com.example.domain.GenerateDialogueUseCase
 import com.example.testing.TestFixtures.dummyItem
 import com.example.testing.TestFixtures.queuesFixture
 import app.cash.turbine.test
@@ -71,14 +72,14 @@ class MainViewModelTest {
     fun `processTurn updates uiState to Waiting then CoachSpeaking`() = runTest {
         val initialQueues = queuesFixture(newCount = 1, learnedCount = 1)
         val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
-        val updatedQueues = queuesFixture(newCount = 1, learnedCount = 1)
+        val updatedSession = initialSession.copy(queues = queuesFixture(newCount = 1, learnedCount = 1))
         val userResponse = "user says token1"
         val expectedCoachText = "Next coach response"
 
         coEvery { coachOrchestrator.startSession() } returns Result.success(initialSession)
         coEvery { generateDialogueUseCase.generatePrompt(initialSession.queues) } returns "Initial coach text"
-        coEvery { coachOrchestrator.processTurn(userResponse) } returns Result.success(updatedQueues)
-        coEvery { generateDialogueUseCase.generatePrompt(any()) } returnsMany listOf("Initial coach text", expectedCoachText)
+        coEvery { coachOrchestrator.processTurn(userResponse) } returns Result.success(updatedSession)
+        coEvery { generateDialogueUseCase.generatePrompt(updatedSession.queues) } returns expectedCoachText
 
         viewModel.uiState.test {
             assertEquals(UiState.Idle, awaitItem())
@@ -91,7 +92,7 @@ class MainViewModelTest {
             assertEquals(UiState.CoachSpeaking(expectedCoachText), awaitItem())
         }
         coVerify { coachOrchestrator.processTurn(userResponse) }
-        coVerify { generateDialogueUseCase.generatePrompt(updatedQueues) }
+        coVerify { generateDialogueUseCase.generatePrompt(updatedSession.queues) }
     }
 
     @Test
@@ -99,12 +100,13 @@ class MainViewModelTest {
         val initialQueues = queuesFixture(newCount = 1, learnedCount = 1)
         val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
         val masteredQueues = queuesFixture(newCount = 0, learnedCount = 2)
+        val masteredSession = initialSession.copy(queues = masteredQueues, newTarget = dummyItem("mastered", "mastered", 0, 0, true))
         val userResponse = "user says token1"
 
         coEvery { coachOrchestrator.startSession() } returns Result.success(initialSession)
         coEvery { generateDialogueUseCase.generatePrompt(initialSession.queues) } returns "Initial coach text"
-        coEvery { coachOrchestrator.processTurn(userResponse) } returns Result.success(masteredQueues)
-        coEvery { endSessionUseCase.endSession(masteredQueues) } returns Result.success(Unit)
+        coEvery { coachOrchestrator.processTurn(userResponse) } returns Result.success(masteredSession)
+        coEvery { coachOrchestrator.endSession(masteredQueues) } returns Result.success(Unit)
 
         viewModel.uiState.test {
             assertEquals(UiState.Idle, awaitItem())

@@ -16,6 +16,7 @@ import kotlinx.coroutines.SupervisorJob
 
 class MainViewModel(
     private val coachOrchestrator: CoachOrchestrator,
+    private val generateDialogueUseCase: GenerateDialogueUseCase,
     private val dispatcher: CoroutineDispatcher = Dispatchers.Main
 ) : ViewModel() {
 

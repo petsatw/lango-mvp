@@ -36,6 +36,16 @@ class SessionIntegrationTest {
 
     private lateinit var mainViewModel: MainViewModel
 
+    // Injected by Hilt
+    @Inject
+    lateinit var coachOrchestrator: CoachOrchestrator
+    @Inject
+    lateinit var learningRepository: LearningRepository // Still needed for loadQueues mock
+    @Inject
+    lateinit var llmService: LlmService // Still needed for generateDialogue mock
+    @Inject
+    lateinit var ttsService: TtsService // Still needed for speak mock
+
     private val testDispatcher = StandardTestDispatcher()
 
     @Before
@@ -49,6 +59,7 @@ class SessionIntegrationTest {
 
     @After
     fun tearDown() {
+        // No specific tear down needed for this test
     }
 
     @Test
@@ -59,12 +70,35 @@ class SessionIntegrationTest {
         coEvery { learningRepository.loadQueues() } returns Result.success(initialQueues)
         coEvery { coachOrchestrator.startSession() } returns Result.success(initialSession)
 
-        // Mock repository to return our initial queues
-        // Note: For a true integration test, you might want to use actual file operations
-        // or a in-memory repository that you can manipulate directly.
-        // For simplicity and control in this test, we'll mock the loadQueues behavior.
+        // Mock coachOrchestrator.processTurn to return updated sessions
+        // This is a simplified mock. In a real scenario, you might want to
+        // create specific Session objects for each step of the mastery.
+        // For now, we'll simulate the progression by returning a new session
+        // with the newQueue gradually becoming empty.
+        var currentNewQueue = initialQueues.newQueue.toMutableList()
+        var currentLearnedPool = initialQueues.learnedPool.toMutableList()
 
-        coEvery { coachOrchestrator.processTurn(any()) } answers { Result.success(initialSession.copy(queues = initialSession.queues.copy(newQueue = mutableListOf()))) }
+        coEvery { coachOrchestrator.processTurn(any()) } answers {
+            val userResponse = it.invocation.args[0] as String
+            val currentTarget = currentNewQueue.firstOrNull()
+
+            if (currentTarget != null && userResponse.contains(currentTarget.token, ignoreCase = true)) {
+                currentTarget.usageCount++
+            }
+
+            if (currentTarget != null && currentTarget.usageCount >= 3) {
+                currentNewQueue.removeAt(0)
+                currentTarget.isLearned = true
+                currentLearnedPool.add(currentTarget)
+            }
+
+            val updatedQueues = TestFixtures.queuesFixture(
+                newItems = currentNewQueue,
+                learnedItems = currentLearnedPool
+            )
+            val updatedNewTarget = updatedQueues.newQueue.firstOrNull() ?: currentTarget // Keep old target if new queue is empty
+            Result.success(initialSession.copy(queues = updatedQueues, newTarget = updatedNewTarget))
+        }
 
 
         val expectedLlmResponses = mutableListOf(
@@ -137,7 +171,6 @@ class SessionIntegrationTest {
         testDispatcher.scheduler.advanceUntilIdle()
         assertEquals(UiState.Congrats, mainViewModel.uiState.value)
 
-        // Verify that saveQueues was called at the end
-        coVerify { learningRepository.saveQueues(any()) }
+        // Verify that endSession was called at the end
+        coVerify { coachOrchestrator.endSession(any()) }
     }
-}

@@ -26,7 +26,7 @@ object SpeechModule {
         return if (BuildConfig.DEBUG) {
             FakeLlmService(json)
         } else {
-            LlmServiceImpl(System.getenv("OPENAI_API_KEY") ?: "")
+            LlmServiceImpl(BuildConfig.OPENAI_API_KEY)
         }
     }
 
@@ -36,7 +36,7 @@ object SpeechModule {
         return if (BuildConfig.DEBUG) {
             FakeTtsService()
         } else {
-            TtsServiceImpl(System.getenv("OPENAI_API_KEY") ?: "")
+            TtsServiceImpl(BuildConfig.OPENAI_API_KEY)
         }
     }
 }
