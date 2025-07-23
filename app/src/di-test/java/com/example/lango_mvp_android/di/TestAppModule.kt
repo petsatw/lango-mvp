@@ -1,9 +1,13 @@
 package com.example.lango_mvp_android.di
 
+import com.example.domain.CoachOrchestrator
 import com.example.domain.LearningRepository
 import com.example.domain.LlmService
 import com.example.domain.TtsService
+import com.example.speech.FakeLlmService
+import com.example.speech.FakeTtsService
 import com.example.testing.TestFixtures.queuesFixture
+import kotlinx.serialization.json.Json
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.components.SingletonComponent
@@ -15,7 +19,7 @@ import javax.inject.Singleton
 @Module
 @TestInstallIn(
     components = [SingletonComponent::class],
-    replaces = [RepositoryModule::class]
+    replaces = [RepositoryModule::class, CoachOrchestratorModule::class]
 )
 obect TestAppModule {
 
@@ -30,13 +34,19 @@ obect TestAppModule {
 
     @Provides
     @Singleton
-    fun provideLlmService(): LlmService {
-        return mockk(relaxed = true)
+    fun provideLlmService(json: Json): LlmService {
+        return FakeLlmService(json)
     }
 
     @Provides
     @Singleton
     fun provideTtsService(): TtsService {
+        return FakeTtsService()
+    }
+
+    @Provides
+    @Singleton
+    fun provideCoachOrchestrator(): CoachOrchestrator {
         return mockk(relaxed = true)
     }
 }

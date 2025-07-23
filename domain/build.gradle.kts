@@ -1,7 +1,12 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-id("org.jetbrains.kotlin.plugin.serialization")
+    id("org.jetbrains.kotlin.plugin.serialization")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
+}
+kapt {
+    correctErrorTypes = true
 }
 
 android {
@@ -50,4 +55,8 @@ dependencies {
     testImplementation(libs.mockk.agent.jvm)
     testImplementation(libs.truth)
     testImplementation(project(":shared-test"))
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 }

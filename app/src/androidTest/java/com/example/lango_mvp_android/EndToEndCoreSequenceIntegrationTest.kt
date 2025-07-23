@@ -3,7 +3,7 @@ package com.example.lango_mvp_android
 import android.content.Context
 import android.media.MediaPlayer
 import androidx.test.core.app.ApplicationProvider
-import com.example.data.LearningRepositoryImpl
+import com.example.domain.Session
 import com.example.domain.GenerateDialogueUseCase
 import com.example.domain.LearningRepository
 import com.example.domain.LlmService
@@ -51,7 +51,7 @@ class EndToEndCoreSequenceIntegrationTest {
     @Inject
     lateinit var learningRepository: LearningRepository
     @Inject
-    lateinit var generateDialogueUseCase: GenerateDialogueUseCase
+    lateinit var coachOrchestrator: CoachOrchestrator
     @Inject
     lateinit var llmService: LlmService
     @Inject
@@ -66,14 +66,16 @@ class EndToEndCoreSequenceIntegrationTest {
     fun `full core sequence completes successfully`() = runTest {
         // Prepare initial queues for the test using TestFixtures
         val initialQueues = TestFixtures.queuesFixture(newCount = 1, learnedCount = 1)
+        val initialSession = Session("test_session_id", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
         coEvery { learningRepository.loadQueues() } returns Result.success(initialQueues)
-        coEvery { learningRepository.saveQueues(any()) } returns Result.success(Unit) // Mock saveQueues as well
+        coEvery { learningRepository.saveQueues(any()) } returns Result.success(Unit)
+        coEvery { coachOrchestrator.startSession() } returns Result.success(initialSession)
 
-        val queues = learningRepository.loadQueues().getOrThrow()
+        val session = coachOrchestrator.startSession().getOrThrow()
 
         // 2. Generate dialogue
         coEvery { llmService.generateDialogue(any<String>()) } returns "Hallo! Das ist ein Gruß."
-        val dialoguePrompt = generateDialogueUseCase.generatePrompt(queues)
+        val dialoguePrompt = generateDialogueUseCase.generatePrompt(session.queues)
         val llmResponse = llmService.generateDialogue(dialoguePrompt)
 
         // Assert LLM response

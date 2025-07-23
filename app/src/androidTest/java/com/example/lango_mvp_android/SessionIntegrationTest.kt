@@ -2,39 +2,21 @@ package com.example.lango_mvp_android
 
 import com.example.lango_coach_android.MainViewModel
 import com.example.lango_coach_android.UiState
-
-import android.content.Context
-import android.media.MediaPlayer
-import androidx.test.core.app.ApplicationProvider
-import com.example.data.LearningRepositoryImpl
+import com.example.domain.CoachOrchestrator
 import com.example.domain.LearningRepository
-import com.example.domain.EndSessionUseCase
-import com.example.domain.GenerateDialogueUseCase
-import com.example.domain.LearningItem
-import com.example.domain.ProcessTurnUseCase
-import com.example.domain.Queues
-import com.example.domain.StartSessionUseCase
-import com.example.speech.LlmServiceImpl
-import com.example.speech.TtsServiceImpl
+import com.example.domain.LlmService
+import com.example.domain.Session
+import com.example.domain.TtsService
+import com.example.testing.TestFixtures
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import io.ktor.client.engine.mock.MockEngine
-import io.ktor.client.engine.mock.respond
-import io.ktor.http.HttpHeaders
-import io.ktor.http.HttpStatusCode
-import io.ktor.http.headersOf
-import io.ktor.utils.io.ByteReadChannel
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import io.mockk.slot
-import io.mockk.verify
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
-import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
@@ -42,11 +24,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
-import java.io.File
-import java.io.InputStreamReader
-import com.example.testing.TestFixtures
-import javax.inject.Inject
-import kotlin.text.RegexOption
 
 @ExperimentalCoroutinesApi
 @HiltAndroidTest
@@ -57,21 +34,6 @@ class SessionIntegrationTest {
     @get:Rule
     var hiltRule = HiltAndroidRule(this)
 
-    @Inject
-    lateinit var learningRepository: LearningRepository
-    @Inject
-    lateinit var startSessionUseCase: StartSessionUseCase
-    @Inject
-    lateinit var processTurnUseCase: ProcessTurnUseCase
-    @Inject
-    lateinit var generateDialogueUseCase: GenerateDialogueUseCase
-    @Inject
-    lateinit var endSessionUseCase: EndSessionUseCase
-    @Inject
-    lateinit var llmService: LlmService
-    @Inject
-    lateinit var ttsService: TtsService
-
     private lateinit var mainViewModel: MainViewModel
 
     private val testDispatcher = StandardTestDispatcher()
@@ -80,10 +42,7 @@ class SessionIntegrationTest {
     fun setup() {
         hiltRule.inject()
         mainViewModel = MainViewModel(
-            startSessionUseCase,
-            processTurnUseCase,
-            generateDialogueUseCase,
-            endSessionUseCase,
+            coachOrchestrator,
             testDispatcher
         )
     }
@@ -96,14 +55,16 @@ class SessionIntegrationTest {
     fun `full session with mastery completes successfully`() = runTest {
         // Prepare initial queues for the test
         val initialQueues = TestFixtures.queuesFixture(newCount = 3, learnedCount = 99)
+        val initialSession = Session("test_session_id", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
         coEvery { learningRepository.loadQueues() } returns Result.success(initialQueues)
+        coEvery { coachOrchestrator.startSession() } returns Result.success(initialSession)
 
         // Mock repository to return our initial queues
         // Note: For a true integration test, you might want to use actual file operations
         // or a in-memory repository that you can manipulate directly.
         // For simplicity and control in this test, we'll mock the loadQueues behavior.
 
-        coEvery { learningRepository.saveQueues(any()) } returns Result.success(Unit)
+        coEvery { coachOrchestrator.processTurn(any()) } answers { Result.success(initialSession.copy(queues = initialSession.queues.copy(newQueue = mutableListOf()))) }
 
 
         val expectedLlmResponses = mutableListOf(

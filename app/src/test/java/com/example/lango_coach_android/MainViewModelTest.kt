@@ -1,5 +1,7 @@
 package com.example.lango_coach_android
 
+import com.example.domain.Session
+
 import io.mockk.mockk
 import io.mockk.every
 import io.mockk.verify
@@ -8,10 +10,7 @@ import io.mockk.coVerify
 import io.mockk.Runs
 import io.mockk.just
 
-import com.example.domain.EndSessionUseCase
-import com.example.domain.GenerateDialogueUseCase
-import com.example.domain.ProcessTurnUseCase
-import com.example.domain.StartSessionUseCase
+import com.example.domain.CoachOrchestrator
 import com.example.testing.TestFixtures.dummyItem
 import com.example.testing.TestFixtures.queuesFixture
 import app.cash.turbine.test
@@ -27,48 +26,58 @@ import org.junit.Test
 @ExperimentalCoroutinesApi
 class MainViewModelTest {
 
-    private lateinit var startSessionUseCase: StartSessionUseCase
-    private lateinit var processTurnUseCase: ProcessTurnUseCase
+    private lateinit var coachOrchestrator: CoachOrchestrator
     private lateinit var generateDialogueUseCase: GenerateDialogueUseCase
-    private lateinit var endSessionUseCase: EndSessionUseCase
     private lateinit var viewModel: MainViewModel
+    private lateinit var initialSession: Session
 
     private val testDispatcher = StandardTestDispatcher()
 
     @Before
     fun setup() {
         Dispatchers.setMain(testDispatcher)
-        startSessionUseCase = mockk()
-        processTurnUseCase = mockk()
+        coachOrchestrator = mockk()
         generateDialogueUseCase = mockk()
-        endSessionUseCase = mockk(relaxUnitFun = true)
+
+        val initialQueues = queuesFixture(
+            newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
+            learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
+        )
+        initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
 
         viewModel = MainViewModel(
-            startSessionUseCase,
-            processTurnUseCase,
+            coachOrchestrator,
             generateDialogueUseCase,
-            endSessionUseCase
+            testDispatcher
         )
     }
 
     @Test
     fun `startSession updates uiState to Loading then CoachSpeaking`() = runTest {
-        val initialQueues = queuesFixture(
-            newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
-            learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
-        )
+        coEvery { coachOrchestrator.startSession() } returns Result.success(initialSession)
+        coEvery { generateDialogueUseCase.generatePrompt(initialSession.queues) } returns "Initial coach text"
+
+        viewModel.uiState.test {
+            assertEquals(UiState.Idle, awaitItem())
+            viewModel.startSession()
+            assertEquals(UiState.Loading, awaitItem())
+            assertEquals(UiState.CoachSpeaking("Initial coach text"), awaitItem())
+        }
+        coVerify { coachOrchestrator.startSession() }
+        coVerify { generateDialogueUseCase.generatePrompt(initialSession.queues) }
     }
 
     @Test
     fun `processTurn updates uiState to Waiting then CoachSpeaking`() = runTest {
         val initialQueues = queuesFixture(newCount = 1, learnedCount = 1)
+        val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
         val updatedQueues = queuesFixture(newCount = 1, learnedCount = 1)
         val userResponse = "user says token1"
         val expectedCoachText = "Next coach response"
 
-        coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
-        coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns "Initial coach text"
-        coEvery { processTurnUseCase.processTurn(initialQueues, userResponse) } returns Result.success(updatedQueues)
+        coEvery { coachOrchestrator.startSession() } returns Result.success(initialSession)
+        coEvery { generateDialogueUseCase.generatePrompt(initialSession.queues) } returns "Initial coach text"
+        coEvery { coachOrchestrator.processTurn(userResponse) } returns Result.success(updatedQueues)
         coEvery { generateDialogueUseCase.generatePrompt(any()) } returnsMany listOf("Initial coach text", expectedCoachText)
 
         viewModel.uiState.test {
@@ -81,19 +90,20 @@ class MainViewModelTest {
             assertEquals(UiState.Waiting, awaitItem())
             assertEquals(UiState.CoachSpeaking(expectedCoachText), awaitItem())
         }
-        coVerify { processTurnUseCase.processTurn(initialQueues, userResponse) }
+        coVerify { coachOrchestrator.processTurn(userResponse) }
         coVerify { generateDialogueUseCase.generatePrompt(updatedQueues) }
     }
 
     @Test
     fun `processTurn handles mastery and updates uiState to Congrats`() = runTest {
         val initialQueues = queuesFixture(newCount = 1, learnedCount = 1)
+        val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
         val masteredQueues = queuesFixture(newCount = 0, learnedCount = 2)
         val userResponse = "user says token1"
 
-        coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
-        coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns "Initial coach text"
-        coEvery { processTurnUseCase.processTurn(initialQueues, userResponse) } returns Result.success(masteredQueues)
+        coEvery { coachOrchestrator.startSession() } returns Result.success(initialSession)
+        coEvery { generateDialogueUseCase.generatePrompt(initialSession.queues) } returns "Initial coach text"
+        coEvery { coachOrchestrator.processTurn(userResponse) } returns Result.success(masteredQueues)
         coEvery { endSessionUseCase.endSession(masteredQueues) } returns Result.success(Unit)
 
         viewModel.uiState.test {
@@ -106,8 +116,8 @@ class MainViewModelTest {
             assertEquals(UiState.Waiting, awaitItem())
             assertEquals(UiState.Congrats, awaitItem())
         }
-        coVerify { processTurnUseCase.processTurn(initialQueues, userResponse) }
-        coVerify { endSessionUseCase.endSession(masteredQueues) }
+        coVerify { coachOrchestrator.processTurn(userResponse) }
+        coVerify { coachOrchestrator.endSession(masteredQueues) }
     }
 
     @Test
@@ -116,10 +126,11 @@ class MainViewModelTest {
             newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
             learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
+        val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
 
-        coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
-        coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns "Initial coach text"
-        coEvery { endSessionUseCase.endSession(initialQueues) } returns Result.success(Unit)
+        coEvery { coachOrchestrator.startSession() } returns Result.success(initialSession)
+        coEvery { generateDialogueUseCase.generatePrompt(initialSession.queues) } returns "Initial coach text"
+        coEvery { coachOrchestrator.endSession(initialSession.queues) } returns Result.success(Unit)
 
         viewModel.uiState.test {
             assertEquals(UiState.Idle, awaitItem())
@@ -130,17 +141,13 @@ class MainViewModelTest {
             viewModel.endSession()
             assertEquals(UiState.Idle, awaitItem())
         }
-        coVerify { endSessionUseCase.endSession(initialQueues) }
+        coVerify { coachOrchestrator.endSession(initialSession.queues) }
     }
 
     @Test
     fun `startSession handles error and updates uiState to Error`() = runTest {
-        val initialQueues = queuesFixture(
-            newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
-            learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
-        )
         val errorMessage = "Failed to load queues"
-        coEvery { startSessionUseCase.startSession() } returns Result.failure(RuntimeException(errorMessage))
+        coEvery { coachOrchestrator.startSession() } returns Result.failure(RuntimeException(errorMessage))
 
         viewModel.uiState.test {
             assertEquals(UiState.Idle, awaitItem())
@@ -148,7 +155,7 @@ class MainViewModelTest {
             assertEquals(UiState.Loading, awaitItem())
             assertEquals(UiState.Error(errorMessage), awaitItem())
         }
-        coVerify { startSessionUseCase.startSession() }
+        coVerify { coachOrchestrator.startSession() }
     }
 
     @Test
@@ -157,12 +164,13 @@ class MainViewModelTest {
             newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
             learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
+        val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
         val errorMessage = "Failed to process turn"
         val userResponse = "some response"
 
-        coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
-        coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns "Initial coach text"
-        coEvery { processTurnUseCase.processTurn(initialQueues, userResponse) } returns Result.failure(RuntimeException(errorMessage))
+        coEvery { coachOrchestrator.startSession() } returns Result.success(initialSession)
+        coEvery { generateDialogueUseCase.generatePrompt(initialSession.queues) } returns "Initial coach text"
+        coEvery { coachOrchestrator.processTurn(userResponse) } returns Result.failure(RuntimeException(errorMessage))
 
         viewModel.uiState.test {
             assertEquals(UiState.Idle, awaitItem())
@@ -174,7 +182,7 @@ class MainViewModelTest {
             assertEquals(UiState.Waiting, awaitItem())
             assertEquals(UiState.Error(errorMessage), awaitItem())
         }
-        coVerify { processTurnUseCase.processTurn(initialQueues, userResponse) }
+        coVerify { coachOrchestrator.processTurn(userResponse) }
     }
 
     @Test
@@ -183,10 +191,11 @@ class MainViewModelTest {
             newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
             learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
+        val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
         val errorMessage = "Failed to generate dialogue"
 
-        coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
-        coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } throws RuntimeException(errorMessage)
+        coEvery { coachOrchestrator.startSession() } returns Result.success(initialSession)
+        coEvery { generateDialogueUseCase.generatePrompt(initialSession.queues) } throws RuntimeException(errorMessage)
 
         viewModel.uiState.test {
             assertEquals(UiState.Idle, awaitItem())
@@ -194,6 +203,6 @@ class MainViewModelTest {
             assertEquals(UiState.Loading, awaitItem())
             assertEquals(UiState.Error(errorMessage), awaitItem())
         }
-        coVerify { generateDialogueUseCase.generatePrompt(initialQueues) }
+        coVerify { generateDialogueUseCase.generatePrompt(initialSession.queues) }
     }
 }
