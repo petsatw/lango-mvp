@@ -41,7 +41,7 @@ class StartSessionUseCaseTest {
         // Assert
         assertTrue(resultSession.isSuccess)
         val session = resultSession.getOrThrow()
-        assertEquals(initialNewItem.id, session.newTarget.id)
+        assertEquals(initialNewItem.id, session.newTarget!!.id)
         assertEquals(initialQueues.learnedPool.size, session.queues.learnedPool.size)
         assertEquals(initialQueues.newQueue.size - 1, session.queues.newQueue.size) // newQueue size should be one less than initial
     }

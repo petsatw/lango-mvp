@@ -12,6 +12,7 @@ import io.mockk.just
 
 import com.example.domain.CoachOrchestrator
 import com.example.domain.GenerateDialogueUseCase
+import com.example.domain.LearningItem
 import com.example.testing.TestFixtures.dummyItem
 import com.example.testing.TestFixtures.queuesFixture
 import app.cash.turbine.test
@@ -44,6 +45,7 @@ class MainViewModelTest {
             newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
             learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
+        // Ensure newTarget is non-null for tests that rely on it
         initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
 
         viewModel = MainViewModel(
@@ -71,8 +73,10 @@ class MainViewModelTest {
     @Test
     fun `processTurn updates uiState to Waiting then CoachSpeaking`() = runTest {
         val initialQueues = queuesFixture(newCount = 1, learnedCount = 1)
+        // Ensure newTarget is non-null for this test
         val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
-        val updatedSession = initialSession.copy(queues = queuesFixture(newCount = 1, learnedCount = 1))
+        val updatedQueues = queuesFixture(newCount = 1, learnedCount = 1)
+        val updatedSession = initialSession.copy(queues = updatedQueues, newTarget = updatedQueues.newQueue.firstOrNull() ?: initialSession.newTarget)
         val userResponse = "user says token1"
         val expectedCoachText = "Next coach response"
 
@@ -98,13 +102,15 @@ class MainViewModelTest {
     @Test
     fun `processTurn handles mastery and updates uiState to Congrats`() = runTest {
         val initialQueues = queuesFixture(newCount = 1, learnedCount = 1)
-        val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
-        val masteredQueues = queuesFixture(newCount = 0, learnedCount = 2)
-        val masteredSession = initialSession.copy(queues = masteredQueues, newTarget = dummyItem("mastered", "mastered", 0, 0, true))
+        // Ensure newTarget is non-null for this test
+        val localInitialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, dummyItem("id1", "token1", 0, 0, false))
+        val masteredItem = localInitialSession.newTarget?.let { it.copy(usageCount = 3, isLearned = true) } ?: throw IllegalStateException("newTarget should not be null for mastery test")
+        val masteredQueues = queuesFixture(newItems = emptyList(), learnedItems = listOf(masteredItem))
+        val masteredSession = localInitialSession.copy(queues = masteredQueues, newTarget = null) // newTarget is null when newQueue is empty
         val userResponse = "user says token1"
 
-        coEvery { coachOrchestrator.startSession() } returns Result.success(initialSession)
-        coEvery { generateDialogueUseCase.generatePrompt(initialSession.queues) } returns "Initial coach text"
+        coEvery { coachOrchestrator.startSession() } returns Result.success(localInitialSession)
+        coEvery { generateDialogueUseCase.generatePrompt(localInitialSession.queues) } returns "Initial coach text"
         coEvery { coachOrchestrator.processTurn(userResponse) } returns Result.success(masteredSession)
         coEvery { coachOrchestrator.endSession(masteredQueues) } returns Result.success(Unit)
 
@@ -128,6 +134,7 @@ class MainViewModelTest {
             newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
             learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
+        // Ensure newTarget is non-null for this test
         val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
 
         coEvery { coachOrchestrator.startSession() } returns Result.success(initialSession)
@@ -166,6 +173,7 @@ class MainViewModelTest {
             newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
             learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
+        // Ensure newTarget is non-null for this test
         val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
         val errorMessage = "Failed to process turn"
         val userResponse = "some response"
@@ -193,6 +201,7 @@ class MainViewModelTest {
             newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
             learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
+        // Ensure newTarget is non-null for this test
         val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
         val errorMessage = "Failed to generate dialogue"
 

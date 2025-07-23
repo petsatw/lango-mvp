@@ -57,12 +57,7 @@ class MainViewModel(
             coachOrchestrator.processTurn(userResponseText)
                 .onSuccess { session ->
                     currentSession = session
-                    if (session.queues.newQueue.isEmpty()) {
-                        _uiState.value = UiState.Congrats
-                        currentSession = null
-                    } else {
-                        generateCoachDialogue()
-                    }
+                    generateCoachDialogue()
                 }
                 .onFailure { e ->
                     _uiState.value = UiState.Error(

@@ -7,5 +7,5 @@ data class Session(
     val sessionId: String,
     val startTime: Long,
     val queues: Queues,
-    val newTarget: LearningItem
+    val newTarget: LearningItem?
 )
