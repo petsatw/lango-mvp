@@ -50,6 +50,10 @@ android {
         }
     }
 
+    sourceSets {
+        getByName("androidTest").java.srcDir("src/di-test/java")
+    }
+
     testOptions {
         unitTests.isIncludeAndroidResources = true
         unitTests.all {
@@ -93,4 +97,6 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+    androidTestImplementation(libs.hilt.android.testing)
+    kaptAndroidTest(libs.hilt.compiler)
 }

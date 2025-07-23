@@ -54,28 +54,22 @@ class MainViewModelTest {
     @Test
     fun `startSession updates uiState to Loading then CoachSpeaking`() = runTest {
         val initialQueues = queuesFixture(
-            new = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
-            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
+            newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
+            learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
     }
 
     @Test
     fun `processTurn updates uiState to Waiting then CoachSpeaking`() = runTest {
-        val initialQueues = queuesFixture(
-            new = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
-            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
-        )
-        val updatedQueues = queuesFixture(
-            new = mutableListOf(dummyItem("id1", "token1", 1, 0, false)),
-            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
-        )
+        val initialQueues = queuesFixture(newCount = 1, learnedCount = 1)
+        val updatedQueues = queuesFixture(newCount = 1, learnedCount = 1)
         val userResponse = "user says token1"
         val expectedCoachText = "Next coach response"
 
         coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
         coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns "Initial coach text"
         coEvery { processTurnUseCase.processTurn(initialQueues, userResponse) } returns Result.success(updatedQueues)
-        coEvery { generateDialogueUseCase.generatePrompt(updatedQueues) } returns expectedCoachText
+        coEvery { generateDialogueUseCase.generatePrompt(any()) } returnsMany listOf("Initial coach text", expectedCoachText)
 
         viewModel.uiState.test {
             assertEquals(UiState.Idle, awaitItem())
@@ -93,14 +87,8 @@ class MainViewModelTest {
 
     @Test
     fun `processTurn handles mastery and updates uiState to Congrats`() = runTest {
-        val initialQueues = queuesFixture(
-            new = mutableListOf(dummyItem("id1", "token1", 2, 0, false)), // usageCount 2
-            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
-        )
-        val masteredQueues = queuesFixture(
-            new = mutableListOf(), // newQueue is empty after mastery
-            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true), dummyItem("id1", "token1", 3, 0, true)) // usageCount 3
-        )
+        val initialQueues = queuesFixture(newCount = 1, learnedCount = 1)
+        val masteredQueues = queuesFixture(newCount = 0, learnedCount = 2)
         val userResponse = "user says token1"
 
         coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
@@ -125,8 +113,8 @@ class MainViewModelTest {
     @Test
     fun `endSession updates uiState to Idle`() = runTest {
         val initialQueues = queuesFixture(
-            new = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
-            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
+            newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
+            learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
 
         coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
@@ -148,8 +136,8 @@ class MainViewModelTest {
     @Test
     fun `startSession handles error and updates uiState to Error`() = runTest {
         val initialQueues = queuesFixture(
-            new = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
-            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
+            newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
+            learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
         val errorMessage = "Failed to load queues"
         coEvery { startSessionUseCase.startSession() } returns Result.failure(RuntimeException(errorMessage))
@@ -166,8 +154,8 @@ class MainViewModelTest {
     @Test
     fun `processTurn handles error and updates uiState to Error`() = runTest {
         val initialQueues = queuesFixture(
-            new = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
-            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
+            newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
+            learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
         val errorMessage = "Failed to process turn"
         val userResponse = "some response"
@@ -192,8 +180,8 @@ class MainViewModelTest {
     @Test
     fun `generateCoachDialogue handles error and updates uiState to Error`() = runTest {
         val initialQueues = queuesFixture(
-            new = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
-            learned = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
+            newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
+            learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
         val errorMessage = "Failed to generate dialogue"
 

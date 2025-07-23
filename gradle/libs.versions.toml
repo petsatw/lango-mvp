@@ -37,6 +37,7 @@ timber = "5.0.1"
 turbine = "1.1.0"
 hilt = "2.56.1"            # latest stable as of July 2025
 assertj = "3.26.3"
+truth = "1.4.0"
 
 
 [libraries]
@@ -90,6 +91,8 @@ timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "tim
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 hilt-android  = { group = "com.google.dagger", name = "hilt-android",  version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
+truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
 
 [bundles]
 mockk = ["mockk"]

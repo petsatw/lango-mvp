@@ -42,10 +42,12 @@ dependencies {
     // No direct dependencies on other modules for now, as per clean architecture principles
     testImplementation(libs.junit)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.kotlinx.coroutines.android)
     testImplementation(libs.mockito.core)
     testImplementation(libs.mockito.kotlin)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.mockk)
     testImplementation(libs.mockk.agent.jvm)
-    
+    testImplementation(libs.truth)
+    testImplementation(project(":shared-test"))
 }

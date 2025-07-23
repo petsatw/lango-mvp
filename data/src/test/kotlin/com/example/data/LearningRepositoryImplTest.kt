@@ -69,8 +69,8 @@ class LearningRepositoryImplTest {
         // c) newQueue.size equals bundled JSON count.
         // d) First item ID matches first JSON element.
         // Assuming the asset files contain at least one item
-        assertTrue(queues.newQueue.isNotEmpty())
-        assertTrue(queues.learnedPool.isNotEmpty())
+        assertEquals(3, queues.newQueue.size)
+        assertEquals(99, queues.learnedPool.size)
         assertEquals("german_CP001", queues.newQueue[0].id)
         assertEquals("Entschuldigung", queues.newQueue[0].token)
     }
@@ -84,7 +84,7 @@ class LearningRepositoryImplTest {
             every { open(any()) } returns "[]".byteInputStream()
         }, tmpDir, json)
 
-        val saved = queuesFixture(new = listOf(dummyItem(presentation = 1)))
+        val saved = queuesFixture(newItems = listOf(dummyItem(presentation = 1)))
         assertTrue(repo.saveQueues(saved).isSuccess)
 
         val reloaded = repo.loadQueues().getOrThrow()
@@ -103,7 +103,7 @@ class LearningRepositoryImplTest {
         val writer = async {
             repeat(2) { n ->
                 repo.saveQueues(
-                    queuesFixture(new = listOf(dummyItem(presentation = n + 1)))
+                    queuesFixture(newItems = listOf(dummyItem(presentation = n + 1)))
                 )
             }
         }
@@ -149,7 +149,7 @@ class LearningRepositoryImplTest {
         // Returns Result.success; queues equal bundled defaults; files created in emptyDir.
         assertTrue(result.isSuccess)
         val queues = result.getOrThrow()
-        assertTrue(queues.newQueue.isNotEmpty())
+        assertEquals(3, queues.newQueue.size)
         assertEquals("german_CP001", queues.newQueue[0].id) // Check if it loaded from asset default
 
         val newQueueFile = File(tmpDir, "queues/new_queue.json")

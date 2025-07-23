@@ -41,10 +41,10 @@ class GenerateDialogueUseCaseTest {
         coEvery { mockLlmService.generateDialogue(mockedInitialPrompt) } returns mockedLlmResponse
 
         // Act
-        val resultPrompt = generateDialogueUseCase.generatePrompt(queues)
+        val actual = generateDialogueUseCase.generatePrompt(queues)
 
         // Assert
-        assertEquals(mockedLlmResponse, resultPrompt)
+        assertEquals(mockedLlmResponse, actual)
         coVerify { mockInitialPromptBuilder.build(queues, any()) }
         coVerify { mockLlmService.generateDialogue(mockedInitialPrompt) }
         assertEquals(1, newTarget.presentationCount)
