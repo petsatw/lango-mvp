@@ -91,6 +91,7 @@ timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "tim
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 hilt-android  = { group = "com.google.dagger", name = "hilt-android",  version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
 truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
 
 [bundles]

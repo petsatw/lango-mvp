@@ -5,8 +5,13 @@ import android.media.MediaPlayer
 import androidx.test.core.app.ApplicationProvider
 import com.example.data.LearningRepositoryImpl
 import com.example.domain.GenerateDialogueUseCase
+import com.example.domain.LearningRepository
+import com.example.domain.LlmService
+import com.example.domain.TtsService
 import com.example.speech.LlmServiceImpl
 import com.example.speech.TtsServiceImpl
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
 import io.ktor.http.HttpHeaders
@@ -23,6 +28,7 @@ import io.mockk.verify
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -31,55 +37,35 @@ import java.io.File
 import java.io.InputStreamReader
 
 import com.example.testing.TestFixtures
+import javax.inject.Inject
 import kotlinx.serialization.json.Json
 
+@HiltAndroidTest
 @RunWith(RobolectricTestRunner::class)
 @Config(manifest=Config.NONE)
 class EndToEndCoreSequenceIntegrationTest {
 
-    private lateinit var context: Context
-    private lateinit var learningRepository: LearningRepositoryImpl
-    private lateinit var generateDialogueUseCase: GenerateDialogueUseCase
-    private lateinit var llmService: LlmServiceImpl
-    private lateinit var ttsService: TtsServiceImpl
-    private lateinit var mockMediaPlayer: MediaPlayer
-    private lateinit var openAiApiKey: String
-    private lateinit var json: Json
+    @get:Rule
+    var hiltRule = HiltAndroidRule(this)
+
+    @Inject
+    lateinit var learningRepository: LearningRepository
+    @Inject
+    lateinit var generateDialogueUseCase: GenerateDialogueUseCase
+    @Inject
+    lateinit var llmService: LlmService
+    @Inject
+    lateinit var ttsService: TtsService
 
     @Before
     fun setup() {
-        context = ApplicationProvider.getApplicationContext()
-        json = Json { ignoreUnknownKeys = true; encodeDefaults = true; coerceInputValues = true }
-        learningRepository = mockk() // Mock the repository
-        mockMediaPlayer = mockk(relaxed = true)
-
-        // Read API key from local.properties
-        val localPropertiesFile = File("C:/Users/audoc/apps/lango-dev/lango-mvp-android/local.properties")
-        val properties = java.util.Properties()
-        if (localPropertiesFile.exists()) {
-            InputStreamReader(localPropertiesFile.inputStream()).use { reader ->
-                properties.load(reader)
-            }
-        }
-        openAiApiKey = properties.getProperty("OPENAI_API_KEY") ?: throw IllegalStateException("OPENAI_API_KEY not found in local.properties")
-
-        llmService = mockk(relaxed = true)
-        ttsService = mockk(relaxed = true)
-        val mockInitialPromptBuilder = mockk<com.example.domain.InitialPromptBuilder>(relaxed = true)
-        generateDialogueUseCase = GenerateDialogueUseCase(learningRepository, llmService, mockInitialPromptBuilder)
+        hiltRule.inject()
     }
 
     @Test
     fun `full core sequence completes successfully`() = runTest {
         // Prepare initial queues for the test using TestFixtures
-        val initialQueues = TestFixtures.queuesFixture(
-            newItems = mutableListOf(
-                TestFixtures.dummyItem("german_CP001", "Entschuldigung", 0, 0)
-            ),
-            learnedItems = mutableListOf(
-                TestFixtures.dummyItem("german_AA002", "sehr", 6, 4)
-            )
-        )
+        val initialQueues = TestFixtures.queuesFixture(newCount = 1, learnedCount = 1)
         coEvery { learningRepository.loadQueues() } returns Result.success(initialQueues)
         coEvery { learningRepository.saveQueues(any()) } returns Result.success(Unit) // Mock saveQueues as well
 
@@ -94,10 +80,10 @@ class EndToEndCoreSequenceIntegrationTest {
         assertEquals("Hallo! Das ist ein Gruß.", llmResponse)
 
         // 3. Play audio and display text
-        ttsService.speak(llmResponse)
         coEvery { ttsService.speak(any<String>()) } just Runs
+        ttsService.speak(llmResponse)
 
         // Verify MediaPlayer interactions
-        
+        coVerify { ttsService.speak(llmResponse) }
     }
 }

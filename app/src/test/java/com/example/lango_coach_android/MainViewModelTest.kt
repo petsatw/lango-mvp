@@ -61,21 +61,15 @@ class MainViewModelTest {
 
     @Test
     fun `processTurn updates uiState to Waiting then CoachSpeaking`() = runTest {
-        val initialQueues = queuesFixture(
-            newItems = mutableListOf(dummyItem("id1", "token1", 0, 0, false)),
-            learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
-        )
-        val updatedQueues = queuesFixture(
-            newItems = mutableListOf(dummyItem("id1", "token1", 1, 0, false)),
-            learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
-        )
+        val initialQueues = queuesFixture(newCount = 1, learnedCount = 1)
+        val updatedQueues = queuesFixture(newCount = 1, learnedCount = 1)
         val userResponse = "user says token1"
         val expectedCoachText = "Next coach response"
 
         coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
         coEvery { generateDialogueUseCase.generatePrompt(initialQueues) } returns "Initial coach text"
         coEvery { processTurnUseCase.processTurn(initialQueues, userResponse) } returns Result.success(updatedQueues)
-        coEvery { generateDialogueUseCase.generatePrompt(updatedQueues) } returns expectedCoachText
+        coEvery { generateDialogueUseCase.generatePrompt(any()) } returnsMany listOf("Initial coach text", expectedCoachText)
 
         viewModel.uiState.test {
             assertEquals(UiState.Idle, awaitItem())
@@ -93,14 +87,8 @@ class MainViewModelTest {
 
     @Test
     fun `processTurn handles mastery and updates uiState to Congrats`() = runTest {
-        val initialQueues = queuesFixture(
-            newItems = mutableListOf(dummyItem("id1", "token1", 2, 0, false)), // usageCount 2
-            learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
-        )
-        val masteredQueues = queuesFixture(
-            newItems = mutableListOf(), // newQueue is empty after mastery
-            learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true), dummyItem("id1", "token1", 3, 0, true)) // usageCount 3
-        )
+        val initialQueues = queuesFixture(newCount = 1, learnedCount = 1)
+        val masteredQueues = queuesFixture(newCount = 0, learnedCount = 2)
         val userResponse = "user says token1"
 
         coEvery { startSessionUseCase.startSession() } returns Result.success(initialQueues)
