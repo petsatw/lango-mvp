@@ -73,10 +73,10 @@ class EndToEndCoreSequenceIntegrationTest {
     fun `full core sequence completes successfully`() = runTest {
         // Prepare initial queues for the test using TestFixtures
         val initialQueues = TestFixtures.queuesFixture(
-            new = mutableListOf(
+            newItems = mutableListOf(
                 TestFixtures.dummyItem("german_CP001", "Entschuldigung", 0, 0)
             ),
-            learned = mutableListOf(
+            learnedItems = mutableListOf(
                 TestFixtures.dummyItem("german_AA002", "sehr", 6, 4)
             )
         )

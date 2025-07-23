@@ -84,7 +84,7 @@ class LearningRepositoryImplTest {
             every { open(any()) } returns "[]".byteInputStream()
         }, tmpDir, json)
 
-        val saved = queuesFixture(new = listOf(dummyItem(presentation = 1)))
+        val saved = queuesFixture(newItems = listOf(dummyItem(presentation = 1)))
         assertTrue(repo.saveQueues(saved).isSuccess)
 
         val reloaded = repo.loadQueues().getOrThrow()
@@ -103,7 +103,7 @@ class LearningRepositoryImplTest {
         val writer = async {
             repeat(2) { n ->
                 repo.saveQueues(
-                    queuesFixture(new = listOf(dummyItem(presentation = n + 1)))
+                    queuesFixture(newItems = listOf(dummyItem(presentation = n + 1)))
                 )
             }
         }

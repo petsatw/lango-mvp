@@ -49,4 +49,5 @@ dependencies {
     testImplementation(libs.mockk)
     testImplementation(libs.mockk.agent.jvm)
     testImplementation(libs.truth)
+    testImplementation(project(":shared-test"))
 }

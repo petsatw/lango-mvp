@@ -108,12 +108,12 @@ class SessionIntegrationTest {
     fun `full session with mastery completes successfully`() = runTest {
         // Prepare initial queues for the test
         val initialQueues = TestFixtures.queuesFixture(
-            new = mutableListOf(
+            newItems = mutableListOf(
                 TestFixtures.dummyItem("german_CP001", "Entschuldigung", 0, 0),
                 TestFixtures.dummyItem("german_BB009", "Keine Ahnung", 0, 0),
                 TestFixtures.dummyItem("german_BB050", "Bis gleich", 0, 0)
             ),
-            learned = mutableListOf(
+            learnedItems = mutableListOf(
                 TestFixtures.dummyItem("german_AA002", "sehr", 6, 4),
                 TestFixtures.dummyItem("german_AA003", "viel", 4, 7),
                 TestFixtures.dummyItem("german_AA005", "klein", 7, 9),
