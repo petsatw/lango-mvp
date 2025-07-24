@@ -34,7 +34,13 @@ class MainViewModel(
             coachOrchestrator.startSession()
                 .onSuccess { session ->
                     currentSession = session
-                    generateCoachDialogue()
+                    if (session.queues.newQueue.isEmpty()) {
+                        _uiState.value = UiState.Congrats
+                        coachOrchestrator.endSession(session.queues)
+                        currentSession = null
+                    } else {
+                        generateCoachDialogue()
+                    }
                 }
                 .onFailure { e ->
                     _uiState.value = UiState.Error(
@@ -57,7 +63,12 @@ class MainViewModel(
             coachOrchestrator.processTurn(userResponseText)
                 .onSuccess { session ->
                     currentSession = session
-                    generateCoachDialogue()
+                    if (session.queues.newQueue.isEmpty()) {
+                        _uiState.value = UiState.Congrats
+                        currentSession = null
+                    } else {
+                        generateCoachDialogue()
+                    }
                 }
                 .onFailure { e ->
                     _uiState.value = UiState.Error(

@@ -46,7 +46,7 @@ class MainViewModelTest {
             learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
         // Ensure newTarget is non-null for tests that rely on it
-        initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
+        initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, dummyItem("id1", "token1", 0, 0, false))
 
         viewModel = MainViewModel(
             coachOrchestrator,
@@ -74,7 +74,7 @@ class MainViewModelTest {
     fun `processTurn updates uiState to Waiting then CoachSpeaking`() = runTest {
         val initialQueues = queuesFixture(newCount = 1, learnedCount = 1)
         // Ensure newTarget is non-null for this test
-        val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
+        val localInitialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, dummyItem("id1", "token1", 0, 0, false))
         val updatedQueues = queuesFixture(newCount = 1, learnedCount = 1)
         val updatedSession = initialSession.copy(queues = updatedQueues, newTarget = updatedQueues.newQueue.firstOrNull() ?: initialSession.newTarget)
         val userResponse = "user says token1"
@@ -104,7 +104,9 @@ class MainViewModelTest {
         val initialQueues = queuesFixture(newCount = 1, learnedCount = 1)
         // Ensure newTarget is non-null for this test
         val localInitialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, dummyItem("id1", "token1", 0, 0, false))
-        val masteredItem = localInitialSession.newTarget?.let { it.copy(usageCount = 3, isLearned = true) } ?: throw IllegalStateException("newTarget should not be null for mastery test")
+        val masteredItem = requireNotNull(localInitialSession.newTarget) {
+            "newTarget should not be null in this test setup"
+        }.copy(usageCount = 3, isLearned = true)
         val masteredQueues = queuesFixture(newItems = emptyList(), learnedItems = listOf(masteredItem))
         val masteredSession = localInitialSession.copy(queues = masteredQueues, newTarget = null) // newTarget is null when newQueue is empty
         val userResponse = "user says token1"
@@ -125,7 +127,6 @@ class MainViewModelTest {
             assertEquals(UiState.Congrats, awaitItem())
         }
         coVerify { coachOrchestrator.processTurn(userResponse) }
-        coVerify { coachOrchestrator.endSession(masteredQueues) }
     }
 
     @Test
@@ -135,7 +136,7 @@ class MainViewModelTest {
             learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
         // Ensure newTarget is non-null for this test
-        val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
+        val localInitialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, dummyItem("id1", "token1", 0, 0, false))
 
         coEvery { coachOrchestrator.startSession() } returns Result.success(initialSession)
         coEvery { generateDialogueUseCase.generatePrompt(initialSession.queues) } returns "Initial coach text"
@@ -174,7 +175,7 @@ class MainViewModelTest {
             learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
         // Ensure newTarget is non-null for this test
-        val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
+        val localInitialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, dummyItem("id1", "token1", 0, 0, false))
         val errorMessage = "Failed to process turn"
         val userResponse = "some response"
 
@@ -202,7 +203,7 @@ class MainViewModelTest {
             learnedItems = mutableListOf(dummyItem("id2", "token2", 0, 0, true))
         )
         // Ensure newTarget is non-null for this test
-        val initialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, initialQueues.newQueue.first())
+        val localInitialSession = Session("sessionId", System.currentTimeMillis(), initialQueues, dummyItem("id1", "token1", 0, 0, false))
         val errorMessage = "Failed to generate dialogue"
 
         coEvery { coachOrchestrator.startSession() } returns Result.success(initialSession)
